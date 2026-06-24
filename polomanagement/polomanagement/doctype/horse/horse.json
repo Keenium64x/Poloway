@@ -2,11 +2,12 @@
  "actions": [],
  "allow_bulk_edit": 1,
  "allow_rename": 1,
- "autoname": "field:name1",
+ "autoname": "HRS-.####",
  "creation": "2026-06-23 23:28:06.423031",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "details_tab",
   "details_section",
   "name1",
   "birth_date",
@@ -17,30 +18,6 @@
   "physical_details_section",
   "height",
   "weight",
-  "location_section",
-  "current_location",
-  "stable_number",
-  "location_notes",
-  "handling_section",
-  "temperament",
-  "handling_notes",
-  "special_instructions",
-  "playing_section",
-  "playing_status",
-  "primary_position",
-  "handicap",
-  "playing_notes",
-  "availability_section",
-  "availability_status",
-  "available_from",
-  "availability_notes",
-  "ownership_section",
-  "ownership",
-  "records_tab",
-  "records_section",
-  "medical_records",
-  "training_records",
-  "feeding_records",
   "registration_tab",
   "registration_section",
   "registration_number",
@@ -50,12 +27,41 @@
   "passport_number",
   "microchip_number",
   "location_tab",
-  "handleing_tab",
+  "location_section",
+  "current_location",
+  "stable_number",
+  "location_notes",
+  "handling_tab",
+  "handling_section",
+  "temperament",
+  "handling_notes",
+  "special_instructions",
   "playing_tab",
-  "availibility_tab",
-  "ownership_tab"
+  "playing_section",
+  "playing_status",
+  "primary_position",
+  "handicap",
+  "playing_notes",
+  "availability_tab",
+  "availability_section",
+  "availability_status",
+  "available_from",
+  "availability_notes",
+  "ownership_tab",
+  "ownership_section",
+  "ownership",
+  "records_tab",
+  "records_section",
+  "medical_records_report",
+  "feeding_records_report",
+  "training_records_report"
  ],
  "fields": [
+  {
+   "fieldname": "details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Details"
+  },
   {
    "fieldname": "details_section",
    "fieldtype": "Section Break",
@@ -101,14 +107,23 @@
    "label": "Physical Details"
   },
   {
+   "description": "Measured in metres.",
    "fieldname": "height",
    "fieldtype": "Float",
-   "label": "Height"
+   "label": "Height (m)",
+   "precision": "2"
   },
   {
+   "description": "Measured in kilograms.",
    "fieldname": "weight",
    "fieldtype": "Float",
-   "label": "Weight"
+   "label": "Weight (kg)",
+   "precision": "2"
+  },
+  {
+   "fieldname": "registration_tab",
+   "fieldtype": "Tab Break",
+   "label": "Registration"
   },
   {
    "fieldname": "registration_section",
@@ -146,27 +161,9 @@
    "label": "Microchip Number"
   },
   {
-   "fieldname": "records_section",
-   "fieldtype": "Section Break",
-   "label": "Record"
-  },
-  {
-   "fieldname": "medical_records",
-   "fieldtype": "Table",
-   "label": "Medical Records",
-   "options": "Horse Medical Record"
-  },
-  {
-   "fieldname": "training_records",
-   "fieldtype": "Table",
-   "label": "Training Records",
-   "options": "Horse Training Record"
-  },
-  {
-   "fieldname": "feeding_records",
-   "fieldtype": "Table",
-   "label": "Feeding Records",
-   "options": "Horse Feeding Record"
+   "fieldname": "location_tab",
+   "fieldtype": "Tab Break",
+   "label": "Location"
   },
   {
    "fieldname": "location_section",
@@ -190,6 +187,11 @@
    "label": "Location Notes"
   },
   {
+   "fieldname": "handling_tab",
+   "fieldtype": "Tab Break",
+   "label": "Handling"
+  },
+  {
    "fieldname": "handling_section",
    "fieldtype": "Section Break",
    "label": "Handling"
@@ -209,6 +211,11 @@
    "fieldname": "special_instructions",
    "fieldtype": "Small Text",
    "label": "Special Instructions"
+  },
+  {
+   "fieldname": "playing_tab",
+   "fieldtype": "Tab Break",
+   "label": "Playing"
   },
   {
    "fieldname": "playing_section",
@@ -238,6 +245,11 @@
    "label": "Playing Notes"
   },
   {
+   "fieldname": "availability_tab",
+   "fieldtype": "Tab Break",
+   "label": "Availability"
+  },
+  {
    "fieldname": "availability_section",
    "fieldtype": "Section Break",
    "label": "Availability"
@@ -259,6 +271,11 @@
    "label": "Availability Notes"
   },
   {
+   "fieldname": "ownership_tab",
+   "fieldtype": "Tab Break",
+   "label": "Ownership"
+  },
+  {
    "fieldname": "ownership_section",
    "fieldtype": "Section Break",
    "label": "Ownership"
@@ -275,44 +292,50 @@
    "label": "Records"
   },
   {
-   "fieldname": "registration_tab",
-   "fieldtype": "Tab Break",
-   "label": "Registration"
+   "fieldname": "records_section",
+   "fieldtype": "Section Break",
+   "label": "Record"
   },
   {
-   "fieldname": "location_tab",
-   "fieldtype": "Tab Break",
-   "label": "Location"
+   "fieldname": "medical_records_report",
+   "fieldtype": "Button",
+   "label": "Medical Records"
   },
   {
-   "fieldname": "handleing_tab",
-   "fieldtype": "Tab Break",
-   "label": "Handleing"
+   "fieldname": "feeding_records_report",
+   "fieldtype": "Button",
+   "label": "Feeding Records"
   },
   {
-   "fieldname": "playing_tab",
-   "fieldtype": "Tab Break",
-   "label": "Playing"
-  },
-  {
-   "fieldname": "availibility_tab",
-   "fieldtype": "Tab Break",
-   "label": "Availibility"
-  },
-  {
-   "fieldname": "ownership_tab",
-   "fieldtype": "Tab Break",
-   "label": "Ownership"
+   "fieldname": "training_records_report",
+   "fieldtype": "Button",
+   "label": "Training Records"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2026-06-24 11:06:33.307563",
+ "links": [
+  {
+   "group": "Records",
+   "link_doctype": "Horse Medical Record",
+   "link_fieldname": "horse"
+  },
+  {
+   "group": "Records",
+   "link_doctype": "Horse Feeding Record",
+   "link_fieldname": "horse"
+  },
+  {
+   "group": "Records",
+   "link_doctype": "Horse Training Record",
+   "link_fieldname": "horse"
+  }
+ ],
+ "modified": "2026-06-24 11:51:27.667609",
  "modified_by": "Administrator",
  "module": "Polomanagement",
  "name": "Horse",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -326,11 +349,58 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stable Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Horse Groom",
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Trainer",
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Veterinarian"
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Farrier"
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Horse Owner"
   }
  ],
  "row_format": "Dynamic",
  "rows_threshold_for_grid_search": 20,
+ "search_fields": "name1",
+ "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "name1"
 }

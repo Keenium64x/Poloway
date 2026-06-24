@@ -53,6 +53,30 @@ app_license = "mit"
 # include app icons in desk
 # app_include_icons = "polomanagement/public/icons.svg"
 
+fixtures = [
+	{
+		"dt": "Role",
+		"filters": [
+			[
+				"role_name",
+				"in",
+				[
+					"Stable Manager",
+					"Horse Groom",
+					"Trainer",
+					"Veterinarian",
+					"Farrier",
+					"Horse Owner",
+				],
+			]
+		],
+	},
+	{
+		"dt": "Horse Item Category",
+		"filters": [["name", "in", ["Food"]]],
+	},
+]
+
 # Home Pages
 # ----------
 
@@ -255,4 +279,3 @@ app_license = "mit"
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:owner_name",
+ "autoname": "HRO-.####",
  "creation": "2026-06-23 23:28:06.423031",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -33,24 +33,44 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-06-23 23:28:23.380645",
+ "modified": "2026-06-24 12:30:00.000000",
  "modified_by": "Administrator",
  "module": "Polomanagement",
  "name": "Horse Owner",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
    "create": 1,
    "delete": 1,
-   "email": 1,
+   "report": 1,
    "export": 1,
    "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Stable Manager",
    "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
    "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Horse Owner",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "report": 1,
+   "print": 1
   }
  ],
  "row_format": "Dynamic",

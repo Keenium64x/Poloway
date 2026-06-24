@@ -1,39 +1,77 @@
 {
  "actions": [],
+ "allow_rename": 1,
+ "autoname": "HTR-.####",
  "creation": "2026-06-23 23:28:06.423031",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "training_date",
+  "horse",
+  "training_template",
   "trainer",
   "work_type",
   "duration",
+  "intensity",
+  "outcome",
   "notes"
  ],
  "fields": [
   {
    "fieldname": "training_date",
    "fieldtype": "Date",
-   "in_list_view": 1,
    "label": "Training Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "reqd": 1
   },
   {
-   "fieldname": "trainer",
-   "fieldtype": "Data",
+   "fieldname": "horse",
+   "fieldtype": "Link",
+   "label": "Horse",
+   "options": "Horse",
    "in_list_view": 1,
-   "label": "Trainer"
+   "in_standard_filter": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "training_template",
+   "fieldtype": "Link",
+   "label": "Training Template",
+   "options": "Horse Training Template",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "trainer",
+   "fieldtype": "Link",
+   "label": "Trainer",
+   "options": "User",
+   "in_list_view": 1
   },
   {
    "fieldname": "work_type",
    "fieldtype": "Select",
    "label": "Work Type",
-   "options": "\nFlatwork\nStick and Ball\nChukkas\nFitness\nSchooling\nRest\nOther"
+   "options": "\nFlatwork\nStick and Ball\nChukkas\nFitness\nSchooling\nRest\nOther",
+   "in_list_view": 1,
+   "in_standard_filter": 1
   },
   {
    "fieldname": "duration",
    "fieldtype": "Duration",
    "label": "Duration"
+  },
+  {
+   "fieldname": "intensity",
+   "fieldtype": "Select",
+   "label": "Intensity",
+   "options": "\nLow\nModerate\nHigh\nRecovery"
+  },
+  {
+   "fieldname": "outcome",
+   "fieldtype": "Select",
+   "label": "Outcome",
+   "options": "\nCompleted\nPartial\nSkipped\nNeeds Follow Up"
   },
   {
    "fieldname": "notes",
@@ -42,16 +80,76 @@
   }
  ],
  "grid_page_length": 50,
- "istable": 1,
+ "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-06-23 23:28:23.380645",
+ "modified": "2026-06-24 12:30:00.000000",
  "modified_by": "Administrator",
  "module": "Polomanagement",
  "name": "Horse Training Record",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
- "permissions": [],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Stable Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Trainer",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Horse Groom",
+   "read": 1,
+   "report": 1,
+   "print": 1
+  },
+  {
+   "role": "Veterinarian",
+   "read": 1,
+   "report": 1,
+   "print": 1
+  },
+  {
+   "role": "Farrier",
+   "read": 1,
+   "report": 1,
+   "print": 1
+  },
+  {
+   "role": "Horse Owner",
+   "read": 1,
+   "report": 1,
+   "print": 1
+  }
+ ],
  "row_format": "Dynamic",
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "work_type"
 }

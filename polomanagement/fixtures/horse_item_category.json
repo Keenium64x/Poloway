@@ -1,0 +1,9 @@
+[
+ {
+  "category_name": "Food",
+  "description": "Items that can be used on horse feeding records.",
+  "docstatus": 0,
+  "doctype": "Horse Item Category",
+  "name": "Food"
+ }
+]

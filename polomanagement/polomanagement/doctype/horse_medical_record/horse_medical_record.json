@@ -1,58 +1,192 @@
 {
  "actions": [],
+ "allow_rename": 1,
+ "autoname": "HMR-.####",
  "creation": "2026-06-23 23:28:06.423031",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "record_date",
+  "horse",
   "record_type",
-  "veterinarian",
+  "status",
+  "responsible_person",
   "summary",
-  "next_due_date"
+  "details_section",
+  "occurrence_time",
+  "location",
+  "medication_or_materials",
+  "dosage_or_quantity",
+  "outcome",
+  "next_due_date",
+  "notes"
  ],
  "fields": [
   {
    "fieldname": "record_date",
    "fieldtype": "Date",
-   "in_list_view": 1,
    "label": "Record Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "horse",
+   "fieldtype": "Link",
+   "label": "Horse",
+   "options": "Horse",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "reqd": 1
   },
   {
    "fieldname": "record_type",
    "fieldtype": "Select",
-   "in_list_view": 1,
    "label": "Record Type",
-   "options": "\nCheckup\nVaccination\nTreatment\nInjury\nDental\nFarrier\nOther"
+   "options": "\nCheckup\nVaccination\nMedication\nTreatment\nInjury\nIllness\nDental\nFarrier\nTherapy\nProcedure\nObservation\nOther",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "reqd": 1
   },
   {
-   "fieldname": "veterinarian",
-   "fieldtype": "Data",
-   "label": "Veterinarian"
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nOpen\nCompleted\nMonitoring\nFollow Up Required",
+   "default": "Completed",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "responsible_person",
+   "fieldtype": "Link",
+   "label": "Responsible Person",
+   "options": "User",
+   "in_list_view": 1
   },
   {
    "fieldname": "summary",
    "fieldtype": "Small Text",
+   "label": "Summary",
    "in_list_view": 1,
-   "label": "Summary"
+   "reqd": 1
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "occurrence_time",
+   "fieldtype": "Datetime",
+   "label": "Occurrence Time"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Horse Location"
+  },
+  {
+   "fieldname": "medication_or_materials",
+   "fieldtype": "Small Text",
+   "label": "Medication or Materials Used"
+  },
+  {
+   "fieldname": "dosage_or_quantity",
+   "fieldtype": "Data",
+   "label": "Dosage or Quantity"
+  },
+  {
+   "fieldname": "outcome",
+   "fieldtype": "Small Text",
+   "label": "Outcome"
   },
   {
    "fieldname": "next_due_date",
    "fieldtype": "Date",
-   "label": "Next Due Date"
+   "label": "Next Due Date",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Long Text",
+   "label": "Notes"
   }
  ],
  "grid_page_length": 50,
- "istable": 1,
+ "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-06-23 23:28:23.380645",
+ "modified": "2026-06-24 12:30:00.000000",
  "modified_by": "Administrator",
  "module": "Polomanagement",
  "name": "Horse Medical Record",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
- "permissions": [],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Stable Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Veterinarian",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Farrier",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Trainer",
+   "read": 1,
+   "report": 1,
+   "print": 1
+  },
+  {
+   "role": "Horse Groom",
+   "read": 1,
+   "report": 1,
+   "print": 1
+  },
+  {
+   "role": "Horse Owner",
+   "read": 1,
+   "report": 1,
+   "print": 1
+  }
+ ],
  "row_format": "Dynamic",
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "summary"
 }

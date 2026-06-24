@@ -1,54 +1,64 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "HRL-.####",
+ "autoname": "HFI-.####",
  "creation": "2026-06-23 23:28:06.423031",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "location_name",
-  "parent_location",
-  "is_group",
-  "description"
+  "item_name",
+  "category",
+  "default_unit",
+  "description",
+  "is_active"
  ],
  "fields": [
   {
-   "fieldname": "location_name",
+   "fieldname": "item_name",
    "fieldtype": "Data",
+   "label": "Item Name",
    "in_list_view": 1,
-   "label": "Location Name",
    "reqd": 1,
    "unique": 1
   },
   {
-   "fieldname": "parent_location",
+   "default": "Food",
+   "fieldname": "category",
    "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "Parent Location",
-   "options": "Horse Location"
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Category",
+   "options": "Horse Item Category",
+   "reqd": 1
   },
   {
-   "default": "0",
-   "fieldname": "is_group",
-   "fieldtype": "Check",
-   "label": "Is Group"
+   "fieldname": "default_unit",
+   "fieldtype": "Select",
+   "label": "Default Unit",
+   "options": "\nkg\ng\nlb\nscoop\nflake\nbag\nml\nl",
+   "in_list_view": 1
   },
   {
    "fieldname": "description",
    "fieldtype": "Small Text",
    "label": "Description"
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active",
+   "default": "1",
+   "in_list_view": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "is_tree": 1,
  "links": [],
- "modified": "2026-06-24 12:30:00.000000",
+ "modified": "2026-06-24 13:00:00.000000",
  "modified_by": "Administrator",
  "module": "Polomanagement",
- "name": "Horse Location",
+ "name": "Horse Feed Item",
  "naming_rule": "Expression (old style)",
- "nsm_parent_field": "parent_location",
  "owner": "Administrator",
  "permissions": [
   {
@@ -92,17 +102,11 @@
    "read": 1,
    "report": 1,
    "print": 1
-  },
-  {
-   "role": "Farrier",
-   "read": 1,
-   "report": 1,
-   "print": 1
   }
  ],
  "row_format": "Dynamic",
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],
- "title_field": "location_name"
+ "title_field": "item_name"
 }
