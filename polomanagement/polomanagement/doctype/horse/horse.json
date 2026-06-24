@@ -1,0 +1,336 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "field:name1",
+ "creation": "2026-06-23 23:28:06.423031",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "details_section",
+  "name1",
+  "birth_date",
+  "sex",
+  "breed",
+  "colour",
+  "description",
+  "physical_details_section",
+  "height",
+  "weight",
+  "location_section",
+  "current_location",
+  "stable_number",
+  "location_notes",
+  "handling_section",
+  "temperament",
+  "handling_notes",
+  "special_instructions",
+  "playing_section",
+  "playing_status",
+  "primary_position",
+  "handicap",
+  "playing_notes",
+  "availability_section",
+  "availability_status",
+  "available_from",
+  "availability_notes",
+  "ownership_section",
+  "ownership",
+  "records_tab",
+  "records_section",
+  "medical_records",
+  "training_records",
+  "feeding_records",
+  "registration_tab",
+  "registration_section",
+  "registration_number",
+  "registered_name",
+  "registration_authority",
+  "registration_date",
+  "passport_number",
+  "microchip_number",
+  "location_tab",
+  "handleing_tab",
+  "playing_tab",
+  "availibility_tab",
+  "ownership_tab"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "birth_date",
+   "fieldtype": "Date",
+   "label": "Birth Date"
+  },
+  {
+   "fieldname": "sex",
+   "fieldtype": "Select",
+   "label": "Sex",
+   "options": "\nColt\nFilly\nGelding\nMare\nStallion"
+  },
+  {
+   "fieldname": "breed",
+   "fieldtype": "Data",
+   "label": "Breed"
+  },
+  {
+   "fieldname": "colour",
+   "fieldtype": "Data",
+   "label": "Colour"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "physical_details_section",
+   "fieldtype": "Section Break",
+   "label": "Physical Details"
+  },
+  {
+   "fieldname": "height",
+   "fieldtype": "Float",
+   "label": "Height"
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Float",
+   "label": "Weight"
+  },
+  {
+   "fieldname": "registration_section",
+   "fieldtype": "Section Break",
+   "label": "Registration"
+  },
+  {
+   "fieldname": "registration_number",
+   "fieldtype": "Data",
+   "label": "Registration Number"
+  },
+  {
+   "fieldname": "registered_name",
+   "fieldtype": "Data",
+   "label": "Registered Name"
+  },
+  {
+   "fieldname": "registration_authority",
+   "fieldtype": "Data",
+   "label": "Registration Authority"
+  },
+  {
+   "fieldname": "registration_date",
+   "fieldtype": "Date",
+   "label": "Registration Date"
+  },
+  {
+   "fieldname": "passport_number",
+   "fieldtype": "Data",
+   "label": "Passport Number"
+  },
+  {
+   "fieldname": "microchip_number",
+   "fieldtype": "Data",
+   "label": "Microchip Number"
+  },
+  {
+   "fieldname": "records_section",
+   "fieldtype": "Section Break",
+   "label": "Record"
+  },
+  {
+   "fieldname": "medical_records",
+   "fieldtype": "Table",
+   "label": "Medical Records",
+   "options": "Horse Medical Record"
+  },
+  {
+   "fieldname": "training_records",
+   "fieldtype": "Table",
+   "label": "Training Records",
+   "options": "Horse Training Record"
+  },
+  {
+   "fieldname": "feeding_records",
+   "fieldtype": "Table",
+   "label": "Feeding Records",
+   "options": "Horse Feeding Record"
+  },
+  {
+   "fieldname": "location_section",
+   "fieldtype": "Section Break",
+   "label": "Location"
+  },
+  {
+   "fieldname": "current_location",
+   "fieldtype": "Link",
+   "label": "Current Location",
+   "options": "Horse Location"
+  },
+  {
+   "fieldname": "stable_number",
+   "fieldtype": "Data",
+   "label": "Stable Number"
+  },
+  {
+   "fieldname": "location_notes",
+   "fieldtype": "Small Text",
+   "label": "Location Notes"
+  },
+  {
+   "fieldname": "handling_section",
+   "fieldtype": "Section Break",
+   "label": "Handling"
+  },
+  {
+   "fieldname": "temperament",
+   "fieldtype": "Select",
+   "label": "Temperament",
+   "options": "\nCalm\nAlert\nSensitive\nHot\nNervous\nDifficult"
+  },
+  {
+   "fieldname": "handling_notes",
+   "fieldtype": "Small Text",
+   "label": "Handling Notes"
+  },
+  {
+   "fieldname": "special_instructions",
+   "fieldtype": "Small Text",
+   "label": "Special Instructions"
+  },
+  {
+   "fieldname": "playing_section",
+   "fieldtype": "Section Break",
+   "label": "Playing"
+  },
+  {
+   "fieldname": "playing_status",
+   "fieldtype": "Select",
+   "label": "Playing Status",
+   "options": "\nIn Work\nResting\nInjured\nRetired\nTraining"
+  },
+  {
+   "fieldname": "primary_position",
+   "fieldtype": "Select",
+   "label": "Primary Position",
+   "options": "\nAny\n1\n2\n3\n4"
+  },
+  {
+   "fieldname": "handicap",
+   "fieldtype": "Float",
+   "label": "Handicap"
+  },
+  {
+   "fieldname": "playing_notes",
+   "fieldtype": "Small Text",
+   "label": "Playing Notes"
+  },
+  {
+   "fieldname": "availability_section",
+   "fieldtype": "Section Break",
+   "label": "Availability"
+  },
+  {
+   "fieldname": "availability_status",
+   "fieldtype": "Select",
+   "label": "Availability Status",
+   "options": "\nAvailable\nUnavailable\nReserved\nSold\nLeased"
+  },
+  {
+   "fieldname": "available_from",
+   "fieldtype": "Date",
+   "label": "Available From"
+  },
+  {
+   "fieldname": "availability_notes",
+   "fieldtype": "Small Text",
+   "label": "Availability Notes"
+  },
+  {
+   "fieldname": "ownership_section",
+   "fieldtype": "Section Break",
+   "label": "Ownership"
+  },
+  {
+   "fieldname": "ownership",
+   "fieldtype": "Table",
+   "label": "Ownership",
+   "options": "Horse Ownership"
+  },
+  {
+   "fieldname": "records_tab",
+   "fieldtype": "Tab Break",
+   "label": "Records"
+  },
+  {
+   "fieldname": "registration_tab",
+   "fieldtype": "Tab Break",
+   "label": "Registration"
+  },
+  {
+   "fieldname": "location_tab",
+   "fieldtype": "Tab Break",
+   "label": "Location"
+  },
+  {
+   "fieldname": "handleing_tab",
+   "fieldtype": "Tab Break",
+   "label": "Handleing"
+  },
+  {
+   "fieldname": "playing_tab",
+   "fieldtype": "Tab Break",
+   "label": "Playing"
+  },
+  {
+   "fieldname": "availibility_tab",
+   "fieldtype": "Tab Break",
+   "label": "Availibility"
+  },
+  {
+   "fieldname": "ownership_tab",
+   "fieldtype": "Tab Break",
+   "label": "Ownership"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-24 11:06:33.307563",
+ "modified_by": "Administrator",
+ "module": "Polomanagement",
+ "name": "Horse",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
