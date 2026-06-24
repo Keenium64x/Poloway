@@ -26,6 +26,7 @@
   "registration_date",
   "passport_number",
   "microchip_number",
+  "passport",
   "location_tab",
   "location_section",
   "current_location",
@@ -310,6 +311,11 @@
    "fieldname": "training_records_report",
    "fieldtype": "Button",
    "label": "Training Records"
+  },
+  {
+   "fieldname": "passport",
+   "fieldtype": "Attach Image",
+   "label": "Passport"
   }
  ],
  "grid_page_length": 50,
@@ -331,7 +337,7 @@
    "link_fieldname": "horse"
   }
  ],
- "modified": "2026-06-24 11:51:27.667609",
+ "modified": "2026-06-24 16:06:28.323459",
  "modified_by": "Administrator",
  "module": "Polomanagement",
  "name": "Horse",

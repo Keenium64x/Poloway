@@ -1,0 +1,252 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "HCE-.####",
+ "creation": "2026-06-24 14:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "details_section",
+  "entry_type",
+  "horse",
+  "task",
+  "entry_date",
+  "entry_time",
+  "linked_record_type",
+  "linked_record",
+  "feeding_section",
+  "feed_item",
+  "quantity",
+  "unit",
+  "training_section",
+  "training_template",
+  "trainer",
+  "work_type",
+  "duration",
+  "intensity",
+  "medical_section",
+  "medical_record_type",
+  "responsible_person",
+  "medical_summary",
+  "notes_section",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "entry_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Entry Type",
+   "options": "Feeding\nTraining\nMedical",
+   "reqd": 1
+  },
+  {
+   "fieldname": "horse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Horse",
+   "options": "Horse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "task",
+   "fieldtype": "Link",
+   "label": "Task",
+   "options": "Task",
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "entry_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Entry Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "entry_time",
+   "fieldtype": "Time",
+   "label": "Entry Time"
+  },
+  {
+   "fieldname": "linked_record_type",
+   "fieldtype": "Link",
+   "label": "Linked Record Type",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "linked_record",
+   "fieldtype": "Dynamic Link",
+   "label": "Linked Record",
+   "options": "linked_record_type",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.entry_type==='Feeding'",
+   "fieldname": "feeding_section",
+   "fieldtype": "Section Break",
+   "label": "Feeding"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==='Feeding'",
+   "fieldname": "feed_item",
+   "fieldtype": "Link",
+   "label": "Feed Item",
+   "options": "Horse Feed Item"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==='Feeding'",
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "label": "Quantity"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==='Feeding'",
+   "fieldname": "unit",
+   "fieldtype": "Select",
+   "label": "Unit",
+   "options": "\nkg\ng\nlb\nscoop\nflake\nbag\nml\nl"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==='Training'",
+   "fieldname": "training_section",
+   "fieldtype": "Section Break",
+   "label": "Training"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==='Training'",
+   "fieldname": "training_template",
+   "fieldtype": "Link",
+   "label": "Training Template",
+   "options": "Horse Training Template"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==='Training'",
+   "fieldname": "trainer",
+   "fieldtype": "Link",
+   "label": "Trainer",
+   "options": "User"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==='Training'",
+   "fieldname": "work_type",
+   "fieldtype": "Select",
+   "label": "Work Type",
+   "options": "\nFlatwork\nStick and Ball\nChukkas\nFitness\nSchooling\nRest\nOther"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==='Training'",
+   "fieldname": "duration",
+   "fieldtype": "Duration",
+   "label": "Duration"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==='Training'",
+   "fieldname": "intensity",
+   "fieldtype": "Select",
+   "label": "Intensity",
+   "options": "\nLow\nModerate\nHigh\nRecovery"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==='Medical'",
+   "fieldname": "medical_section",
+   "fieldtype": "Section Break",
+   "label": "Medical"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==='Medical'",
+   "fieldname": "medical_record_type",
+   "fieldtype": "Select",
+   "label": "Record Type",
+   "options": "\nCheckup\nVaccination\nMedication\nTreatment\nInjury\nIllness\nDental\nFarrier\nTherapy\nProcedure\nObservation\nOther"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==='Medical'",
+   "fieldname": "responsible_person",
+   "fieldtype": "Link",
+   "label": "Responsible Person",
+   "options": "User"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==='Medical'",
+   "fieldname": "medical_summary",
+   "fieldtype": "Small Text",
+   "label": "Medical Summary"
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Long Text",
+   "label": "Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-24 15:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Polomanagement",
+ "name": "Horse Care Entry",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stable Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Horse Groom",
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Horse Owner"
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "horse,entry_type,task",
+ "sort_field": "entry_date",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "horse"
+}

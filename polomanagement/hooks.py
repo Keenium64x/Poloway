@@ -53,6 +53,8 @@ app_license = "mit"
 # include app icons in desk
 # app_include_icons = "polomanagement/public/icons.svg"
 
+calendars = ["Task"]
+
 fixtures = [
 	{
 		"dt": "Role",
@@ -84,9 +86,9 @@ fixtures = [
 # home_page = "login"
 
 # website user home page (by Role)
-# role_home_page = {
-# 	"Role": "home_page"
-# }
+role_home_page = {
+	"Horse Groom": "app/task",
+}
 
 # Generators
 # ----------
