@@ -25,8 +25,8 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/polomanagement/css/polomanagement.css"
-# app_include_js = "/assets/polomanagement/js/polomanagement.js"
+app_include_css = "/assets/polomanagement/css/polomanagement.css?v=20260625-task-kanban-3"
+app_include_js = "/assets/polomanagement/js/polomanagement.js?v=20260625-task-kanban-3"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/polomanagement/css/polomanagement.css"
@@ -54,6 +54,7 @@ app_license = "mit"
 # app_include_icons = "polomanagement/public/icons.svg"
 
 calendars = ["Task"]
+after_migrate = "polomanagement.install.after_migrate"
 
 fixtures = [
 	{
@@ -87,7 +88,7 @@ fixtures = [
 
 # website user home page (by Role)
 role_home_page = {
-	"Horse Groom": "app/task",
+	"Horse Groom": "app/task/view/kanban/Whiteboard",
 }
 
 # Generators
@@ -164,13 +165,12 @@ role_home_page = {
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Kanban Board": {
+		"before_insert": "polomanagement.kanban.validate_single_task_kanban_board",
+		"validate": "polomanagement.kanban.validate_single_task_kanban_board",
+	}
+}
 
 # Scheduled Tasks
 # ---------------
@@ -209,9 +209,10 @@ role_home_page = {
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "polomanagement.event.get_events"
-# }
+override_whitelisted_methods = {
+	"frappe.desk.doctype.kanban_board.kanban_board.update_order_for_single_card": "polomanagement.kanban.update_order_for_single_card",
+	"frappe.desk.doctype.kanban_board.kanban_board.quick_kanban_board": "polomanagement.kanban.quick_kanban_board",
+}
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,

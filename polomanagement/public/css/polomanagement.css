@@ -1,0 +1,106 @@
+body.pm-task-kanban .layout-main-section,
+body.pm-task-kanban .page-content,
+body.pm-task-kanban .list-container,
+body.pm-task-kanban .result,
+body[data-route^="List/Task/Kanban"] .layout-main-section,
+body[data-route^="List/Task/Kanban"] .page-content,
+body[data-route^="List/Task/Kanban"] .list-container,
+body[data-route^="List/Task/Kanban"] .result,
+body[data-route*="task/view/kanban"] .layout-main-section,
+body[data-route*="task/view/kanban"] .page-content,
+body[data-route*="task/view/kanban"] .list-container,
+body[data-route*="task/view/kanban"] .result {
+	width: 100%;
+	max-width: none;
+}
+
+body.pm-task-kanban .page-container,
+body.pm-task-kanban .container,
+body[data-route^="List/Task/Kanban"] .page-container,
+body[data-route^="List/Task/Kanban"] .container,
+body[data-route*="task/view/kanban"] .page-container,
+body[data-route*="task/view/kanban"] .container {
+	max-width: none;
+}
+
+body.pm-task-kanban .kanban,
+body[data-route^="List/Task/Kanban"] .kanban,
+body[data-route*="task/view/kanban"] .kanban {
+	width: 100%;
+}
+
+body.pm-task-kanban .kanban .kanban-column,
+body[data-route^="List/Task/Kanban"] .kanban .kanban-column,
+body[data-route*="task/view/kanban"] .kanban .kanban-column {
+	flex: 1 1 0;
+	max-width: none;
+	min-width: 260px;
+}
+
+body.pm-task-kanban .kanban .kanban-card:not(.add-card),
+body[data-route^="List/Task/Kanban"] .kanban .kanban-card:not(.add-card),
+body[data-route*="task/view/kanban"] .kanban .kanban-card:not(.add-card) {
+	min-height: 30px !important;
+	margin-top: 4px !important;
+}
+
+body.pm-task-kanban .kanban .kanban-card .kanban-card-body,
+body[data-route^="List/Task/Kanban"] .kanban .kanban-card .kanban-card-body,
+body[data-route*="task/view/kanban"] .kanban .kanban-card .kanban-card-body {
+	padding: 6px 10px !important;
+}
+
+body.pm-task-kanban .kanban .kanban-title-area,
+body[data-route^="List/Task/Kanban"] .kanban .kanban-title-area,
+body[data-route*="task/view/kanban"] .kanban .kanban-title-area {
+	margin-bottom: 0 !important;
+}
+
+body.pm-task-kanban .kanban .kanban-card-title,
+body[data-route^="List/Task/Kanban"] .kanban .kanban-card-title,
+body[data-route*="task/view/kanban"] .kanban .kanban-card-title {
+	-webkit-line-clamp: 1;
+	line-clamp: 1;
+	font-size: 13px;
+	line-height: 18px;
+}
+
+body.pm-task-kanban .kanban .kanban-card-doc,
+body.pm-task-kanban .kanban .kanban-card-meta,
+body[data-route^="List/Task/Kanban"] .kanban .kanban-card-doc,
+body[data-route^="List/Task/Kanban"] .kanban .kanban-card-meta,
+body[data-route*="task/view/kanban"] .kanban .kanban-card-doc,
+body[data-route*="task/view/kanban"] .kanban .kanban-card-meta {
+	display: none !important;
+}
+
+body.pm-task-kanban .kanban .kanban-card-meta .like-action,
+body.pm-task-kanban .kanban .kanban-card-meta .liked-by,
+body.pm-task-kanban .kanban .kanban-card-meta [data-liked-by],
+body[data-route^="List/Task/Kanban"] .kanban .kanban-card-meta .like-action,
+body[data-route^="List/Task/Kanban"] .kanban .kanban-card-meta .liked-by,
+body[data-route^="List/Task/Kanban"] .kanban .kanban-card-meta [data-liked-by],
+body[data-route*="task/view/kanban"] .kanban .kanban-card-meta .like-action,
+body[data-route*="task/view/kanban"] .kanban .kanban-card-meta .liked-by,
+body[data-route*="task/view/kanban"] .kanban .kanban-card-meta [data-liked-by],
+body.pm-task-kanban .kanban .kanban-assignments,
+body.pm-task-kanban .kanban .avatar-action,
+body.pm-task-kanban .kanban .avatar-group,
+body[data-route^="List/Task/Kanban"] .kanban .kanban-assignments,
+body[data-route^="List/Task/Kanban"] .kanban .avatar-action,
+body[data-route^="List/Task/Kanban"] .kanban .avatar-group,
+body[data-route*="task/view/kanban"] .kanban .kanban-assignments,
+body[data-route*="task/view/kanban"] .kanban .avatar-action,
+body[data-route*="task/view/kanban"] .kanban .avatar-group {
+	display: none !important;
+}
+
+body.pm-task-kanban .kanban .add-card,
+body.pm-task-kanban.pm-task-groom .kanban .add-card,
+body.pm-task-kanban.pm-task-groom .kanban .new-card-area,
+body[data-route^="List/Task/Kanban"] .kanban .add-card,
+body[data-route^="List/Task/Kanban"] .kanban .new-card-area,
+body[data-route*="task/view/kanban"] .kanban .add-card,
+body[data-route*="task/view/kanban"] .kanban .new-card-area {
+	display: none !important;
+}
