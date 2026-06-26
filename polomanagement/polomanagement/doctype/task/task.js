@@ -1,10 +1,7 @@
 frappe.ui.form.on("Task", {
 	setup(frm) {
 		frm.set_query("feed_item", () => ({
-			filters: {
-				category: "Food",
-				is_active: 1,
-			},
+			query: "polomanagement.polomanagement.doctype.item.item.food_item_query",
 		}));
 	},
 
@@ -22,6 +19,13 @@ frappe.ui.form.on("Task", {
 
 		if (limited_groom_view) {
 			return;
+		}
+
+		if (frm.doc.issue_reported && frm.doc.issue_status !== "Resolved") {
+			if (frm.doc.issue_status === "Open") {
+				frm.add_custom_button(__("Acknowledge Issue"), () => update_issue_status(frm, "acknowledge"), __("Issue"));
+			}
+			frm.add_custom_button(__("Resolve Issue"), () => update_issue_status(frm, "resolve"), __("Issue"));
 		}
 
 		frm.add_custom_button(__("Open Entry"), () => {
@@ -64,6 +68,14 @@ function complete_task(frm) {
 				label: __("Issue Reported"),
 				default: frm.doc.issue_reported,
 			},
+			{
+				fieldname: "issue_priority",
+				fieldtype: "Select",
+				label: __("Issue Priority"),
+				options: "Low\nNormal\nHigh\nUrgent",
+				default: frm.doc.issue_priority || "Normal",
+				depends_on: "eval:doc.issue_reported",
+			},
 		],
 		(values) => {
 			frappe.call({
@@ -72,12 +84,45 @@ function complete_task(frm) {
 					task: frm.doc.name,
 					completion_notes: values.completion_notes,
 					issue_reported: values.issue_reported,
+					issue_priority: values.issue_priority,
 				},
 				callback: () => frm.reload_doc(),
 			});
 		},
 		__("Complete Task"),
 		__("Complete")
+	);
+}
+
+function update_issue_status(frm, action) {
+	const method =
+		action === "resolve"
+			? "polomanagement.polomanagement.doctype.task.task.resolve_issue"
+			: "polomanagement.polomanagement.doctype.task.task.acknowledge_issue";
+	const title = action === "resolve" ? __("Resolve Issue") : __("Acknowledge Issue");
+	const primary = action === "resolve" ? __("Resolve") : __("Acknowledge");
+
+	frappe.prompt(
+		[
+			{
+				fieldname: "owner_follow_up",
+				fieldtype: "Long Text",
+				label: __("Owner Follow Up"),
+				default: frm.doc.owner_follow_up,
+			},
+		],
+		(values) => {
+			frappe.call({
+				method,
+				args: {
+					task: frm.doc.name,
+					owner_follow_up: values.owner_follow_up,
+				},
+				callback: () => frm.reload_doc(),
+			});
+		},
+		title,
+		primary
 	);
 }
 

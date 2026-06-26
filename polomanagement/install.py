@@ -3,6 +3,7 @@ import frappe
 
 def after_migrate():
 	setup_task_kanban()
+	setup_inventory()
 	setup_desktop()
 
 
@@ -66,6 +67,7 @@ def set_kanban_columns(board):
 
 
 def setup_desktop():
+	remove_owner_number_cards()
 	setup_workspaces()
 	setup_workspace_sidebar()
 	setup_desktop_icon()
@@ -83,6 +85,8 @@ def setup_workspaces():
 				url_shortcut("Groom Dashboard", "/app/groom-dashboard", icon="list-todo"),
 				url_shortcut("Owner Dashboard", "/app/owner-dashboard", icon="layout-dashboard"),
 				task_whiteboard_shortcut(),
+				shortcut("Owner Calendar", "DocType", "Owner Task", doc_view="Calendar", icon="calendar-days"),
+				url_shortcut("Upload Receipt", "/app/owner-dashboard?upload_receipt=1", icon="receipt-text"),
 				shortcut("Horses", "DocType", "Horse", doc_view="List", icon="heart-handshake"),
 			],
 			"links": [
@@ -97,17 +101,37 @@ def setup_workspaces():
 				card("Planning"),
 				link("Task Template", "DocType"),
 				link("Task Schedule Settings", "DocType"),
+				link("Owner Task", "DocType"),
 				link("Horse Training Template", "DocType"),
+				card("Inventory"),
+				link("Item", "DocType"),
+				link("Item Category", "DocType"),
+				link("Inventory Location", "DocType"),
+				card("Money"),
+				link("Vendor", "DocType"),
+				link("Vendor Quote", "DocType"),
+				link("Receipt Import", "DocType"),
+				link("Transaction Input", "DocType"),
+				link("Payment Record", "DocType"),
+				link("Payment Records", "Report"),
+				link("Quote Comparison", "Report"),
+				link("Horse Expenses", "Report"),
+				link("Item Cost History", "Report"),
+				link("Unposted Transactions", "Report"),
 			],
+			"number_cards": [],
 			"content": [
 				content("shortcut", "Groom Dashboard", col=3),
 				content("shortcut", "Owner Dashboard", col=3),
 				content("shortcut", "Today Tasks", col=3),
+				content("shortcut", "Owner Calendar", col=3),
 				content("shortcut", "Horses", col=3),
 				spacer(),
 				content("card", "Daily Work", col=4),
 				content("card", "Horse Records", col=4),
 				content("card", "Planning", col=4),
+				content("card", "Inventory", col=4),
+				content("card", "Money", col=4),
 			],
 		},
 	)
@@ -136,6 +160,7 @@ def setup_workspaces():
 				link("Horse Medical Record", "DocType"),
 				link("Horse", "DocType"),
 			],
+			"number_cards": [],
 			"content": [
 				content("shortcut", "Today Tasks", col=3),
 				content("shortcut", "Task List", col=3),
@@ -158,11 +183,23 @@ def setup_workspaces():
 			"roles": ["Horse Owner", "Stable Manager", "System Manager"],
 			"shortcuts": [
 				task_whiteboard_shortcut(),
+				shortcut("Owner Calendar", "DocType", "Owner Task", doc_view="Calendar", icon="calendar-days"),
+				url_shortcut("Owner Gantt", "/app/owner-task/view/gantt", icon="gantt-chart"),
+				shortcut("Issues", "Report", "Owner Task Issues", icon="circle-alert"),
 				shortcut("Schedule Settings", "DocType", "Task Schedule Settings", icon="settings"),
 				shortcut("Task Templates", "DocType", "Task Template", doc_view="List", icon="copy-check"),
 				shortcut("Horses", "DocType", "Horse", doc_view="List", icon="heart-handshake"),
+				shortcut("Payments", "Report", "Payment Records", icon="circle-dollar-sign"),
+				url_shortcut("Upload Receipt", "/app/owner-dashboard?upload_receipt=1", icon="receipt-text"),
+				shortcut("Receipt Imports", "DocType", "Receipt Import", doc_view="List", icon="receipt-text"),
+				shortcut("Quotes", "Report", "Quote Comparison", icon="scale"),
+				shortcut("Horse Expenses", "Report", "Horse Expenses", icon="chart-column"),
+				shortcut("Unposted", "Report", "Unposted Transactions", icon="file-clock"),
 			],
 			"links": [
+				card("Owner Actions"),
+				link("Owner Task", "DocType"),
+				link("Owner Task Issues", "Report"),
 				card("Planning"),
 				link("Task Schedule Settings", "DocType"),
 				link("Task Template", "DocType"),
@@ -173,20 +210,40 @@ def setup_workspaces():
 				link("Horse Feeding Records", "Report"),
 				link("Horse Training Records", "Report"),
 				link("Horse Medical Records", "Report"),
+				card("Money"),
+				link("Payment Records", "Report"),
+				link("Receipt Import", "DocType"),
+				link("Quote Comparison", "Report"),
+				link("Horse Expenses", "Report"),
+				link("Item Cost History", "Report"),
+				link("Unposted Transactions", "Report"),
+				link("Transaction Input", "DocType"),
+				link("Vendor Quote", "DocType"),
+				link("Vendor", "DocType"),
 				card("Setup"),
-				link("Horse Feed Item", "DocType"),
-				link("Horse Item Category", "DocType"),
+				link("Item", "DocType"),
+				link("Item Category", "DocType"),
+				link("Inventory Location", "DocType"),
 				link("Horse Training Template", "DocType"),
 			],
+			"number_cards": [],
 			"content": [
 				content("shortcut", "Today Tasks", col=3),
-				content("shortcut", "Schedule Settings", col=3),
-				content("shortcut", "Task Templates", col=3),
+				content("shortcut", "Owner Calendar", col=3),
+				content("shortcut", "Owner Gantt", col=3),
+				content("shortcut", "Issues", col=3),
 				content("shortcut", "Horses", col=3),
+				content("shortcut", "Upload Receipt", col=3),
+				content("shortcut", "Payments", col=3),
+				content("shortcut", "Receipt Imports", col=3),
+				content("shortcut", "Quotes", col=3),
+				content("shortcut", "Horse Expenses", col=3),
+				content("shortcut", "Unposted", col=3),
 				spacer(),
-				content("card", "Planning", col=4),
+				content("card", "Owner Actions", col=4),
 				content("card", "Horse Oversight", col=4),
-				content("card", "Setup", col=4),
+				content("card", "Planning", col=4),
+				content("card", "Money", col=4),
 			],
 		},
 	)
@@ -206,12 +263,29 @@ def setup_workspace_sidebar():
 		sidebar_link("Groom Dashboard", "Workspace", "Groom Dashboard", icon="list-todo"),
 		sidebar_link("Owner Dashboard", "Workspace", "Owner Dashboard", icon="layout-dashboard"),
 		sidebar_url("Task", "/app/task/view/kanban/Whiteboard", icon="list"),
+		sidebar_link("Owner Calendar", "DocType", "Owner Task", icon="calendar-days"),
+		sidebar_link("Issues", "Report", "Owner Task Issues", icon="circle-alert"),
 		sidebar_link("Horse", "DocType", "Horse", icon="heart-handshake"),
 		sidebar_section("Records"),
 		sidebar_link("Horse Feeding Records", "Report", "Horse Feeding Records", child=1),
 		sidebar_link("Horse Training Records", "Report", "Horse Training Records", child=1),
 		sidebar_link("Horse Medical Records", "Report", "Horse Medical Records", child=1),
+		sidebar_section("Inventory"),
+		sidebar_link("Item", "DocType", "Item", child=1),
+		sidebar_link("Item Category", "DocType", "Item Category", child=1),
+		sidebar_link("Inventory Location", "DocType", "Inventory Location", child=1),
+		sidebar_section("Money"),
+		sidebar_link("Payment Records", "Report", "Payment Records", child=1),
+		sidebar_link("Quote Comparison", "Report", "Quote Comparison", child=1),
+		sidebar_link("Horse Expenses", "Report", "Horse Expenses", child=1),
+		sidebar_link("Item Cost History", "Report", "Item Cost History", child=1),
+		sidebar_link("Unposted Transactions", "Report", "Unposted Transactions", child=1),
+		sidebar_link("Receipt Import", "DocType", "Receipt Import", child=1),
+		sidebar_link("Transaction Input", "DocType", "Transaction Input", child=1),
+		sidebar_link("Vendor Quote", "DocType", "Vendor Quote", child=1),
+		sidebar_link("Vendor", "DocType", "Vendor", child=1),
 		sidebar_section("Planning"),
+		sidebar_link("Owner Task", "DocType", "Owner Task", child=1),
 		sidebar_link("Task Template", "DocType", "Task Template", child=1),
 		sidebar_link("Task Schedule Settings", "DocType", "Task Schedule Settings", child=1),
 	]:
@@ -254,12 +328,15 @@ def upsert_workspace(name, config):
 	workspace.content = frappe.as_json(config["content"])
 	workspace.shortcuts = []
 	workspace.links = []
+	workspace.number_cards = []
 	workspace.roles = []
 
 	for row in config["shortcuts"]:
 		workspace.append("shortcuts", row)
 	for row in config["links"]:
 		workspace.append("links", row)
+	for row in config.get("number_cards", []):
+		workspace.append("number_cards", row)
 	for role in config["roles"]:
 		workspace.append("roles", {"role": role})
 
@@ -284,6 +361,17 @@ def task_whiteboard_shortcut():
 		kanban_board="Whiteboard",
 		icon="kanban",
 	)
+
+
+def remove_owner_number_cards():
+	for card_name in [
+		"Open Issues",
+		"Today Open Groom Tasks",
+		"Today Completed Groom Tasks",
+		"Upcoming Owner Tasks",
+		"Horses Needing Attention",
+	]:
+		frappe.delete_doc_if_exists("Number Card", card_name, force=True)
 
 
 def shortcut(label, shortcut_type, link_to, doc_view=None, kanban_board=None, icon=None):
@@ -327,7 +415,12 @@ def link(label, link_type, link_to=None):
 
 
 def content(block_type, name, col=4):
-	key = "shortcut_name" if block_type == "shortcut" else "card_name"
+	key_map = {
+		"shortcut": "shortcut_name",
+		"card": "card_name",
+		"number_card": "number_card_name",
+	}
+	key = key_map[block_type]
 	return {
 		"id": frappe.generate_hash(length=10),
 		"type": block_type,
@@ -376,3 +469,174 @@ def sidebar_section(label):
 		"collapsible": 1,
 		"keep_closed": 0,
 	}
+
+
+def setup_inventory():
+	setup_inventory_locations()
+	setup_item_categories()
+	migrate_legacy_inventory()
+
+
+def setup_inventory_locations():
+	ensure_doc(
+		"Inventory Location",
+		"All Inventory Locations",
+		{
+			"location_name": "All Inventory Locations",
+			"is_group": 1,
+			"location_type": "Yard",
+		},
+	)
+	for name, location_type in [
+		("Feed Room", "Feed Room"),
+		("Tack Room", "Tack Room"),
+		("Medical Cabinet", "Store"),
+		("Equipment Store", "Store"),
+	]:
+		ensure_doc(
+			"Inventory Location",
+			name,
+			{
+				"location_name": name,
+				"parent_inventory_location": "All Inventory Locations",
+				"location_type": location_type,
+			},
+		)
+
+
+def setup_item_categories():
+	ensure_doc(
+		"Item Category",
+		"All Item Categories",
+		{
+			"item_category_name": "All Item Categories",
+			"is_group": 1,
+			"category_type": "Other",
+		},
+	)
+	for name, category_type, parent, location, unit, role, is_group in [
+		("Food", "Food", "All Item Categories", "Feed Room", "kg", "Horse Groom", 1),
+		("Medical", "Medical", "All Item Categories", "Medical Cabinet", "unit", "Veterinarian", 1),
+		("Grooming Supplies", "Grooming", "All Item Categories", "Equipment Store", "unit", "Horse Groom", 1),
+		("Horse Equipment", "Equipment", "All Item Categories", "Tack Room", "unit", "Stable Manager", 1),
+		("Saddles", "Equipment", "Horse Equipment", "Tack Room", "unit", "Stable Manager", 0),
+		("Bits", "Equipment", "Horse Equipment", "Tack Room", "unit", "Stable Manager", 0),
+	]:
+		ensure_doc(
+			"Item Category",
+			name,
+			{
+				"item_category_name": name,
+				"parent_item_category": parent,
+				"is_group": is_group,
+				"category_type": category_type,
+				"default_inventory_location": location,
+				"default_unit": unit,
+				"default_responsible_role": role,
+			},
+		)
+
+
+def migrate_legacy_inventory():
+	if frappe.db.table_exists("Horse Item Category"):
+		for row in frappe.db.sql(
+			"""
+			select name, category_name, description
+			from `tabHorse Item Category`
+			""",
+			as_dict=True,
+		):
+			name = row.category_name or row.name
+			ensure_doc(
+				"Item Category",
+				name,
+				{
+					"item_category_name": name,
+					"parent_item_category": "All Item Categories",
+					"category_type": "Food" if name == "Food" else "Other",
+					"description": row.description,
+					"default_inventory_location": "Feed Room" if name == "Food" else None,
+					"default_unit": "kg" if name == "Food" else None,
+					"default_responsible_role": "Horse Groom" if name == "Food" else None,
+				},
+			)
+
+	if not frappe.db.table_exists("Horse Feed Item"):
+		return
+
+	for row in frappe.db.sql(
+		"""
+		select name, item_name, category, default_unit, description, is_active
+		from `tabHorse Feed Item`
+		""",
+		as_dict=True,
+	):
+		category = row.category or "Food"
+		item_name = row.item_name or row.name
+		if not frappe.db.exists("Item Category", category):
+			ensure_doc(
+				"Item Category",
+				category,
+				{
+					"item_category_name": category,
+					"parent_item_category": "All Item Categories",
+					"category_type": "Food" if category == "Food" else "Other",
+				},
+			)
+
+		item_docname = frappe.db.exists("Item", row.name) or frappe.db.get_value("Item", {"item_name": item_name}, "name") or row.name
+		ensure_doc(
+			"Item",
+			item_docname,
+			{
+				"item_name": item_name,
+				"item_category": category,
+				"default_unit": row.default_unit,
+				"description": row.description,
+				"is_active": row.is_active,
+				"legacy_category": category,
+			},
+		)
+		update_legacy_item_links(row.name, item_docname)
+
+
+def update_legacy_item_links(old_item, new_item):
+	if old_item == new_item:
+		return
+
+	for doctype, fieldname in [
+		("Horse Feeding Record", "item"),
+		("Task", "feed_item"),
+		("Task Template Item", "feed_item"),
+		("Horse Care Entry", "feed_item"),
+	]:
+		if not frappe.db.table_exists(doctype):
+			continue
+
+		frappe.db.sql(
+			f"update `tab{doctype}` set `{fieldname}` = %s where `{fieldname}` = %s",
+			(new_item, old_item),
+		)
+
+
+def ensure_doc(doctype, name, values):
+	if frappe.db.exists(doctype, name):
+		doc = frappe.get_doc(doctype, name)
+		is_new = False
+	else:
+		doc = frappe.new_doc(doctype)
+		doc.name = name
+		is_new = True
+
+	for fieldname, value in values.items():
+		if value is None:
+			continue
+		if is_new or not doc.get(fieldname):
+			doc.set(fieldname, value)
+
+	if is_new:
+		doc.insert(ignore_permissions=True)
+	else:
+		doc.save(ignore_permissions=True)
+
+	return doc

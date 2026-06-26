@@ -3,6 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
+from polomanagement.polomanagement.doctype.item.item import validate_food_item
 
 
 class HorseFeedingRecord(Document):
@@ -13,6 +14,4 @@ class HorseFeedingRecord(Document):
 		if not self.item:
 			return
 
-		category = frappe.db.get_value("Horse Feed Item", self.item, "category")
-		if category != "Food":
-			frappe.throw("Feeding records can only use items in the Food category.")
+		validate_food_item(self.item)

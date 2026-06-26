@@ -16,6 +16,7 @@ def update_order_for_single_card(
 	new_index,
 	completion_notes=None,
 	issue_reported=0,
+	issue_priority=None,
 	**kwargs,
 ):
 	board = frappe.get_doc("Kanban Board", board_name)
@@ -26,16 +27,20 @@ def update_order_for_single_card(
 		)
 
 	frappe.has_permission("Task", "write", throw=True)
-	update_task_from_kanban(docname, to_colname, completion_notes, issue_reported)
+	update_task_from_kanban(docname, to_colname, completion_notes, issue_reported, issue_priority)
 	return board
 
 
-def update_task_from_kanban(task_name, status, completion_notes=None, issue_reported=0):
+def update_task_from_kanban(task_name, status, completion_notes=None, issue_reported=0, issue_priority=None):
 	task = frappe.get_doc("Task", task_name)
 	task.check_permission("write")
 
 	if status == "Completed":
-		task.complete(completion_notes=completion_notes, issue_reported=issue_reported)
+		task.complete(
+			completion_notes=completion_notes,
+			issue_reported=issue_reported,
+			issue_priority=issue_priority,
+		)
 		return
 
 	task.status = status

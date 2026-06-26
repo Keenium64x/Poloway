@@ -1,0 +1,223 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "ITM-.####",
+ "creation": "2026-06-26 11:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "details_section",
+  "item_name",
+  "item_category",
+  "is_active",
+  "is_stock_item",
+  "description",
+  "inventory_section",
+  "inventory_location",
+  "quantity_on_hand",
+  "default_unit",
+  "valuation_rate",
+  "total_value",
+  "assignment_section",
+  "responsible_role",
+  "responsible_user",
+  "assignment_source",
+  "legacy_section",
+  "legacy_category"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Item Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "item_category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Item Category",
+   "options": "Item Category",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_stock_item",
+   "fieldtype": "Check",
+   "in_standard_filter": 1,
+   "label": "Is Stock Item"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "inventory_section",
+   "fieldtype": "Section Break",
+   "label": "Inventory"
+  },
+  {
+   "fieldname": "inventory_location",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Inventory Location",
+   "options": "Inventory Location"
+  },
+  {
+   "default": "0",
+   "fieldname": "quantity_on_hand",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity On Hand"
+  },
+  {
+   "fieldname": "default_unit",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Default Unit",
+   "options": "\nkg\ng\nlb\nscoop\nflake\nbag\nml\nl\nunit\nset\npair"
+  },
+  {
+   "default": "0",
+   "fieldname": "valuation_rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Cost / Value Each"
+  },
+  {
+   "fieldname": "total_value",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Value",
+   "read_only": 1
+  },
+  {
+   "fieldname": "assignment_section",
+   "fieldtype": "Section Break",
+   "label": "Assignment"
+  },
+  {
+   "fieldname": "responsible_role",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Responsible Role",
+   "options": "Role"
+  },
+  {
+   "fieldname": "responsible_user",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Responsible User",
+   "options": "User"
+  },
+  {
+   "fieldname": "assignment_source",
+   "fieldtype": "Data",
+   "label": "Assignment Source",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "legacy_section",
+   "fieldtype": "Section Break",
+   "label": "Legacy"
+  },
+  {
+   "fieldname": "legacy_category",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Legacy Category"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-26 11:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Polomanagement",
+ "name": "Item",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stable Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Horse Groom"
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Trainer"
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Veterinarian"
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Farrier"
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Horse Owner"
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "item_name,item_category",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "item_name",
+ "track_changes": 1
+}

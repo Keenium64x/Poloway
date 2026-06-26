@@ -1,10 +1,7 @@
 frappe.ui.form.on("Horse Care Entry", {
 	setup(frm) {
 		frm.set_query("feed_item", () => ({
-			filters: {
-				category: "Food",
-				is_active: 1,
-			},
+			query: "polomanagement.polomanagement.doctype.item.item.food_item_query",
 		}));
 	},
 

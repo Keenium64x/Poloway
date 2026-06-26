@@ -1,10 +1,7 @@
 frappe.ui.form.on("Horse Feeding Record", {
 	setup(frm) {
 		frm.set_query("item", () => ({
-			filters: {
-				category: "Food",
-				is_active: 1,
-			},
+			query: "polomanagement.polomanagement.doctype.item.item.food_item_query",
 		}));
 	},
 });

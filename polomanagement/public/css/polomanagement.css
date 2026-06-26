@@ -104,3 +104,230 @@ body[data-route*="task/view/kanban"] .kanban .add-card,
 body[data-route*="task/view/kanban"] .kanban .new-card-area {
 	display: none !important;
 }
+
+.pm-horse-dashboard {
+	margin: 8px 0 18px;
+	color: var(--text-color);
+}
+
+.pm-horse-dashboard.pm-loading {
+	padding: 18px;
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	color: var(--text-muted);
+}
+
+.pm-horse-hero {
+	display: grid;
+	grid-template-columns: 88px minmax(0, 1fr) auto;
+	gap: 18px;
+	align-items: center;
+	padding: 18px;
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	background: var(--fg-color);
+}
+
+.pm-horse-photo {
+	width: 88px;
+	height: 88px;
+	border-radius: 8px;
+	object-fit: cover;
+	background: var(--control-bg);
+}
+
+.pm-horse-photo-empty {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 34px;
+	font-weight: 700;
+	color: var(--text-muted);
+	border: 1px solid var(--border-color);
+}
+
+.pm-horse-kicker {
+	font-size: 12px;
+	text-transform: uppercase;
+	color: var(--text-muted);
+	font-weight: 600;
+}
+
+.pm-horse-title {
+	font-size: 28px;
+	line-height: 34px;
+	font-weight: 700;
+	margin-top: 2px;
+}
+
+.pm-horse-subtitle {
+	margin-top: 4px;
+	color: var(--text-muted);
+	font-size: 14px;
+}
+
+.pm-horse-status-stack {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	align-items: flex-end;
+}
+
+.pm-status-pill {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 28px;
+	padding: 5px 10px;
+	border-radius: 999px;
+	border: 1px solid var(--border-color);
+	background: var(--control-bg);
+	font-size: 12px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.pm-status-muted {
+	color: var(--text-muted);
+}
+
+.pm-owner-metrics {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 10px;
+	margin: 12px 0;
+}
+
+.pm-owner-metric {
+	padding: 14px;
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	background: var(--fg-color);
+}
+
+.pm-owner-metric-danger {
+	border-color: var(--red-200, #f5b7b1);
+}
+
+.pm-owner-metric-warning {
+	border-color: var(--orange-200, #f5c26b);
+}
+
+.pm-owner-metric-value {
+	font-size: 26px;
+	line-height: 30px;
+	font-weight: 700;
+}
+
+.pm-owner-metric-label {
+	font-size: 12px;
+	color: var(--text-muted);
+	margin-top: 3px;
+}
+
+.pm-owner-note {
+	display: flex;
+	gap: 10px;
+	padding: 12px 14px;
+	border: 1px solid var(--yellow-200, #f4d03f);
+	border-radius: 8px;
+	background: var(--yellow-50, #fff8db);
+	margin-bottom: 12px;
+}
+
+.pm-owner-note span {
+	color: var(--text-color);
+}
+
+.pm-owner-section-title {
+	margin: 18px 0 8px;
+	font-size: 15px;
+	font-weight: 700;
+	color: var(--text-color);
+}
+
+.pm-owner-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 12px;
+}
+
+.pm-owner-panel {
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	background: var(--fg-color);
+	overflow: hidden;
+	min-height: 180px;
+}
+
+.pm-owner-panel header {
+	padding: 12px 14px;
+	border-bottom: 1px solid var(--border-color);
+	font-weight: 700;
+}
+
+.pm-owner-row {
+	display: block;
+	padding: 11px 14px;
+	border-bottom: 1px solid var(--border-color);
+	color: var(--text-color);
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.pm-owner-row:last-child {
+	border-bottom: 0;
+}
+
+.pm-owner-row:hover {
+	background: var(--control-bg);
+	text-decoration: none;
+}
+
+.pm-owner-row-main,
+.pm-owner-row-meta,
+.pm-owner-row-note {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.pm-owner-row-main {
+	font-weight: 600;
+}
+
+.pm-owner-row-meta,
+.pm-owner-row-note {
+	font-size: 12px;
+	color: var(--text-muted);
+	margin-top: 2px;
+}
+
+.pm-owner-issue .pm-owner-row-main {
+	color: var(--red-600, #c0392b);
+}
+
+.pm-owner-empty {
+	padding: 18px 14px;
+	color: var(--text-muted);
+}
+
+.pm-owner-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 12px;
+}
+
+@media (max-width: 900px) {
+	.pm-horse-hero,
+	.pm-owner-grid,
+	.pm-owner-metrics {
+		grid-template-columns: 1fr;
+	}
+
+	.pm-horse-status-stack {
+		align-items: flex-start;
+	}
+}

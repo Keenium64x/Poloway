@@ -1,0 +1,28 @@
+{
+ "actions": [],
+ "creation": "2026-06-26 17:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": ["receipt_attachment", "receipt_file", "status", "ocr_text", "error_log"],
+ "fields": [
+  {"fieldname": "receipt_attachment", "fieldtype": "Attach", "in_list_view": 1, "label": "Receipt Image"},
+  {"fieldname": "receipt_file", "fieldtype": "Link", "in_list_view": 1, "label": "Receipt File", "options": "File", "permlevel": 1, "read_only": 1},
+  {"default": "Uploaded", "fieldname": "status", "fieldtype": "Select", "in_list_view": 1, "label": "Status", "options": "Uploaded\nOCR Complete\nFailed"},
+  {"fieldname": "ocr_text", "fieldtype": "Long Text", "label": "OCR Text", "permlevel": 1, "read_only": 1},
+  {"fieldname": "error_log", "fieldtype": "Long Text", "label": "Error", "permlevel": 1, "read_only": 1}
+ ],
+ "grid_page_length": 50,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-06-26 17:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Polomanagement",
+ "name": "Receipt Import File",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "idx",
+ "sort_order": "ASC",
+ "states": []
+}

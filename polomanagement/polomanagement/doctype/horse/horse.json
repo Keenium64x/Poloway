@@ -53,6 +53,7 @@
   "ownership",
   "records_tab",
   "records_section",
+  "owner_dashboard",
   "medical_records_report",
   "feeding_records_report",
   "training_records_report"
@@ -296,6 +297,11 @@
    "fieldname": "records_section",
    "fieldtype": "Section Break",
    "label": "Record"
+  },
+  {
+   "fieldname": "owner_dashboard",
+   "fieldtype": "HTML",
+   "label": "Owner Dashboard"
   },
   {
    "fieldname": "medical_records_report",

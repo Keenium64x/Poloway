@@ -93,7 +93,7 @@
    "fieldname": "feed_item",
    "fieldtype": "Link",
    "label": "Feed Item",
-   "options": "Horse Feed Item"
+   "options": "Item"
   },
   {
    "depends_on": "eval:doc.task_type==='Feeding'",

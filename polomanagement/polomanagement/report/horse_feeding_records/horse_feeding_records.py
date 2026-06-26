@@ -8,7 +8,7 @@ def execute(filters=None):
 		{"label": "Date", "fieldname": "feeding_date", "fieldtype": "Date", "width": 110},
 		{"label": "Time", "fieldname": "feeding_time", "fieldtype": "Time", "width": 100},
 		{"label": "Horse", "fieldname": "horse", "fieldtype": "Link", "options": "Horse", "width": 160},
-		{"label": "Item", "fieldname": "item", "fieldtype": "Link", "options": "Horse Feed Item", "width": 180},
+		{"label": "Item", "fieldname": "item", "fieldtype": "Link", "options": "Item", "width": 180},
 		{"label": "Quantity", "fieldname": "quantity", "fieldtype": "Float", "width": 100},
 		{"label": "Unit", "fieldname": "unit", "fieldtype": "Data", "width": 80},
 		{"label": "Responsible Person", "fieldname": "responsible_person", "fieldtype": "Link", "options": "User", "width": 180},

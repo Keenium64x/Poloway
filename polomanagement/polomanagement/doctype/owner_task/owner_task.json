@@ -1,0 +1,217 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "OTSK-.####",
+ "creation": "2026-06-26 10:00:00.000000",
+ "default_view": "Calendar",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "details_section",
+  "subject",
+  "status",
+  "priority",
+  "task_type",
+  "horse_owner",
+  "horse",
+  "tournament",
+  "schedule_section",
+  "due_date",
+  "starts_on",
+  "ends_on",
+  "all_day",
+  "progress",
+  "notes_section",
+  "description",
+  "completion_notes",
+  "completed_on",
+  "completed_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Subject",
+   "reqd": 1
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Open\nCompleted\nCancelled",
+   "reqd": 1
+  },
+  {
+   "default": "Medium",
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Priority",
+   "options": "Low\nMedium\nHigh\nUrgent"
+  },
+  {
+   "default": "General",
+   "fieldname": "task_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Task Type",
+   "options": "General\nTournament\nPayment\nTransport\nVet\nFarrier\nEquipment\nReminder",
+   "reqd": 1
+  },
+  {
+   "fieldname": "horse_owner",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Owner",
+   "options": "Horse Owner"
+  },
+  {
+   "fieldname": "horse",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Horse",
+   "options": "Horse"
+  },
+  {
+   "fieldname": "tournament",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Tournament / Event"
+  },
+  {
+   "fieldname": "schedule_section",
+   "fieldtype": "Section Break",
+   "label": "Schedule"
+  },
+  {
+   "default": "Today",
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "starts_on",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Starts On"
+  },
+  {
+   "fieldname": "ends_on",
+   "fieldtype": "Datetime",
+   "label": "Ends On"
+  },
+  {
+   "default": "0",
+   "fieldname": "all_day",
+   "fieldtype": "Check",
+   "label": "All Day"
+  },
+  {
+   "default": "0",
+   "fieldname": "progress",
+   "fieldtype": "Percent",
+   "label": "Progress"
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Long Text",
+   "label": "Description"
+  },
+  {
+   "depends_on": "eval:doc.status==='Completed'",
+   "fieldname": "completion_notes",
+   "fieldtype": "Long Text",
+   "label": "Completion Notes"
+  },
+  {
+   "fieldname": "completed_on",
+   "fieldtype": "Datetime",
+   "label": "Completed On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "completed_by",
+   "fieldtype": "Link",
+   "label": "Completed By",
+   "options": "User",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_calendar_and_gantt": 1,
+ "links": [],
+ "modified": "2026-06-26 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Polomanagement",
+ "name": "Owner Task",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stable Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Horse Owner",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "subject,horse,horse_owner,tournament,status",
+ "sort_field": "starts_on",
+ "sort_order": "ASC",
+ "states": [],
+ "title_field": "subject",
+ "track_changes": 1
+}

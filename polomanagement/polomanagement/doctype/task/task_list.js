@@ -4,11 +4,12 @@ frappe.listview_settings["Task"] = {
 		"due_date",
 		"assigned_to",
 		"task_type",
-		"priority",
 		"starts_on",
 		"subject",
 		"completion_notes",
 		"issue_reported",
+		"issue_priority",
+		"issue_status",
 	],
 	filters: [
 		["due_date", "=", frappe.datetime.get_today()],
@@ -66,6 +67,14 @@ frappe.listview_settings["Task"] = {
 						fieldtype: "Check",
 						label: __("Issue Reported"),
 					},
+					{
+						fieldname: "issue_priority",
+						fieldtype: "Select",
+						label: __("Issue Priority"),
+						options: "Low\nNormal\nHigh\nUrgent",
+						default: "Normal",
+						depends_on: "eval:doc.issue_reported",
+					},
 				],
 				(values) => {
 					frappe.call({
@@ -74,6 +83,7 @@ frappe.listview_settings["Task"] = {
 							task: doc.name,
 							completion_notes: values.completion_notes,
 							issue_reported: values.issue_reported,
+							issue_priority: values.issue_priority,
 						},
 						callback: () => cur_list && cur_list.refresh(),
 					});
