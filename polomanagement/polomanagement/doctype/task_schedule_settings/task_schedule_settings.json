@@ -1,0 +1,99 @@
+{
+ "actions": [],
+ "creation": "2026-06-25 22:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "default_template",
+  "default_assigned_to",
+  "days_ahead",
+  "last_generated_for",
+  "overrides_section",
+  "overrides"
+ ],
+ "fields": [
+  {
+   "default": "1",
+   "description": "When enabled, the daily scheduler generates the next day's Tasks from the selected template.",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Auto Generate"
+  },
+  {
+   "fieldname": "default_template",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Default Template",
+   "options": "Task Template"
+  },
+  {
+   "fieldname": "default_assigned_to",
+   "fieldtype": "Link",
+   "label": "Default Assigned To",
+   "options": "User"
+  },
+  {
+   "default": "1",
+   "fieldname": "days_ahead",
+   "fieldtype": "Int",
+   "label": "Generate Days Ahead"
+  },
+  {
+   "fieldname": "last_generated_for",
+   "fieldtype": "Date",
+   "label": "Last Generated For",
+   "read_only": 1
+  },
+  {
+   "fieldname": "overrides_section",
+   "fieldtype": "Section Break",
+   "label": "Day Overrides"
+  },
+  {
+   "fieldname": "overrides",
+   "fieldtype": "Table",
+   "label": "Overrides",
+   "options": "Task Schedule Override"
+  }
+ ],
+ "grid_page_length": 50,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-06-25 22:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Polomanagement",
+ "name": "Task Schedule Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Stable Manager",
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Horse Owner",
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "role": "Horse Groom"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

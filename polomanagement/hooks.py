@@ -11,22 +11,20 @@ app_license = "mit"
 # required_apps = []
 
 # Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "polomanagement",
-# 		"logo": "/assets/polomanagement/logo.png",
-# 		"title": "Polomanagement",
-# 		"route": "/polomanagement",
-# 		"has_permission": "polomanagement.api.permission.has_app_permission"
-# 	}
-# ]
+add_to_apps_screen = [
+	{
+		"name": "polomanagement",
+		"title": "Polomanagement",
+		"route": "/app/polomanagement",
+	}
+]
 
 # Includes in <head>
 # ------------------
 
 # include js, css files in header of desk.html
-app_include_css = "/assets/polomanagement/css/polomanagement.css?v=20260625-task-kanban-3"
-app_include_js = "/assets/polomanagement/js/polomanagement.js?v=20260625-task-kanban-3"
+app_include_css = "/assets/polomanagement/css/polomanagement.css?v=20260626-workspace-1"
+app_include_js = "/assets/polomanagement/js/polomanagement.js?v=20260626-workspace-1"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/polomanagement/css/polomanagement.css"
@@ -89,6 +87,7 @@ fixtures = [
 # website user home page (by Role)
 role_home_page = {
 	"Horse Groom": "app/task/view/kanban/Whiteboard",
+	"Horse Owner": "app/owner-dashboard",
 }
 
 # Generators
@@ -175,23 +174,11 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"polomanagement.tasks.all"
-# 	],
-# 	"daily": [
-# 		"polomanagement.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"polomanagement.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"polomanagement.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"polomanagement.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	"daily": [
+		"polomanagement.task_generation.generate_tomorrows_tasks"
+	]
+}
 
 # Testing
 # -------

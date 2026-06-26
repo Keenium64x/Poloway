@@ -49,7 +49,11 @@
   "completion_notes",
   "issue_reported",
   "completed_on",
-  "completed_by"
+  "completed_by",
+  "generation_section",
+  "generated_from_template",
+  "generated_from_template_item",
+  "template_generation_key"
  ],
  "fields": [
   {
@@ -317,6 +321,35 @@
    "label": "Completed By",
    "options": "User",
    "read_only": 1
+  },
+  {
+   "fieldname": "generation_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Generation"
+  },
+  {
+   "fieldname": "generated_from_template",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Generated From Template",
+   "options": "Task Template",
+   "read_only": 1
+  },
+  {
+   "fieldname": "generated_from_template_item",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Generated From Template Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "template_generation_key",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Template Generation Key",
+   "read_only": 1,
+   "unique": 1
   },
   {
    "fieldname": "instructions_section",

@@ -1,0 +1,196 @@
+{
+ "actions": [],
+ "creation": "2026-06-25 22:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "subject",
+  "task_type",
+  "horse",
+  "assigned_to",
+  "starts_at",
+  "ends_at",
+  "all_day",
+  "instructions",
+  "feeding_section",
+  "feed_item",
+  "quantity",
+  "unit",
+  "feeding_time",
+  "training_section",
+  "training_template",
+  "trainer",
+  "work_type",
+  "duration",
+  "intensity",
+  "medical_section",
+  "medical_record_type",
+  "responsible_person",
+  "medical_summary"
+ ],
+ "fields": [
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Subject",
+   "reqd": 1
+  },
+  {
+   "default": "General",
+   "fieldname": "task_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Task Type",
+   "options": "General\nFeeding\nTraining\nMedical",
+   "reqd": 1
+  },
+  {
+   "fieldname": "horse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Horse",
+   "options": "Horse"
+  },
+  {
+   "fieldname": "assigned_to",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Assigned To",
+   "options": "User"
+  },
+  {
+   "fieldname": "starts_at",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Starts At"
+  },
+  {
+   "fieldname": "ends_at",
+   "fieldtype": "Time",
+   "label": "Ends At"
+  },
+  {
+   "default": "0",
+   "fieldname": "all_day",
+   "fieldtype": "Check",
+   "label": "All Day"
+  },
+  {
+   "fieldname": "instructions",
+   "fieldtype": "Small Text",
+   "label": "Instructions"
+  },
+  {
+   "depends_on": "eval:doc.task_type==='Feeding'",
+   "fieldname": "feeding_section",
+   "fieldtype": "Section Break",
+   "label": "Feeding"
+  },
+  {
+   "depends_on": "eval:doc.task_type==='Feeding'",
+   "fieldname": "feed_item",
+   "fieldtype": "Link",
+   "label": "Feed Item",
+   "options": "Horse Feed Item"
+  },
+  {
+   "depends_on": "eval:doc.task_type==='Feeding'",
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "label": "Quantity"
+  },
+  {
+   "depends_on": "eval:doc.task_type==='Feeding'",
+   "fieldname": "unit",
+   "fieldtype": "Select",
+   "label": "Unit",
+   "options": "\nkg\ng\nlb\nscoop\nflake\nbag\nml\nl"
+  },
+  {
+   "depends_on": "eval:doc.task_type==='Feeding'",
+   "fieldname": "feeding_time",
+   "fieldtype": "Time",
+   "label": "Feeding Time"
+  },
+  {
+   "depends_on": "eval:doc.task_type==='Training'",
+   "fieldname": "training_section",
+   "fieldtype": "Section Break",
+   "label": "Training"
+  },
+  {
+   "depends_on": "eval:doc.task_type==='Training'",
+   "fieldname": "training_template",
+   "fieldtype": "Link",
+   "label": "Training Template",
+   "options": "Horse Training Template"
+  },
+  {
+   "depends_on": "eval:doc.task_type==='Training'",
+   "fieldname": "trainer",
+   "fieldtype": "Link",
+   "label": "Trainer",
+   "options": "User"
+  },
+  {
+   "depends_on": "eval:doc.task_type==='Training'",
+   "fieldname": "work_type",
+   "fieldtype": "Select",
+   "label": "Work Type",
+   "options": "\nFlatwork\nStick and Ball\nChukkas\nFitness\nSchooling\nRest\nOther"
+  },
+  {
+   "depends_on": "eval:doc.task_type==='Training'",
+   "fieldname": "duration",
+   "fieldtype": "Duration",
+   "label": "Duration"
+  },
+  {
+   "depends_on": "eval:doc.task_type==='Training'",
+   "fieldname": "intensity",
+   "fieldtype": "Select",
+   "label": "Intensity",
+   "options": "\nLow\nModerate\nHigh\nRecovery"
+  },
+  {
+   "depends_on": "eval:doc.task_type==='Medical'",
+   "fieldname": "medical_section",
+   "fieldtype": "Section Break",
+   "label": "Medical"
+  },
+  {
+   "depends_on": "eval:doc.task_type==='Medical'",
+   "fieldname": "medical_record_type",
+   "fieldtype": "Select",
+   "label": "Record Type",
+   "options": "\nCheckup\nVaccination\nMedication\nTreatment\nInjury\nIllness\nDental\nFarrier\nTherapy\nProcedure\nObservation\nOther"
+  },
+  {
+   "depends_on": "eval:doc.task_type==='Medical'",
+   "fieldname": "responsible_person",
+   "fieldtype": "Link",
+   "label": "Responsible Person",
+   "options": "User"
+  },
+  {
+   "depends_on": "eval:doc.task_type==='Medical'",
+   "fieldname": "medical_summary",
+   "fieldtype": "Small Text",
+   "label": "Medical Summary"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-06-25 22:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Polomanagement",
+ "name": "Task Template Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "idx",
+ "sort_order": "ASC",
+ "states": []
+}

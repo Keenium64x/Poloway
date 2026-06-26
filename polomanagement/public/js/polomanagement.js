@@ -33,12 +33,30 @@
 	}
 
 	function update_task_kanban_class() {
+		redirect_to_whiteboard_if_needed();
+
 		const task_kanban = is_task_kanban_route();
 		document.body.classList.toggle("pm-task-kanban", task_kanban);
 		document.body.classList.toggle("pm-task-groom", task_kanban && is_limited_groom());
 
 		if (task_kanban) {
 			compact_task_kanban();
+		}
+	}
+
+	function redirect_to_whiteboard_if_needed() {
+		const route = frappe.get_route();
+		if (!route || route.length < 4) {
+			return;
+		}
+
+		const route_prefix = route.slice(0, 3).map((part) => String(part || "").toLowerCase()).join("/");
+		const board_name = String(route[3] || "");
+		const is_task_kanban =
+			route_prefix === "task/view/kanban" || route_prefix === "list/task/kanban";
+
+		if (is_task_kanban && board_name !== "Whiteboard") {
+			frappe.set_route(route[0], route[1], route[2], "Whiteboard");
 		}
 	}
 
