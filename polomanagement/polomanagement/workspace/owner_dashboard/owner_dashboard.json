@@ -1,0 +1,437 @@
+{
+ "app": "polomanagement",
+ "charts": [],
+ "content": "[{\"id\":\"485bfe1944\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Today Tasks\",\"col\":3}},{\"id\":\"1ecabefaf2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Owner Calendar\",\"col\":3}},{\"id\":\"4953df30b9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Owner Gantt\",\"col\":3}},{\"id\":\"aee65eb065\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Issues\",\"col\":3}},{\"id\":\"6244b18052\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Horses\",\"col\":3}},{\"id\":\"b652148866\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Upload Receipt\",\"col\":3}},{\"id\":\"447321bd2c\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchases\",\"col\":3}},{\"id\":\"b62501b38a\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Financial Overview\",\"col\":3}},{\"id\":\"2469424877\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Payments\",\"col\":3}},{\"id\":\"3a65db81bf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Receipt Imports\",\"col\":3}},{\"id\":\"2b8e77374f\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quotes\",\"col\":3}},{\"id\":\"f99d5ce18e\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Horse Expenses\",\"col\":3}},{\"id\":\"bc79468ff6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Unposted\",\"col\":3}},{\"id\":\"c58692ee74\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"36d727c8ec\",\"type\":\"card\",\"data\":{\"card_name\":\"Owner Actions\",\"col\":4}},{\"id\":\"72b9d01d93\",\"type\":\"card\",\"data\":{\"card_name\":\"Horse Oversight\",\"col\":4}},{\"id\":\"035d680718\",\"type\":\"card\",\"data\":{\"card_name\":\"Planning\",\"col\":4}},{\"id\":\"092f7f9b77\",\"type\":\"card\",\"data\":{\"card_name\":\"Money\",\"col\":4}}]",
+ "creation": "2026-06-26 17:39:35.826740",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "hide_custom": 0,
+ "icon": "layout-dashboard",
+ "idx": 0,
+ "indicator_color": "orange",
+ "is_hidden": 0,
+ "label": "Owner Dashboard",
+ "link_type": "DocType",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Owner Actions",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Owner Task",
+   "link_count": 0,
+   "link_to": "Owner Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Owner Task Issues",
+   "link_count": 0,
+   "link_to": "Owner Task Issues",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Task",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Planning",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Task Schedule Settings",
+   "link_count": 0,
+   "link_to": "Task Schedule Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Task Template",
+   "link_count": 0,
+   "link_to": "Task Template",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Task",
+   "link_count": 0,
+   "link_to": "Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Horse Oversight",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Horse",
+   "link_count": 0,
+   "link_to": "Horse",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Horse Owner",
+   "link_count": 0,
+   "link_to": "Horse Owner",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Horse Feeding Records",
+   "link_count": 0,
+   "link_to": "Horse Feeding Records",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Horse Feeding Record",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Horse Training Records",
+   "link_count": 0,
+   "link_to": "Horse Training Records",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Horse Training Record",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Horse Medical Records",
+   "link_count": 0,
+   "link_to": "Horse Medical Records",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Horse Medical Record",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Money",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Purchase",
+   "link_count": 0,
+   "link_to": "Purchase",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Financial Overview",
+   "link_count": 0,
+   "link_to": "Financial Overview",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Payment Record",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Payment Records",
+   "link_count": 0,
+   "link_to": "Payment Records",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Payment Record",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Receipt Import",
+   "link_count": 0,
+   "link_to": "Receipt Import",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Quote Comparison",
+   "link_count": 0,
+   "link_to": "Quote Comparison",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Vendor Quote",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Horse Expenses",
+   "link_count": 0,
+   "link_to": "Horse Expenses",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Payment Record",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Item Cost History",
+   "link_count": 0,
+   "link_to": "Item Cost History",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Payment Record",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Unposted Transactions",
+   "link_count": 0,
+   "link_to": "Unposted Transactions",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Transaction Input",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Transaction Input",
+   "link_count": 0,
+   "link_to": "Transaction Input",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vendor Quote",
+   "link_count": 0,
+   "link_to": "Vendor Quote",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vendor",
+   "link_count": 0,
+   "link_to": "Vendor",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Item",
+   "link_count": 0,
+   "link_to": "Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Item Category",
+   "link_count": 0,
+   "link_to": "Item Category",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Inventory Location",
+   "link_count": 0,
+   "link_to": "Inventory Location",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Horse Training Template",
+   "link_count": 0,
+   "link_to": "Horse Training Template",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-06-26 21:36:45.442995",
+ "modified_by": "Administrator",
+ "module": "Polomanagement",
+ "name": "Owner Dashboard",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "Polomanagement",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Horse Owner"
+  },
+  {
+   "role": "Stable Manager"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "sequence_id": 0.0,
+ "shortcuts": [
+  {
+   "doc_view": "Kanban",
+   "icon": "kanban",
+   "kanban_board": "Whiteboard",
+   "label": "Today Tasks",
+   "link_to": "Task",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "Calendar",
+   "icon": "calendar-days",
+   "label": "Owner Calendar",
+   "link_to": "Owner Task",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "icon": "gantt-chart",
+   "label": "Owner Gantt",
+   "type": "URL",
+   "url": "/app/owner-task/view/gantt"
+  },
+  {
+   "doc_view": "",
+   "icon": "circle-alert",
+   "label": "Issues",
+   "link_to": "Owner Task Issues",
+   "report_ref_doctype": "Task",
+   "type": "Report"
+  },
+  {
+   "doc_view": "List",
+   "icon": "heart-handshake",
+   "label": "Horses",
+   "link_to": "Horse",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "icon": "circle-dollar-sign",
+   "label": "Payments",
+   "link_to": "Payment Records",
+   "report_ref_doctype": "Payment Record",
+   "type": "Report"
+  },
+  {
+   "doc_view": "",
+   "icon": "receipt-text",
+   "label": "Upload Receipt",
+   "type": "URL",
+   "url": "/app/owner-dashboard?upload_receipt=1"
+  },
+  {
+   "doc_view": "List",
+   "icon": "shopping-cart",
+   "label": "Purchases",
+   "link_to": "Purchase",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "icon": "chart-column",
+   "label": "Financial Overview",
+   "link_to": "Financial Overview",
+   "report_ref_doctype": "Payment Record",
+   "type": "Report"
+  },
+  {
+   "doc_view": "List",
+   "icon": "receipt-text",
+   "label": "Receipt Imports",
+   "link_to": "Receipt Import",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "icon": "scale",
+   "label": "Quotes",
+   "link_to": "Quote Comparison",
+   "report_ref_doctype": "Vendor Quote",
+   "type": "Report"
+  },
+  {
+   "doc_view": "",
+   "icon": "chart-column",
+   "label": "Horse Expenses",
+   "link_to": "Horse Expenses",
+   "report_ref_doctype": "Payment Record",
+   "type": "Report"
+  },
+  {
+   "doc_view": "",
+   "icon": "file-clock",
+   "label": "Unposted",
+   "link_to": "Unposted Transactions",
+   "report_ref_doctype": "Transaction Input",
+   "type": "Report"
+  }
+ ],
+ "title": "Owner Dashboard",
+ "type": "Workspace"
+}
