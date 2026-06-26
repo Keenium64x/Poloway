@@ -11,8 +11,12 @@ frappe.ui.form.on("Receipt Import", {
 
 		if (!frm.doc.transaction_input) {
 			frm.add_custom_button(__("Process Receipt"), () => {
-				run_receipt_method(frm, "process_receipt", (name) => {
-					frappe.set_route("Form", "Transaction Input", name);
+				run_receipt_method(frm, "process_receipt", (result) => {
+					if (result.payment_record) {
+						frappe.set_route("Form", "Payment Record", result.payment_record);
+					} else if (result.transaction_input) {
+						frappe.set_route("Form", "Transaction Input", result.transaction_input);
+					}
 				});
 			}).addClass("btn-primary");
 		}
@@ -42,6 +46,12 @@ frappe.ui.form.on("Receipt Import", {
 		if (frm.doc.transaction_input) {
 			frm.add_custom_button(__("Open Transaction Input"), () => {
 				frappe.set_route("Form", "Transaction Input", frm.doc.transaction_input);
+			}, __("Receipt"));
+		}
+
+		if (frm.doc.payment_record) {
+			frm.add_custom_button(__("Open Payment Record"), () => {
+				frappe.set_route("Form", "Payment Record", frm.doc.payment_record);
 			}, __("Receipt"));
 		}
 	},

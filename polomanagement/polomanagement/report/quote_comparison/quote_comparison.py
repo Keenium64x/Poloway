@@ -6,6 +6,7 @@ def execute(filters=None):
 	columns = [
 		{"label": "Quote", "fieldname": "name", "fieldtype": "Link", "options": "Vendor Quote", "width": 140},
 		{"label": "Title", "fieldname": "quote_title", "fieldtype": "Data", "width": 220},
+		{"label": "Purchase", "fieldname": "purchase", "fieldtype": "Link", "options": "Purchase", "width": 140},
 		{"label": "Vendor", "fieldname": "vendor", "fieldtype": "Link", "options": "Vendor", "width": 160},
 		{"label": "Status", "fieldname": "status", "fieldtype": "Data", "width": 100},
 		{"label": "Quote Date", "fieldname": "quote_date", "fieldtype": "Date", "width": 110},
@@ -24,6 +25,8 @@ def get_data(filters):
 		conditions["vendor"] = filters.vendor
 	if filters.status:
 		conditions["status"] = filters.status
+	if filters.purchase:
+		conditions["purchase"] = filters.purchase
 	if filters.linked_horse:
 		conditions["linked_horse"] = filters.linked_horse
 	if filters.tournament:
@@ -35,6 +38,7 @@ def get_data(filters):
 		fields=[
 			"name",
 			"quote_title",
+			"purchase",
 			"vendor",
 			"status",
 			"quote_date",

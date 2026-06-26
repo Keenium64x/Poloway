@@ -1,6 +1,12 @@
 frappe.query_reports["Quote Comparison"] = {
 	filters: [
 		{
+			fieldname: "purchase",
+			label: __("Purchase"),
+			fieldtype: "Link",
+			options: "Purchase",
+		},
+		{
 			fieldname: "vendor",
 			label: __("Vendor"),
 			fieldtype: "Link",

@@ -4,12 +4,24 @@ frappe.ui.form.on("Vendor Quote", {
 			return;
 		}
 
+		if (frm.doc.purchase) {
+			frm.add_custom_button(__("Open Purchase"), () => {
+				frappe.set_route("Form", "Purchase", frm.doc.purchase);
+			});
+		}
+
 		if (frm.doc.status !== "Selected") {
 			frm.add_custom_button(__("Select Quote"), () => {
 				frappe.call({
 					method: "polomanagement.polomanagement.doctype.vendor_quote.vendor_quote.select_quote",
 					args: { quote: frm.doc.name, reject_competing: 1 },
-					callback: () => frm.reload_doc(),
+					callback: () => {
+						if (frm.doc.purchase) {
+							frappe.set_route("Form", "Purchase", frm.doc.purchase);
+						} else {
+							frm.reload_doc();
+						}
+					},
 				});
 			});
 		}
@@ -27,3 +39,18 @@ frappe.ui.form.on("Vendor Quote", {
 		});
 	},
 });
+
+frappe.ui.form.on("Vendor Quote Line", {
+	quantity: calculate_vendor_quote_line,
+	rate: calculate_vendor_quote_line,
+	tax_amount: calculate_vendor_quote_line,
+});
+
+function calculate_vendor_quote_line(frm, cdt, cdn) {
+	const row = locals[cdt][cdn];
+	row.quantity = flt(row.quantity) || 1;
+	row.total = row.quantity * (flt(row.rate) || 0) + (flt(row.tax_amount) || 0);
+	frm.refresh_field("lines");
+	const total = (frm.doc.lines || []).reduce((sum, line) => sum + (flt(line.total) || 0), 0);
+	frm.set_value("total_amount", total);
+}

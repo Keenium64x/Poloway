@@ -34,6 +34,10 @@ def apply_extraction_to_receipt(receipt_doc, extraction):
 			total = quantity * rate + tax_amount
 		if not rate and total:
 			rate = max(total - tax_amount, 0) / quantity
+		row["quantity"] = quantity
+		row["rate"] = rate
+		row["tax_amount"] = tax_amount
+		row["total"] = total
 
 		receipt_doc.append(
 			"lines",
@@ -41,7 +45,7 @@ def apply_extraction_to_receipt(receipt_doc, extraction):
 				"line_type": clean_line_type(row.get("line_type")),
 				"description": row.get("description"),
 				"item_name": row.get("item_name"),
-				"item": find_item(row.get("item_name")),
+				"item": get_or_create_item_from_receipt_line(row, receipt_doc),
 				"horse_name": row.get("horse_name"),
 				"horse": find_horse(row.get("horse_name")) or receipt_doc.linked_horse,
 				"tournament": row.get("tournament"),
@@ -120,6 +124,19 @@ def create_transaction_input_from_receipt(receipt_doc):
 	return transaction
 
 
+def create_posted_payment_from_receipt(receipt_doc):
+	transaction = create_transaction_input_from_receipt(receipt_doc)
+	payment = transaction.create_payment_record()
+	receipt_doc.db_set(
+		{
+			"transaction_input": transaction.name,
+			"payment_record": payment.name,
+			"status": "Applied",
+		}
+	)
+	return transaction, payment
+
+
 def resolve_file_from_attachment(file_url):
 	if not file_url:
 		return None
@@ -150,6 +167,56 @@ def find_vendor(vendor_name):
 
 def find_item(item_name):
 	return find_by_title("Item", "item_name", item_name)
+
+
+def get_or_create_item_from_receipt_line(row, receipt_doc):
+	if clean_line_type(row.get("line_type")) != "Item":
+		return None
+
+	item_name = (row.get("item_name") or row.get("description") or "").strip()
+	if not item_name:
+		return None
+
+	existing = find_item(item_name)
+	if existing:
+		return existing
+
+	category = get_category_for_cost(row.get("cost_category") or receipt_doc.transaction_category)
+	item = frappe.new_doc("Item")
+	item.item_name = item_name[:140]
+	item.item_category = category
+	item.is_active = 1
+	item.is_stock_item = 1 if row.get("affects_inventory") else 0
+	item.description = row.get("description")
+	item.default_unit = clean_unit(row.get("unit"))
+	item.valuation_rate = flt(row.get("rate"))
+	item.quantity_on_hand = 0
+	item.insert(ignore_permissions=True)
+	return item.name
+
+
+def get_category_for_cost(cost_category):
+	category_type_by_cost = {
+		"Feed": "Food",
+		"Equipment": "Equipment",
+		"Medical": "Medical",
+		"Grooming": "Grooming",
+	}
+	preferred_names = {
+		"Feed": "Food",
+		"Equipment": "Horse Equipment",
+		"Medical": "Medical",
+	}
+	if preferred_names.get(cost_category) and frappe.db.exists("Item Category", preferred_names[cost_category]):
+		return preferred_names[cost_category]
+	category_type = category_type_by_cost.get(cost_category, "Other")
+	category = frappe.db.get_value("Item Category", {"category_type": category_type, "is_group": 0}, "name")
+	if category:
+		return category
+	category = frappe.db.get_value("Item Category", {"category_type": category_type}, "name")
+	if category:
+		return category
+	return frappe.db.get_value("Item Category", {"item_category_name": "All Item Categories"}, "name") or "All Item Categories"
 
 
 def find_horse(horse_name):

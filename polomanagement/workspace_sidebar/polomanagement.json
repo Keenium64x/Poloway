@@ -191,9 +191,31 @@
    "collapsible": 1,
    "indent": 0,
    "keep_closed": 0,
+   "label": "Financial Overview",
+   "link_to": "Financial Overview",
+   "link_type": "Report",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "indent": 0,
+   "keep_closed": 0,
    "label": "Payment Records",
    "link_to": "Payment Records",
    "link_type": "Report",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Purchase",
+   "link_to": "Purchase",
+   "link_type": "DocType",
    "show_arrow": 0,
    "type": "Link"
   },
@@ -329,7 +351,7 @@
    "type": "Link"
   }
  ],
- "modified": "2026-06-26 16:07:56.384653",
+ "modified": "2026-06-26 17:39:35.844704",
  "modified_by": "Administrator",
  "module": "Polomanagement",
  "name": "Polomanagement",

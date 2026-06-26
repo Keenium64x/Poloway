@@ -97,15 +97,18 @@ class ReceiptImport(Document):
 
 	def process_receipt(self):
 		self.check_permission("write")
-		if self.transaction_input:
-			return self.transaction_input
+		if self.payment_record:
+			return {"transaction_input": self.transaction_input, "payment_record": self.payment_record}
 		if not self.ocr_text:
 			self.run_ocr()
 			self.reload()
 		if not self.lines:
 			self.parse_with_ai()
 			self.reload()
-		return self.create_transaction_input()
+		from polomanagement.receipt_processing.actions import create_posted_payment_from_receipt
+
+		transaction, payment = create_posted_payment_from_receipt(self)
+		return {"transaction_input": transaction.name, "payment_record": payment.name}
 
 
 @frappe.whitelist()
@@ -158,8 +161,9 @@ def create_receipt_import(receipt_file_url=None, receipt_file_urls=None, linked_
 	doc.status = "Uploaded"
 	doc.insert(ignore_permissions=True)
 	if process:
-		transaction = doc.process_receipt()
-		return {"receipt_import": doc.name, "transaction_input": transaction}
+		result = doc.process_receipt()
+		result["receipt_import"] = doc.name
+		return result
 	return doc.name
 
 

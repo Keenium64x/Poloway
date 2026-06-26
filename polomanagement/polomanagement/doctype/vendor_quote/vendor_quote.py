@@ -53,6 +53,8 @@ def create_transaction_input(quote):
 		})
 
 	transaction.insert(ignore_permissions=True)
+	if doc.purchase:
+		frappe.db.set_value("Purchase", doc.purchase, "transaction_input", transaction.name)
 	return transaction.name
 
 
@@ -66,6 +68,16 @@ def select_quote(quote, reject_competing=1):
 	if reject_competing:
 		reject_competing_quotes(doc)
 
+	if doc.purchase:
+		frappe.db.set_value(
+			"Purchase",
+			doc.purchase,
+			{
+				"selected_quote": doc.name,
+				"status": "Selected",
+			},
+		)
+
 	return doc.name
 
 
@@ -74,7 +86,9 @@ def reject_competing_quotes(doc):
 		"name": ["!=", doc.name],
 		"status": ["in", ["Draft", "Submitted"]],
 	}
-	if doc.linked_horse:
+	if doc.purchase:
+		filters["purchase"] = doc.purchase
+	elif doc.linked_horse:
 		filters["linked_horse"] = doc.linked_horse
 	elif doc.tournament:
 		filters["tournament"] = doc.tournament

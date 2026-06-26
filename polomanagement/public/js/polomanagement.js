@@ -174,8 +174,11 @@
 				freeze_message: __("Reading receipt and creating transaction..."),
 				callback(r) {
 					const result = r.message || {};
-					if (result.transaction_input) {
-						frappe.show_alert({ message: __("Transaction created from receipt."), indicator: "green" });
+					if (result.payment_record) {
+						frappe.show_alert({ message: __("Payment record created from receipt."), indicator: "green" });
+						frappe.set_route("Form", "Payment Record", result.payment_record);
+					} else if (result.transaction_input) {
+						frappe.show_alert({ message: __("Transaction input created from receipt."), indicator: "green" });
 						frappe.set_route("Form", "Transaction Input", result.transaction_input);
 					} else if (result.receipt_import) {
 						frappe.set_route("Form", "Receipt Import", result.receipt_import);

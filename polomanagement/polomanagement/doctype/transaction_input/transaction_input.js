@@ -36,3 +36,18 @@ frappe.ui.form.on("Transaction Input", {
 		}
 	},
 });
+
+frappe.ui.form.on("Transaction Input Line", {
+	quantity: calculate_transaction_line,
+	rate: calculate_transaction_line,
+	tax_amount: calculate_transaction_line,
+});
+
+function calculate_transaction_line(frm, cdt, cdn) {
+	const row = locals[cdt][cdn];
+	row.quantity = flt(row.quantity) || 1;
+	row.total = row.quantity * (flt(row.rate) || 0) + (flt(row.tax_amount) || 0);
+	frm.refresh_field("lines");
+	const total = (frm.doc.lines || []).reduce((sum, line) => sum + (flt(line.total) || 0), 0);
+	frm.set_value("total_amount", total);
+}

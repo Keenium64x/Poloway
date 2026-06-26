@@ -19,6 +19,12 @@ class PaymentRecord(Document):
 	def on_cancel(self):
 		self.reverse_inventory()
 		self.db_set("status", "Reversed")
+		if self.source_transaction:
+			frappe.db.set_value("Transaction Input", self.source_transaction, "status", "Cancelled")
+		if self.selected_quote:
+			purchase = frappe.db.get_value("Vendor Quote", self.selected_quote, "purchase")
+			if purchase:
+				frappe.db.set_value("Purchase", purchase, "status", "Selected")
 
 	def calculate_totals(self):
 		total = 0
