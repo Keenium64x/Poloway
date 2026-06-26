@@ -1,9 +1,13 @@
+from . import __version__ as app_version
+
 app_name = "polomanagement"
 app_title = "Polomanagement"
 app_publisher = "Keenan Solomon"
 app_description = "A versatile tool used for the management of polo horses and competitions"
 app_email = "admin@keenansolomon.co.za"
 app_license = "mit"
+compatible_frappe_versions = ">=16.0.0 <17.0.0"
+frappe_version = ">=16.0.0 <17.0.0"
 
 # Apps
 # ------------------
