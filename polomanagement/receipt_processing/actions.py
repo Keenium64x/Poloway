@@ -48,7 +48,11 @@ def apply_extraction_to_receipt(receipt_doc, extraction):
 				"item": get_or_create_item_from_receipt_line(row, receipt_doc),
 				"horse_name": row.get("horse_name"),
 				"horse": find_horse(row.get("horse_name")) or receipt_doc.linked_horse,
+				"groom_name": row.get("groom_name"),
+				"groom_profile": find_groom(row.get("groom_name")),
 				"tournament": row.get("tournament"),
+				"reference_doctype": row.get("reference_doctype"),
+				"reference_name": row.get("reference_name"),
 				"quantity": quantity,
 				"unit": clean_unit(row.get("unit")),
 				"rate": rate,
@@ -103,8 +107,11 @@ def create_transaction_input_from_receipt(receipt_doc):
 				"line_type": clean_line_type(row.line_type),
 				"item": row.item,
 				"horse": row.horse or receipt_doc.linked_horse,
+				"groom_profile": row.groom_profile,
 				"tournament": row.tournament,
-				"description": row.description or row.item_name or row.horse_name,
+				"reference_doctype": row.reference_doctype,
+				"reference_name": row.reference_name,
+				"description": row.description or row.item_name or row.horse_name or row.groom_name,
 				"quantity": flt(row.quantity) or 1,
 				"unit": clean_unit(row.unit),
 				"rate": flt(row.rate),
@@ -124,17 +131,17 @@ def create_transaction_input_from_receipt(receipt_doc):
 	return transaction
 
 
-def create_posted_payment_from_receipt(receipt_doc):
+def submit_transaction_from_receipt(receipt_doc):
 	transaction = create_transaction_input_from_receipt(receipt_doc)
-	payment = transaction.create_payment_record()
+	if transaction.docstatus == 0:
+		transaction.submit()
 	receipt_doc.db_set(
 		{
 			"transaction_input": transaction.name,
-			"payment_record": payment.name,
 			"status": "Applied",
 		}
 	)
-	return transaction, payment
+	return transaction
 
 
 def resolve_file_from_attachment(file_url):
@@ -199,12 +206,20 @@ def get_category_for_cost(cost_category):
 	category_type_by_cost = {
 		"Feed": "Food",
 		"Equipment": "Equipment",
+		"Supplies": "Stable Supply",
+		"Supplements": "Supplement",
 		"Medical": "Medical",
+		"Farrier": "Service",
+		"Groom Salary": "Service",
+		"Overtime Pay": "Service",
+		"Benefits": "Service",
 		"Grooming": "Grooming",
 	}
 	preferred_names = {
 		"Feed": "Food",
 		"Equipment": "Horse Equipment",
+		"Supplies": "Stable Supplies",
+		"Supplements": "Supplements",
 		"Medical": "Medical",
 	}
 	if preferred_names.get(cost_category) and frappe.db.exists("Item Category", preferred_names[cost_category]):
@@ -223,6 +238,12 @@ def find_horse(horse_name):
 	if not horse_name:
 		return None
 	return find_by_title("Horse", "name1", horse_name) or find_by_title("Horse", "name", horse_name)
+
+
+def find_groom(groom_name):
+	if not groom_name:
+		return None
+	return find_by_title("Groom Profile", "groom_name", groom_name)
 
 
 def find_currency(currency):
@@ -258,7 +279,7 @@ def clean_date(value):
 
 
 def clean_line_type(value):
-	return value if value in {"Item", "Horse", "Tournament", "Service", "Other"} else "Other"
+	return value if value in {"Item", "Horse", "Groom", "Tournament", "Service", "Other"} else "Other"
 
 
 def clean_unit(value):

@@ -12,9 +12,7 @@ frappe.ui.form.on("Receipt Import", {
 		if (!frm.doc.transaction_input) {
 			frm.add_custom_button(__("Process Receipt"), () => {
 				run_receipt_method(frm, "process_receipt", (result) => {
-					if (result.payment_record) {
-						frappe.set_route("Form", "Payment Record", result.payment_record);
-					} else if (result.transaction_input) {
+					if (result.transaction_input) {
 						frappe.set_route("Form", "Transaction Input", result.transaction_input);
 					}
 				});
@@ -49,16 +47,46 @@ frappe.ui.form.on("Receipt Import", {
 			}, __("Receipt"));
 		}
 
-		if (frm.doc.payment_record) {
-			frm.add_custom_button(__("Open Payment Record"), () => {
-				frappe.set_route("Form", "Payment Record", frm.doc.payment_record);
-			}, __("Receipt"));
+		if (frm.doc.transaction_input) {
+			frm.add_custom_button(__("Mark Reviewed"), () => mark_receipt_reviewed(frm), __("Review"));
+			frm.add_custom_button(__("Submit Transaction"), () => {
+				run_receipt_method(frm, "submit_transaction_from_receipt", (result) => {
+					if (result.transaction_input) {
+						frappe.set_route("Form", "Transaction Input", result.transaction_input);
+					}
+				});
+			}, __("Review")).addClass("btn-primary");
 		}
 	},
 });
 
 function has_receipt_files(frm) {
 	return frm.doc.receipt_file || frm.doc.receipt_attachment || (frm.doc.receipt_files || []).length;
+}
+
+function mark_receipt_reviewed(frm) {
+	frappe.prompt(
+		[
+			{
+				fieldname: "review_notes",
+				fieldtype: "Long Text",
+				label: __("Review Notes"),
+				default: frm.doc.review_notes,
+			},
+		],
+		(values) => {
+			frappe.call({
+				method: "polomanagement.polomanagement.doctype.receipt_import.receipt_import.mark_reviewed",
+				args: {
+					receipt_import: frm.doc.name,
+					review_notes: values.review_notes,
+				},
+				callback: () => frm.reload_doc(),
+			});
+		},
+		__("Mark Receipt Reviewed"),
+		__("Save")
+	);
 }
 
 function hide_owner_receipt_fields(frm) {

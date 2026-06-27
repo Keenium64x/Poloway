@@ -44,8 +44,8 @@ Rules:
 - If the receipt is a normal supplier receipt, transaction_type is Purchase.
 - Choose the closest transaction_category from the schema.
 - Split meaningful line items when possible.
-- Use Item lines for physical goods, Horse lines for horse purchases/sales, Tournament lines for entry fees/events,
-  Service lines for labor/services, and Other when uncertain.
+- Use Item lines for physical goods, Horse lines for horse purchases/sales, Groom lines for groom salary/overtime/benefits,
+  Tournament lines for entry fees/events, Service lines for labor/services, and Other when uncertain.
 - Set affects_inventory true only for physical Item purchases/sales that should change stock.
 - If you are uncertain, keep the value conservative and explain in notes.
 

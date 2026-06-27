@@ -101,14 +101,16 @@
    "fieldname": "valuation_rate",
    "fieldtype": "Currency",
    "in_list_view": 1,
-   "label": "Cost / Value Each"
+   "label": "Cost / Value Each",
+   "permlevel": 1
   },
   {
    "fieldname": "total_value",
    "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "Total Value",
-   "read_only": 1
+   "read_only": 1,
+   "permlevel": 1
   },
   {
    "fieldname": "assignment_section",
@@ -159,58 +161,93 @@
  "owner": "Administrator",
  "permissions": [
   {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
    "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
+   "read": 1,
+   "write": 1,
    "create": 1,
    "delete": 1,
-   "email": 1,
+   "report": 1,
    "export": 1,
    "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "System Manager",
+   "permlevel": 1,
    "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
    "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
    "role": "Stable Manager",
-   "share": 1,
-   "write": 1
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
   },
   {
-   "print": 1,
+   "role": "Stable Manager",
+   "permlevel": 1,
    "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
    "report": 1,
-   "role": "Horse Groom"
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
   },
   {
-   "print": 1,
+   "role": "Horse Groom",
    "read": 1,
    "report": 1,
-   "role": "Trainer"
+   "print": 1
   },
   {
-   "print": 1,
+   "role": "Trainer",
    "read": 1,
    "report": 1,
-   "role": "Veterinarian"
+   "print": 1
   },
   {
-   "print": 1,
+   "role": "Veterinarian",
    "read": 1,
    "report": 1,
-   "role": "Farrier"
+   "print": 1
   },
   {
-   "print": 1,
+   "role": "Farrier",
    "read": 1,
    "report": 1,
-   "role": "Horse Owner"
+   "print": 1
+  },
+  {
+   "role": "Horse Owner",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Horse Owner",
+   "permlevel": 1,
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
   }
  ],
  "row_format": "Dynamic",

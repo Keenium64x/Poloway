@@ -1,0 +1,33 @@
+{
+ "actions": [],
+ "creation": "2026-06-27 12:30:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "settings_section",
+  "enabled",
+  "rules_section",
+  "rules"
+ ],
+ "fields": [
+  {"fieldname": "settings_section", "fieldtype": "Section Break", "label": "Settings"},
+  {"default": "1", "fieldname": "enabled", "fieldtype": "Check", "label": "Enable Autopayments"},
+  {"fieldname": "rules_section", "fieldtype": "Section Break", "label": "Rules"},
+  {"fieldname": "rules", "fieldtype": "Table", "label": "Autopayment Rules", "options": "Autopayment Rule"}
+ ],
+ "grid_page_length": 50,
+ "hide_toolbar": 0,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-06-27 12:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Polomanagement",
+ "name": "Autopayments",
+ "owner": "Administrator",
+ "permissions": [
+  {"email": 1, "print": 1, "read": 1, "role": "System Manager", "write": 1},
+  {"email": 1, "print": 1, "read": 1, "role": "Stable Manager", "write": 1},
+  {"email": 1, "print": 1, "read": 1, "role": "Horse Owner", "write": 1}
+ ],
+ "states": []
+}

@@ -14,6 +14,10 @@
   "duration",
   "intensity",
   "outcome",
+  "performance_section",
+  "speed_rating",
+  "responsiveness_rating",
+  "mouth_sensitivity",
   "notes"
  ],
  "fields": [
@@ -74,6 +78,29 @@
    "options": "\nCompleted\nPartial\nSkipped\nNeeds Follow Up"
   },
   {
+   "fieldname": "performance_section",
+   "fieldtype": "Section Break",
+   "label": "Performance Notes"
+  },
+  {
+   "fieldname": "speed_rating",
+   "fieldtype": "Select",
+   "label": "Speed",
+   "options": "\nSlow\nGood\nFast\nToo Fast"
+  },
+  {
+   "fieldname": "responsiveness_rating",
+   "fieldtype": "Select",
+   "label": "Responsiveness",
+   "options": "\nDull\nGood\nSharp\nToo Sharp"
+  },
+  {
+   "fieldname": "mouth_sensitivity",
+   "fieldtype": "Select",
+   "label": "Mouth Sensitivity",
+   "options": "\nSoft\nNormal\nStrong\nSensitive"
+  },
+  {
    "fieldname": "notes",
    "fieldtype": "Small Text",
    "label": "Notes"
@@ -119,31 +146,23 @@
    "write": 1,
    "create": 1,
    "report": 1,
-   "export": 1,
-   "print": 1
+   "print": 1,
+   "email": 1
   },
   {
    "role": "Horse Groom",
    "read": 1,
+   "write": 1,
+   "create": 1,
    "report": 1,
-   "print": 1
-  },
-  {
-   "role": "Veterinarian",
-   "read": 1,
-   "report": 1,
-   "print": 1
-  },
-  {
-   "role": "Farrier",
-   "read": 1,
-   "report": 1,
-   "print": 1
+   "print": 1,
+   "email": 1
   },
   {
    "role": "Horse Owner",
    "read": 1,
    "report": 1,
+   "export": 1,
    "print": 1
   }
  ],

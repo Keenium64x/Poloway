@@ -1,0 +1,36 @@
+{
+ "actions": [],
+ "creation": "2026-06-27 10:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "chukker_number",
+  "horse",
+  "rider",
+  "groom",
+  "tack_configuration",
+  "status",
+  "notes"
+ ],
+ "fields": [
+  {"fieldname": "chukker_number", "fieldtype": "Int", "in_list_view": 1, "label": "Chukker", "reqd": 1},
+  {"fieldname": "horse", "fieldtype": "Link", "in_list_view": 1, "label": "Horse", "options": "Horse", "reqd": 1},
+  {"fieldname": "rider", "fieldtype": "Data", "in_list_view": 1, "label": "Rider"},
+  {"fieldname": "groom", "fieldtype": "Link", "label": "Groom", "options": "Groom Profile"},
+  {"fieldname": "tack_configuration", "fieldtype": "Link", "label": "Tack Configuration", "options": "Horse Tack Configuration"},
+  {"default": "Planned", "fieldname": "status", "fieldtype": "Select", "in_list_view": 1, "label": "Status", "options": "Planned\nTack Up\nWarm Up\nPlaying\nCool Down\nDone"},
+  {"fieldname": "notes", "fieldtype": "Small Text", "label": "Notes"}
+ ],
+ "istable": 1,
+ "modified": "2026-06-27 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Polomanagement",
+ "name": "Chukker Assignment",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "idx",
+ "sort_order": "ASC",
+ "states": []
+}

@@ -3,11 +3,16 @@ from typing import Literal
 from pydantic import BaseModel, Field
 
 
-ReceiptLineType = Literal["Item", "Horse", "Tournament", "Service", "Other"]
+ReceiptLineType = Literal["Item", "Horse", "Groom", "Tournament", "Service", "Other"]
 TransactionType = Literal["Purchase", "Sale", "Expense", "Income"]
 CostCategory = Literal[
 	"Feed",
 	"Equipment",
+	"Supplies",
+	"Supplements",
+	"Groom Salary",
+	"Overtime Pay",
+	"Benefits",
 	"Horse Purchase",
 	"Horse Sale",
 	"Medical",
@@ -25,6 +30,7 @@ class ReceiptLineExtraction(BaseModel):
 	description: str = ""
 	item_name: str | None = None
 	horse_name: str | None = None
+	groom_name: str | None = None
 	tournament: str | None = None
 	quantity: float = 1
 	unit: str | None = None

@@ -20,7 +20,7 @@ frappe.query_reports["Horse Expenses"] = {
 			fieldname: "transaction_category",
 			label: __("Category"),
 			fieldtype: "Select",
-			options: "\nFeed\nEquipment\nHorse Purchase\nHorse Sale\nMedical\nFarrier\nTraining\nTournament\nTransport\nService\nOther",
+			options: "\nFeed\nEquipment\nSupplies\nSupplements\nGroom Salary\nOvertime Pay\nBenefits\nHorse Purchase\nHorse Sale\nMedical\nFarrier\nTraining\nTournament\nTransport\nService\nOther",
 		},
 		{
 			fieldname: "vendor",

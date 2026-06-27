@@ -13,6 +13,9 @@ def execute(filters=None):
 		{"label": "Duration", "fieldname": "duration", "fieldtype": "Duration", "width": 110},
 		{"label": "Intensity", "fieldname": "intensity", "fieldtype": "Data", "width": 110},
 		{"label": "Outcome", "fieldname": "outcome", "fieldtype": "Data", "width": 140},
+		{"label": "Speed", "fieldname": "speed_rating", "fieldtype": "Data", "width": 100},
+		{"label": "Responsiveness", "fieldname": "responsiveness_rating", "fieldtype": "Data", "width": 130},
+		{"label": "Mouth", "fieldname": "mouth_sensitivity", "fieldtype": "Data", "width": 110},
 		{"label": "Notes", "fieldname": "notes", "fieldtype": "Data", "width": 260},
 	]
 	return columns, get_data(filters)
@@ -26,6 +29,6 @@ def get_data(filters):
 	return frappe.get_all(
 		"Horse Training Record",
 		filters=conditions,
-		fields=["name", "training_date", "horse", "training_template", "trainer", "work_type", "duration", "intensity", "outcome", "notes"],
+		fields=["name", "training_date", "horse", "training_template", "trainer", "work_type", "duration", "intensity", "outcome", "speed_rating", "responsiveness_rating", "mouth_sensitivity", "notes"],
 		order_by="training_date desc, creation desc",
 	)

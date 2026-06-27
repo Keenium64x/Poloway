@@ -67,30 +67,28 @@
  "owner": "Administrator",
  "permissions": [
   {
-   "email": 1,
-   "print": 1,
-   "read": 1,
    "role": "System Manager",
-   "write": 1
+   "read": 1,
+   "write": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1
   },
   {
-   "email": 1,
-   "print": 1,
-   "read": 1,
    "role": "Stable Manager",
-   "write": 1
+   "read": 1,
+   "write": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1
   },
   {
-   "email": 1,
-   "print": 1,
-   "read": 1,
    "role": "Horse Owner",
-   "write": 1
-  },
-  {
-   "print": 1,
    "read": 1,
-   "role": "Horse Groom"
+   "write": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1
   }
  ],
  "sort_field": "modified",

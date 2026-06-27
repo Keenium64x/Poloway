@@ -1,0 +1,191 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "HTC-.####",
+ "creation": "2026-06-27 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "details_section",
+  "configuration_name",
+  "horse",
+  "is_active",
+  "setup_section",
+  "saddle",
+  "bit",
+  "bridle",
+  "reins",
+  "martingale",
+  "draw_reins",
+  "boots",
+  "bandages",
+  "prep_section",
+  "prep_instructions",
+  "sensitivity_notes",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "configuration_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Configuration Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "horse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Horse",
+   "options": "Horse",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "setup_section",
+   "fieldtype": "Section Break",
+   "label": "Tack Setup"
+  },
+  {
+   "fieldname": "saddle",
+   "fieldtype": "Link",
+   "label": "Saddle",
+   "options": "Item"
+  },
+  {
+   "fieldname": "bit",
+   "fieldtype": "Link",
+   "label": "Bit",
+   "options": "Item"
+  },
+  {
+   "fieldname": "bridle",
+   "fieldtype": "Data",
+   "label": "Bridle"
+  },
+  {
+   "fieldname": "reins",
+   "fieldtype": "Data",
+   "label": "Reins"
+  },
+  {
+   "fieldname": "martingale",
+   "fieldtype": "Data",
+   "label": "Martingale"
+  },
+  {
+   "fieldname": "draw_reins",
+   "fieldtype": "Data",
+   "label": "Draw Reins"
+  },
+  {
+   "fieldname": "boots",
+   "fieldtype": "Data",
+   "label": "Boots"
+  },
+  {
+   "fieldname": "bandages",
+   "fieldtype": "Data",
+   "label": "Bandages"
+  },
+  {
+   "fieldname": "prep_section",
+   "fieldtype": "Section Break",
+   "label": "Preparation"
+  },
+  {
+   "fieldname": "prep_instructions",
+   "fieldtype": "Long Text",
+   "label": "Prep Instructions"
+  },
+  {
+   "fieldname": "sensitivity_notes",
+   "fieldtype": "Long Text",
+   "label": "Mouth / Sensitivity Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Long Text",
+   "label": "Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-27 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Polomanagement",
+ "name": "Horse Tack Configuration",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Stable Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Trainer",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "Horse Groom",
+   "read": 1,
+   "report": 1,
+   "print": 1
+  },
+  {
+   "role": "Horse Owner",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "configuration_name,horse",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "configuration_name",
+ "track_changes": 1
+}

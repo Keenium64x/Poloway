@@ -76,7 +76,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Category Type",
-   "options": "Food\nEquipment\nMedical\nGrooming\nStable Supply\nService\nOther"
+   "options": "Food\nEquipment\nMedical\nGrooming\nStable Supply\nSupplement\nService\nOther"
   },
   {
    "fieldname": "description",

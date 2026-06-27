@@ -5,7 +5,7 @@ def execute(filters=None):
 	filters = frappe._dict(filters or {})
 	columns = [
 		{"label": "Date", "fieldname": "posting_date", "fieldtype": "Date", "width": 110},
-		{"label": "Payment", "fieldname": "payment_record", "fieldtype": "Link", "options": "Payment Record", "width": 140},
+		{"label": "Transaction", "fieldname": "transaction_input", "fieldtype": "Link", "options": "Transaction Input", "width": 140},
 		{"label": "Item", "fieldname": "item", "fieldtype": "Link", "options": "Item", "width": 150},
 		{"label": "Direction", "fieldname": "direction", "fieldtype": "Data", "width": 100},
 		{"label": "Vendor", "fieldname": "vendor", "fieldtype": "Link", "options": "Vendor", "width": 160},
@@ -20,40 +20,40 @@ def execute(filters=None):
 
 
 def get_data(filters):
-	conditions = ["payment.docstatus = 1", "line.item is not null", "line.item != ''"]
+	conditions = ["tx.docstatus = 1", "line.item is not null", "line.item != ''"]
 	values = {}
 
 	if filters.item:
 		conditions.append("line.item = %(item)s")
 		values["item"] = filters.item
 	if filters.vendor:
-		conditions.append("payment.vendor = %(vendor)s")
+		conditions.append("tx.vendor = %(vendor)s")
 		values["vendor"] = filters.vendor
 	if filters.from_date:
-		conditions.append("payment.posting_date >= %(from_date)s")
+		conditions.append("tx.transaction_date >= %(from_date)s")
 		values["from_date"] = filters.from_date
 	if filters.to_date:
-		conditions.append("payment.posting_date <= %(to_date)s")
+		conditions.append("tx.transaction_date <= %(to_date)s")
 		values["to_date"] = filters.to_date
 
 	return frappe.db.sql(
 		f"""
 		select
-			payment.posting_date,
-			payment.name as payment_record,
+			tx.transaction_date as posting_date,
+			tx.name as transaction_input,
 			line.item,
-			payment.direction,
-			payment.vendor,
+			tx.direction,
+			tx.vendor,
 			line.quantity,
 			line.unit,
 			line.rate,
 			line.tax_amount,
 			line.total,
-			payment.receipt_file
-		from `tabPayment Record Line` line
-		inner join `tabPayment Record` payment on payment.name = line.parent
+			tx.receipt_file
+		from `tabTransaction Input Line` line
+		inner join `tabTransaction Input` tx on tx.name = line.parent
 		where {" and ".join(conditions)}
-		order by payment.posting_date desc, payment.creation desc, line.idx asc
+		order by tx.transaction_date desc, tx.creation desc, line.idx asc
 		""",
 		values,
 		as_dict=True,

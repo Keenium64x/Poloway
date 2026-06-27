@@ -217,76 +217,90 @@
   {
    "fieldname": "playing_tab",
    "fieldtype": "Tab Break",
-   "label": "Playing"
+   "label": "Playing",
+   "permlevel": 1
   },
   {
    "fieldname": "playing_section",
    "fieldtype": "Section Break",
-   "label": "Playing"
+   "label": "Playing",
+   "permlevel": 1
   },
   {
    "fieldname": "playing_status",
    "fieldtype": "Select",
    "label": "Playing Status",
-   "options": "\nIn Work\nResting\nInjured\nRetired\nTraining"
+   "options": "\nIn Work\nResting\nInjured\nRetired\nTraining",
+   "permlevel": 1
   },
   {
    "fieldname": "primary_position",
    "fieldtype": "Select",
    "label": "Primary Position",
-   "options": "\nAny\n1\n2\n3\n4"
+   "options": "\nAny\n1\n2\n3\n4",
+   "permlevel": 1
   },
   {
    "fieldname": "handicap",
    "fieldtype": "Float",
-   "label": "Handicap"
+   "label": "Handicap",
+   "permlevel": 1
   },
   {
    "fieldname": "playing_notes",
    "fieldtype": "Small Text",
-   "label": "Playing Notes"
+   "label": "Playing Notes",
+   "permlevel": 1
   },
   {
    "fieldname": "availability_tab",
    "fieldtype": "Tab Break",
-   "label": "Availability"
+   "label": "Availability",
+   "permlevel": 1
   },
   {
    "fieldname": "availability_section",
    "fieldtype": "Section Break",
-   "label": "Availability"
+   "label": "Availability",
+   "permlevel": 1
   },
   {
    "fieldname": "availability_status",
    "fieldtype": "Select",
    "label": "Availability Status",
-   "options": "\nAvailable\nUnavailable\nReserved\nSold\nLeased"
+   "options": "\nAvailable\nUnavailable\nReserved\nSold\nLeased",
+   "permlevel": 1
   },
   {
    "fieldname": "available_from",
    "fieldtype": "Date",
-   "label": "Available From"
+   "label": "Available From",
+   "permlevel": 1
   },
   {
    "fieldname": "availability_notes",
    "fieldtype": "Small Text",
-   "label": "Availability Notes"
+   "label": "Availability Notes",
+   "permlevel": 1
   },
   {
    "fieldname": "ownership_tab",
    "fieldtype": "Tab Break",
-   "label": "Ownership"
+   "label": "Ownership",
+   "permlevel": 2
   },
   {
    "fieldname": "ownership_section",
    "fieldtype": "Section Break",
-   "label": "Ownership"
+   "label": "Ownership",
+   "permlevel": 2
   },
   {
    "fieldname": "ownership",
    "fieldtype": "Table",
    "label": "Ownership",
-   "options": "Horse Ownership"
+   "options": "Horse Ownership",
+   "permlevel": 2
   },
   {
    "fieldname": "records_tab",
@@ -301,7 +315,8 @@
   {
    "fieldname": "owner_dashboard",
    "fieldtype": "HTML",
-   "label": "Owner Dashboard"
+   "label": "Owner Dashboard",
+   "permlevel": 2
   },
   {
    "fieldname": "medical_records_report",
@@ -311,12 +326,14 @@
   {
    "fieldname": "feeding_records_report",
    "fieldtype": "Button",
-   "label": "Feeding Records"
+   "label": "Feeding Records",
+   "permlevel": 1
   },
   {
    "fieldname": "training_records_report",
    "fieldtype": "Button",
-   "label": "Training Records"
+   "label": "Training Records",
+   "permlevel": 1
   },
   {
    "fieldname": "passport",
@@ -351,60 +368,144 @@
  "owner": "Administrator",
  "permissions": [
   {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
    "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
+   "read": 1,
+   "write": 1,
    "create": 1,
    "delete": 1,
-   "email": 1,
+   "report": 1,
    "export": 1,
    "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "System Manager",
+   "permlevel": 1,
    "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
    "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "System Manager",
+   "permlevel": 2,
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
    "role": "Stable Manager",
-   "share": 1,
-   "write": 1
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
   },
   {
-   "print": 1,
+   "role": "Stable Manager",
+   "permlevel": 1,
    "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
    "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Stable Manager",
+   "permlevel": 2,
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
    "role": "Horse Groom",
-   "write": 1
+   "read": 1,
+   "write": 1,
+   "report": 1,
+   "print": 1
   },
   {
-   "print": 1,
+   "role": "Horse Groom",
+   "permlevel": 1,
    "read": 1,
    "report": 1,
+   "print": 1
+  },
+  {
    "role": "Trainer",
-   "write": 1
+   "read": 1,
+   "write": 1,
+   "report": 1,
+   "print": 1
   },
   {
-   "print": 1,
+   "role": "Trainer",
+   "permlevel": 1,
    "read": 1,
+   "write": 1,
    "report": 1,
-   "role": "Veterinarian"
+   "print": 1
   },
   {
-   "print": 1,
+   "role": "Veterinarian",
    "read": 1,
    "report": 1,
-   "role": "Farrier"
+   "print": 1
   },
   {
-   "print": 1,
+   "role": "Farrier",
    "read": 1,
    "report": 1,
-   "role": "Horse Owner"
+   "print": 1
+  },
+  {
+   "role": "Horse Owner",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Horse Owner",
+   "permlevel": 1,
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Horse Owner",
+   "permlevel": 2,
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
   }
  ],
  "row_format": "Dynamic",

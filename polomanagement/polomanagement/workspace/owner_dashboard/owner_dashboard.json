@@ -172,18 +172,7 @@
    "link_to": "Financial Overview",
    "link_type": "Report",
    "onboard": 0,
-   "report_ref_doctype": "Payment Record",
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Payment Records",
-   "link_count": 0,
-   "link_to": "Payment Records",
-   "link_type": "Report",
-   "onboard": 0,
-   "report_ref_doctype": "Payment Record",
+   "report_ref_doctype": "Transaction Input",
    "type": "Link"
   },
   {
@@ -215,7 +204,7 @@
    "link_to": "Horse Expenses",
    "link_type": "Report",
    "onboard": 0,
-   "report_ref_doctype": "Payment Record",
+   "report_ref_doctype": "Transaction Input",
    "type": "Link"
   },
   {
@@ -226,7 +215,7 @@
    "link_to": "Item Cost History",
    "link_type": "Report",
    "onboard": 0,
-   "report_ref_doctype": "Payment Record",
+   "report_ref_doctype": "Transaction Input",
    "type": "Link"
   },
   {
@@ -309,6 +298,36 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "type": "Link",
+   "label": "Financial Ledger",
+   "link_type": "Report",
+   "link_to": "Financial Ledger",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Autopayments",
+   "link_type": "DocType",
+   "link_to": "Autopayments",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Money Account",
+   "link_type": "DocType",
+   "link_to": "Money Account",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0
   }
  ],
  "modified": "2026-06-26 21:36:45.442995",
@@ -317,7 +336,7 @@
  "name": "Owner Dashboard",
  "number_cards": [],
  "owner": "Administrator",
- "parent_page": "Polomanagement",
+ "parent_page": "Poloway",
  "public": 1,
  "quick_lists": [],
  "roles": [
@@ -372,14 +391,6 @@
   },
   {
    "doc_view": "",
-   "icon": "circle-dollar-sign",
-   "label": "Payments",
-   "link_to": "Payment Records",
-   "report_ref_doctype": "Payment Record",
-   "type": "Report"
-  },
-  {
-   "doc_view": "",
    "icon": "receipt-text",
    "label": "Upload Receipt",
    "type": "URL",
@@ -397,7 +408,7 @@
    "icon": "chart-column",
    "label": "Financial Overview",
    "link_to": "Financial Overview",
-   "report_ref_doctype": "Payment Record",
+   "report_ref_doctype": "Transaction Input",
    "type": "Report"
   },
   {
@@ -420,7 +431,7 @@
    "icon": "chart-column",
    "label": "Horse Expenses",
    "link_to": "Horse Expenses",
-   "report_ref_doctype": "Payment Record",
+   "report_ref_doctype": "Transaction Input",
    "type": "Report"
   },
   {

@@ -20,6 +20,15 @@ frappe.ui.form.on("Horse", {
 				frappe.new_doc(doctype, { horse: frm.doc.name });
 			}, __("Records"));
 		});
+
+		frm.add_custom_button(__("New Tack Setup"), () => {
+			frappe.new_doc("Horse Tack Configuration", { horse: frm.doc.name });
+		}, __("Polo Operations"));
+
+		frm.add_custom_button(__("Compliance Alerts"), () => {
+			frappe.route_options = { horse: frm.doc.name };
+			frappe.set_route("query-report", "Horse Compliance Alerts");
+		}, __("Polo Operations"));
 	},
 
 	medical_records_report(frm) {
@@ -67,6 +76,7 @@ function get_owner_dashboard_html(frm, data) {
 	const records = data.records || {};
 	const upcoming = data.upcoming || {};
 	const money = data.money || {};
+	const operations = data.operations || {};
 	const money_metrics = money.metrics || {};
 	const esc = frappe.utils.escape_html;
 	const status = summary.availability_status || "Availability not set";
@@ -92,6 +102,7 @@ function get_owner_dashboard_html(frm, data) {
 			<div class="pm-owner-metrics">
 				${metric("Open Tasks", metrics.open_tasks || 0)}
 				${metric("Open Issues", metrics.open_issues || 0, metrics.open_issues ? "danger" : "")}
+				${metric("Compliance Due", metrics.compliance_due || 0, metrics.compliance_due ? "warning" : "")}
 				${metric("Medical 30d", metrics.medical_30d || 0)}
 				${metric("Training 30d", metrics.training_30d || 0)}
 			</div>
@@ -102,6 +113,7 @@ function get_owner_dashboard_html(frm, data) {
 				${panel("Issues", issues.length ? issues.map(issue_item).join("") : empty("No open issue history"), "issues")}
 				${panel("Upcoming", upcoming_items(upcoming), "upcoming")}
 				${panel("Recent Records", recent_records(records), "records")}
+				${panel("Polo Operations", operation_rows(operations), "operations")}
 			</div>
 
 			<div class="pm-owner-section-title">${__("Money")}</div>
@@ -113,7 +125,7 @@ function get_owner_dashboard_html(frm, data) {
 			</div>
 
 			<div class="pm-owner-grid">
-				${panel("Recent Payments", recent_payments(money.payments || []), "payments")}
+				${panel("Recent Transactions", recent_payments(money.payments || []), "payments")}
 				${panel("Quotes", quote_rows(money.quotes || []), "quotes")}
 				${panel("Unposted Transactions", unposted_rows(money.unposted || []), "unposted")}
 			</div>
@@ -122,10 +134,14 @@ function get_owner_dashboard_html(frm, data) {
 				<button class="btn btn-xs btn-default" data-pm-action="tasks">${__("Open Tasks")}</button>
 				<button class="btn btn-xs btn-default" data-pm-action="issues">${__("Open Issues")}</button>
 				<button class="btn btn-xs btn-default" data-pm-action="medical">${__("Medical")}</button>
+				<button class="btn btn-xs btn-default" data-pm-action="compliance">${__("Compliance")}</button>
 				<button class="btn btn-xs btn-default" data-pm-action="training">${__("Training")}</button>
 				<button class="btn btn-xs btn-default" data-pm-action="feeding">${__("Feeding")}</button>
+				<button class="btn btn-xs btn-default" data-pm-action="match-days">${__("Match Days")}</button>
+				<button class="btn btn-xs btn-default" data-pm-action="travel">${__("Travel")}</button>
+				<button class="btn btn-xs btn-default" data-pm-action="tack">${__("Tack")}</button>
 				<button class="btn btn-xs btn-default" data-pm-action="horse-expenses">${__("Horse Expenses")}</button>
-				<button class="btn btn-xs btn-default" data-pm-action="payments">${__("Payments")}</button>
+				<button class="btn btn-xs btn-default" data-pm-action="payments">${__("Transactions")}</button>
 				<button class="btn btn-xs btn-default" data-pm-action="quotes">${__("Quotes")}</button>
 				<button class="btn btn-xs btn-default" data-pm-action="unposted">${__("Unposted")}</button>
 				<button class="btn btn-xs btn-primary" data-pm-action="upload-receipt">${__("Upload Receipt")}</button>
@@ -182,13 +198,23 @@ function recent_records(records) {
 	return rows.join("") || empty("No recent records");
 }
 
+function operation_rows(operations) {
+	const rows = []
+		.concat((operations.compliance || []).map((row) => owner_row("Horse Medical Record", row.name, row.summary || row.record_type, [row.record_type, row.next_due_date])))
+		.concat((operations.matches || []).map((row) => owner_row("Match Day", row.name, row.event_name, [row.match_date, row.venue, row.chukker_number && `Chukker ${row.chukker_number}`, row.status])))
+		.concat((operations.travel || []).map((row) => owner_row("Travel Manifest", row.name, row.trip_name, [row.departure_date, row.destination, row.paperwork_status])))
+		.concat((operations.tack || []).map((row) => owner_row("Horse Tack Configuration", row.name, row.configuration_name, [row.bit, row.martingale])));
+
+	return rows.join("") || empty("No polo operations planned");
+}
+
 function recent_payments(payments) {
 	const rows = (payments || []).map((row) => {
 		const amount = `${row.direction === "Money In" ? "+" : "-"}${format_money(row.total)}`;
 		const title = [row.transaction_category, amount].filter(Boolean).join(" / ");
-		return owner_row("Payment Record", row.name, title, [row.posting_date, row.vendor, row.description]);
+		return owner_row("Transaction Input", row.name, title, [row.posting_date, row.vendor, row.description]);
 	});
-	return rows.join("") || empty("No payment history");
+	return rows.join("") || empty("No transaction history");
 }
 
 function quote_rows(quotes) {
@@ -230,14 +256,26 @@ function bind_owner_dashboard_actions(frm, wrapper) {
 			frappe.set_route("query-report", "Owner Task Issues");
 		} else if (action === "medical") {
 			open_horse_report(frm, "Horse Medical Records");
+		} else if (action === "compliance") {
+			frappe.route_options = { horse: frm.doc.name };
+			frappe.set_route("query-report", "Horse Compliance Alerts");
 		} else if (action === "training") {
 			open_horse_report(frm, "Horse Training Records");
 		} else if (action === "feeding") {
 			open_horse_report(frm, "Horse Feeding Records");
+		} else if (action === "match-days") {
+			frappe.route_options = { horse: frm.doc.name };
+			frappe.set_route("List", "Match Day", "List");
+		} else if (action === "travel") {
+			frappe.route_options = { horse: frm.doc.name };
+			frappe.set_route("List", "Travel Manifest", "List");
+		} else if (action === "tack") {
+			frappe.route_options = { horse: frm.doc.name };
+			frappe.set_route("List", "Horse Tack Configuration", "List");
 		} else if (action === "horse-expenses") {
 			open_horse_report(frm, "Horse Expenses");
 		} else if (action === "payments") {
-			open_horse_report(frm, "Payment Records");
+			open_horse_report(frm, "Financial Ledger");
 		} else if (action === "quotes") {
 			frappe.route_options = { linked_horse: frm.doc.name };
 			frappe.set_route("query-report", "Quote Comparison");

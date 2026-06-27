@@ -13,12 +13,18 @@
  "name": "Financial Overview",
  "owner": "Administrator",
  "prepared_report": 0,
- "ref_doctype": "Payment Record",
+ "ref_doctype": "Transaction Input",
  "report_name": "Financial Overview",
  "report_type": "Script Report",
  "roles": [
-  {"role": "System Manager"},
-  {"role": "Stable Manager"},
-  {"role": "Horse Owner"}
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Stable Manager"
+  },
+  {
+   "role": "Horse Owner"
+  }
  ]
 }

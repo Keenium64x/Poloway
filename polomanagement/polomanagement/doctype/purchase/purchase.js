@@ -41,22 +41,16 @@ frappe.ui.form.on("Purchase", {
 		if (frm.doc.selected_quote && !frm.doc.transaction_input) {
 			frm.add_custom_button(__("Create Transaction"), () => {
 				create_purchase_transaction(frm, 0);
-			}, __("Payment"));
-			frm.add_custom_button(__("Post Payment"), () => {
+			}, __("Money"));
+			frm.add_custom_button(__("Submit Transaction"), () => {
 				create_purchase_transaction(frm, 1);
-			}, __("Payment"));
+			}, __("Money"));
 		}
 
 		if (frm.doc.transaction_input) {
 			frm.add_custom_button(__("Open Transaction"), () => {
 				frappe.set_route("Form", "Transaction Input", frm.doc.transaction_input);
-			}, __("Payment"));
-		}
-
-		if (frm.doc.payment_record) {
-			frm.add_custom_button(__("Open Payment"), () => {
-				frappe.set_route("Form", "Payment Record", frm.doc.payment_record);
-			}, __("Payment"));
+			}, __("Money"));
 		}
 	},
 });
@@ -76,20 +70,18 @@ function calculate_purchase_line(frm, cdt, cdn) {
 	frm.set_value("estimated_total", total);
 }
 
-function create_purchase_transaction(frm, post_payment) {
+function create_purchase_transaction(frm, submit_transaction) {
 	frappe.call({
 		method: "polomanagement.polomanagement.doctype.purchase.purchase.create_transaction_from_selected_quote",
 		args: {
 			purchase: frm.doc.name,
-			post_payment,
+			submit_transaction,
 		},
 		freeze: true,
 		freeze_message: __("Creating transaction..."),
 		callback(r) {
 			const result = r.message || {};
-			if (result.payment_record) {
-				frappe.set_route("Form", "Payment Record", result.payment_record);
-			} else if (result.transaction_input) {
+			if (result.transaction_input) {
 				frappe.set_route("Form", "Transaction Input", result.transaction_input);
 			}
 		},

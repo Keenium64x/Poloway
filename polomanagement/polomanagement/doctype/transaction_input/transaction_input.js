@@ -4,8 +4,8 @@ frappe.ui.form.on("Transaction Input", {
 			return;
 		}
 
-		if (frm.doc.selected_quote && frm.doc.status !== "Posted") {
-			frm.add_custom_button(__("Pull Quote Lines"), () => {
+		if (frm.doc.selected_quote && frm.doc.docstatus === 0) {
+			frm.add_custom_button(__("Pull Quote Details"), () => {
 				frappe.call({
 					method: "polomanagement.polomanagement.doctype.transaction_input.transaction_input.pull_quote_lines",
 					args: { transaction_input: frm.doc.name },
@@ -14,25 +14,21 @@ frappe.ui.form.on("Transaction Input", {
 			});
 		}
 
-		if (frm.doc.payment_record) {
-			frm.add_custom_button(__("Open Payment Record"), () => {
-				frappe.set_route("Form", "Payment Record", frm.doc.payment_record);
-			});
-			return;
-		}
-
-		if (frm.doc.status !== "Cancelled") {
-			frm.add_custom_button(__("Create Payment Record"), () => {
+		if (frm.doc.docstatus === 0) {
+			frm.add_custom_button(__("Submit Transaction"), () => {
 				frappe.call({
-					method: "polomanagement.polomanagement.doctype.transaction_input.transaction_input.create_payment_record",
+					method: "polomanagement.polomanagement.doctype.transaction_input.transaction_input.submit_transaction",
 					args: { transaction_input: frm.doc.name },
-					callback: (r) => {
-						if (r.message) {
-							frappe.set_route("Form", "Payment Record", r.message);
-						}
-					},
+					callback: () => frm.reload_doc(),
 				});
 			}).addClass("btn-primary");
+		}
+
+		if (frm.doc.docstatus === 1) {
+			frm.add_custom_button(__("Financial Ledger"), () => {
+				frappe.route_options = { transaction_input: frm.doc.name };
+				frappe.set_route("query-report", "Financial Ledger");
+			});
 		}
 	},
 });

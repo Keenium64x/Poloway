@@ -1,0 +1,269 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "PLE-.######",
+ "creation": "2026-06-27 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "posting_section",
+  "posting_date",
+  "transaction_input",
+  "direction",
+  "account",
+  "transaction_type",
+  "transaction_category",
+  "party_section",
+  "party_type",
+  "vendor",
+  "horse_owner",
+  "groom_profile",
+  "detail_section",
+  "line_type",
+  "item",
+  "horse",
+  "tournament",
+  "reference_doctype",
+  "reference_name",
+  "description",
+  "amount_section",
+  "debit",
+  "credit",
+  "currency",
+  "voucher_section",
+  "voucher_type",
+  "voucher_no",
+  "voucher_detail_no",
+  "reversed_against"
+ ],
+ "fields": [
+  {
+   "fieldname": "posting_section",
+   "fieldtype": "Section Break",
+   "label": "Posting"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "transaction_input",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Transaction",
+   "options": "Transaction Input",
+   "reqd": 1
+  },
+  {
+   "fieldname": "direction",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Direction",
+   "options": "Money In\nMoney Out\nReversal"
+  },
+  {
+   "fieldname": "account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Account",
+   "options": "Money Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "transaction_type",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Transaction Type",
+   "options": "Purchase\nSale\nExpense\nIncome"
+  },
+  {
+   "fieldname": "transaction_category",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Category"
+  },
+  {
+   "fieldname": "party_section",
+   "fieldtype": "Section Break",
+   "label": "Party"
+  },
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Party Type"
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Vendor",
+   "options": "Vendor"
+  },
+  {
+   "fieldname": "horse_owner",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Owner",
+   "options": "Horse Owner"
+  },
+  {
+   "fieldname": "groom_profile",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Groom",
+   "options": "Groom Profile"
+  },
+  {
+   "fieldname": "detail_section",
+   "fieldtype": "Section Break",
+   "label": "Detail"
+  },
+  {
+   "fieldname": "line_type",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Detail Type"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "horse",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Horse",
+   "options": "Horse"
+  },
+  {
+   "fieldname": "tournament",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Tournament / Event"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Reference Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Reference",
+   "options": "reference_doctype"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "amount_section",
+   "fieldtype": "Section Break",
+   "label": "Amount"
+  },
+  {
+   "default": "0",
+   "fieldname": "debit",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Debit"
+  },
+  {
+   "default": "0",
+   "fieldname": "credit",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Credit"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "voucher_section",
+   "fieldtype": "Section Break",
+   "label": "Voucher"
+  },
+  {
+   "fieldname": "voucher_type",
+   "fieldtype": "Link",
+   "label": "Voucher Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "voucher_no",
+   "fieldtype": "Dynamic Link",
+   "label": "Voucher",
+   "options": "voucher_type"
+  },
+  {
+   "fieldname": "voucher_detail_no",
+   "fieldtype": "Data",
+   "label": "Voucher Detail"
+  },
+  {
+   "fieldname": "reversed_against",
+   "fieldtype": "Link",
+   "label": "Reversed Against",
+   "options": "Payment Ledger Entry"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-27 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Polomanagement",
+ "name": "Payment Ledger Entry",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager"
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stable Manager"
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Horse Owner"
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "transaction_input,account,vendor,horse_owner,groom_profile,horse,item,transaction_category",
+ "sort_field": "posting_date",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "transaction_input",
+ "track_changes": 1
+}

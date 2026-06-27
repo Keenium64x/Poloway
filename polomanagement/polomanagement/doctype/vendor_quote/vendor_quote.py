@@ -42,7 +42,10 @@ def create_transaction_input(quote):
 			"line_type": line.line_type,
 			"item": line.item,
 			"horse": line.horse,
+			"groom_profile": line.groom_profile,
 			"tournament": line.tournament,
+			"reference_doctype": line.reference_doctype,
+			"reference_name": line.reference_name,
 			"description": line.description,
 			"quantity": line.quantity,
 			"unit": line.unit,
@@ -103,6 +106,8 @@ def infer_category(quote):
 	for line in quote.lines:
 		if line.line_type == "Horse":
 			return "Horse Purchase"
+		if line.line_type == "Groom":
+			return "Groom Salary"
 		if line.line_type == "Tournament":
 			return "Tournament"
 		if line.line_type == "Item":

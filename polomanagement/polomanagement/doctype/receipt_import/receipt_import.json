@@ -12,9 +12,10 @@
   "receipt_file",
   "receipt_files",
   "status",
+  "review_status",
+  "post_payment_immediately",
   "linked_horse",
   "transaction_input",
-  "payment_record",
   "extraction_section",
   "ocr_text",
   "extracted_json",
@@ -29,38 +30,240 @@
   "payment_method",
   "total_amount",
   "ai_confidence",
+  "review_section",
+  "reviewed_by",
+  "reviewed_on",
+  "review_notes",
   "lines_section",
   "lines",
   "notes_section",
   "notes"
  ],
  "fields": [
-  {"fieldname": "receipt_section", "fieldtype": "Section Break", "label": "Receipt"},
-  {"fieldname": "receipt_attachment", "fieldtype": "Attach", "label": "Receipt Image", "permlevel": 1},
-  {"fieldname": "receipt_file", "fieldtype": "Link", "label": "Receipt File", "options": "File", "permlevel": 1, "read_only": 1},
-  {"fieldname": "receipt_files", "fieldtype": "Table", "label": "Receipt Files", "options": "Receipt Import File", "permlevel": 1},
-  {"default": "Uploaded", "fieldname": "status", "fieldtype": "Select", "in_list_view": 1, "in_standard_filter": 1, "label": "Status", "options": "Uploaded\nOCR Complete\nReady\nApplied\nFailed", "reqd": 1},
-  {"fieldname": "linked_horse", "fieldtype": "Link", "in_list_view": 1, "in_standard_filter": 1, "label": "Horse Context", "options": "Horse"},
-  {"fieldname": "transaction_input", "fieldtype": "Link", "in_list_view": 1, "label": "Transaction Input", "options": "Transaction Input", "read_only": 1},
-  {"fieldname": "payment_record", "fieldtype": "Link", "in_list_view": 1, "label": "Payment Record", "options": "Payment Record", "read_only": 1},
-  {"fieldname": "extraction_section", "fieldtype": "Section Break", "label": "Extraction", "permlevel": 1},
-  {"fieldname": "ocr_text", "fieldtype": "Long Text", "label": "OCR Text", "permlevel": 1, "read_only": 1},
-  {"fieldname": "extracted_json", "fieldtype": "Code", "label": "AI Extracted JSON", "options": "JSON", "permlevel": 1, "read_only": 1},
-  {"fieldname": "error_log", "fieldtype": "Long Text", "label": "Last Error", "permlevel": 1, "read_only": 1},
-  {"fieldname": "parsed_details_section", "fieldtype": "Section Break", "label": "Parsed Details", "permlevel": 1},
-  {"fieldname": "vendor_name", "fieldtype": "Data", "in_global_search": 1, "label": "Extracted Vendor Name", "permlevel": 1},
-  {"fieldname": "vendor", "fieldtype": "Link", "in_list_view": 1, "in_standard_filter": 1, "label": "Matched Vendor", "options": "Vendor", "permlevel": 1},
-  {"fieldname": "transaction_date", "fieldtype": "Date", "in_list_view": 1, "label": "Transaction Date", "permlevel": 1},
-  {"default": "Purchase", "fieldname": "transaction_type", "fieldtype": "Select", "in_standard_filter": 1, "label": "Transaction Type", "options": "Purchase\nSale\nExpense\nIncome", "permlevel": 1},
-  {"default": "Other", "fieldname": "transaction_category", "fieldtype": "Select", "in_list_view": 1, "in_standard_filter": 1, "label": "Transaction Category", "options": "Feed\nEquipment\nHorse Purchase\nHorse Sale\nMedical\nFarrier\nTraining\nTournament\nTransport\nService\nOther", "permlevel": 1},
-  {"fieldname": "currency", "fieldtype": "Link", "label": "Currency", "options": "Currency", "permlevel": 1},
-  {"fieldname": "payment_method", "fieldtype": "Select", "label": "Payment Method", "options": "\nCash\nCard\nBank Transfer\nEFT\nCheque\nOther", "permlevel": 1},
-  {"default": "0", "fieldname": "total_amount", "fieldtype": "Currency", "in_list_view": 1, "label": "Total Amount", "permlevel": 1},
-  {"fieldname": "ai_confidence", "fieldtype": "Percent", "label": "AI Confidence", "permlevel": 1},
-  {"fieldname": "lines_section", "fieldtype": "Section Break", "label": "Lines", "permlevel": 1},
-  {"fieldname": "lines", "fieldtype": "Table", "label": "Extracted Lines", "options": "Receipt Import Line", "permlevel": 1},
-  {"fieldname": "notes_section", "fieldtype": "Section Break", "label": "Notes", "permlevel": 1},
-  {"fieldname": "notes", "fieldtype": "Long Text", "label": "Notes", "permlevel": 1}
+  {
+   "fieldname": "receipt_section",
+   "fieldtype": "Section Break",
+   "label": "Receipt"
+  },
+  {
+   "fieldname": "receipt_attachment",
+   "fieldtype": "Attach",
+   "label": "Receipt Image",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "receipt_file",
+   "fieldtype": "Link",
+   "label": "Receipt File",
+   "options": "File",
+   "permlevel": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "receipt_files",
+   "fieldtype": "Table",
+   "label": "Receipt Files",
+   "options": "Receipt Import File",
+   "permlevel": 1
+  },
+  {
+   "default": "Uploaded",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Uploaded\nOCR Complete\nReady\nReview Required\nApplied\nPosted\nFailed",
+   "reqd": 1
+  },
+  {
+   "default": "Pending",
+   "fieldname": "review_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Review Status",
+   "options": "Pending\nReviewed\nPosted\nRejected"
+  },
+  {
+   "default": "0",
+   "fieldname": "post_payment_immediately",
+   "fieldtype": "Check",
+   "label": "Submit Transaction Immediately",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "linked_horse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Horse Context",
+   "options": "Horse"
+  },
+  {
+   "fieldname": "transaction_input",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Transaction Input",
+   "options": "Transaction Input",
+   "read_only": 1
+  },
+  {
+   "fieldname": "extraction_section",
+   "fieldtype": "Section Break",
+   "label": "Extraction",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "ocr_text",
+   "fieldtype": "Long Text",
+   "label": "OCR Text",
+   "permlevel": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "extracted_json",
+   "fieldtype": "Code",
+   "label": "AI Extracted JSON",
+   "options": "JSON",
+   "permlevel": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "error_log",
+   "fieldtype": "Long Text",
+   "label": "Last Error",
+   "permlevel": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "parsed_details_section",
+   "fieldtype": "Section Break",
+   "label": "Parsed Details",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "vendor_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Extracted Vendor Name",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Matched Vendor",
+   "options": "Vendor",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "transaction_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Transaction Date",
+   "permlevel": 1
+  },
+  {
+   "default": "Purchase",
+   "fieldname": "transaction_type",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Transaction Type",
+   "options": "Purchase\nSale\nExpense\nIncome",
+   "permlevel": 1
+  },
+  {
+   "default": "Other",
+   "fieldname": "transaction_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Transaction Category",
+   "options": "Feed\nEquipment\nSupplies\nSupplements\nGroom Salary\nOvertime Pay\nBenefits\nHorse Purchase\nHorse Sale\nMedical\nFarrier\nTraining\nTournament\nTransport\nService\nOther",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "payment_method",
+   "fieldtype": "Select",
+   "label": "Payment Method",
+   "options": "\nCash\nCard\nBank Transfer\nEFT\nCheque\nOther",
+   "permlevel": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Amount",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "ai_confidence",
+   "fieldtype": "Percent",
+   "label": "AI Confidence",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "review_section",
+   "fieldtype": "Section Break",
+   "label": "Review",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "reviewed_by",
+   "fieldtype": "Link",
+   "label": "Reviewed By",
+   "options": "User",
+   "permlevel": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "reviewed_on",
+   "fieldtype": "Datetime",
+   "label": "Reviewed On",
+   "permlevel": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "review_notes",
+   "fieldtype": "Long Text",
+   "label": "Review Notes",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "lines_section",
+   "fieldtype": "Section Break",
+   "label": "Lines",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "lines",
+   "fieldtype": "Table",
+   "label": "Extracted Lines",
+   "options": "Receipt Import Line",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Long Text",
+   "label": "Notes",
+   "permlevel": 1
+  }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
@@ -72,12 +275,45 @@
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
-  {"create": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "System Manager", "share": 1, "write": 1},
-  {"create": 1, "delete": 1, "email": 1, "export": 1, "permlevel": 1, "print": 1, "read": 1, "report": 1, "role": "System Manager", "share": 1, "write": 1},
-  {"create": 1, "email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "Horse Owner", "share": 1, "write": 1}
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Horse Owner",
+   "share": 1,
+   "write": 1
+  }
  ],
  "row_format": "Dynamic",
- "search_fields": "vendor_name,vendor,linked_horse,status,transaction_input,payment_record",
+ "search_fields": "vendor_name,vendor,linked_horse,status,transaction_input",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

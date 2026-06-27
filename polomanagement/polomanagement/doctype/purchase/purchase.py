@@ -9,7 +9,7 @@ class Purchase(Document):
 		if not self.purchase_date:
 			self.purchase_date = getdate()
 		self.calculate_totals()
-		if self.payment_record:
+		if self.transaction_input and frappe.db.get_value("Transaction Input", self.transaction_input, "docstatus") == 1:
 			self.status = "Posted"
 		elif self.selected_quote:
 			self.status = "Selected"
@@ -55,7 +55,10 @@ def create_vendor_quote(purchase, vendor):
 				"line_type": line.line_type,
 				"item": line.item,
 				"horse": line.horse,
+				"groom_profile": line.groom_profile,
 				"tournament": line.tournament,
+				"reference_doctype": line.reference_doctype,
+				"reference_name": line.reference_name,
 				"description": line.description,
 				"quantity": line.quantity,
 				"unit": line.unit,
@@ -73,7 +76,7 @@ def create_vendor_quote(purchase, vendor):
 
 
 @frappe.whitelist()
-def create_transaction_from_selected_quote(purchase, post_payment=0):
+def create_transaction_from_selected_quote(purchase, submit_transaction=0, post_payment=0):
 	doc = frappe.get_doc("Purchase", purchase)
 	doc.check_permission("write")
 	if not doc.selected_quote:
@@ -85,15 +88,10 @@ def create_transaction_from_selected_quote(purchase, post_payment=0):
 	transaction = frappe.get_doc("Transaction Input", transaction_name)
 	doc.db_set("transaction_input", transaction.name)
 
-	if post_payment:
-		payment = transaction.create_payment_record()
-		doc.db_set(
-			{
-				"payment_record": payment.name,
-				"status": "Posted",
-			}
-		)
-		return {"transaction_input": transaction.name, "payment_record": payment.name}
+	if submit_transaction or post_payment:
+		transaction.submit()
+		doc.db_set("status", "Posted")
+		return {"transaction_input": transaction.name}
 
 	doc.db_set("status", "Selected")
 	return {"transaction_input": transaction.name}

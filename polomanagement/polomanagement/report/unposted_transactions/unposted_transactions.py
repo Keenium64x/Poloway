@@ -9,7 +9,11 @@ def execute(filters=None):
 		{"label": "Type", "fieldname": "transaction_type", "fieldtype": "Data", "width": 100},
 		{"label": "Category", "fieldname": "transaction_category", "fieldtype": "Data", "width": 140},
 		{"label": "Status", "fieldname": "status", "fieldtype": "Data", "width": 100},
+		{"label": "Party Type", "fieldname": "party_type", "fieldtype": "Data", "width": 110},
+		{"label": "Party", "fieldname": "party_display", "fieldtype": "Data", "width": 180},
 		{"label": "Vendor", "fieldname": "vendor", "fieldtype": "Link", "options": "Vendor", "width": 160},
+		{"label": "Owner", "fieldname": "horse_owner", "fieldtype": "Link", "options": "Horse Owner", "width": 160},
+		{"label": "Groom", "fieldname": "groom_profile", "fieldtype": "Link", "options": "Groom Profile", "width": 160},
 		{"label": "Quote", "fieldname": "selected_quote", "fieldtype": "Link", "options": "Vendor Quote", "width": 140},
 		{"label": "Amount", "fieldname": "total_amount", "fieldtype": "Currency", "width": 120},
 		{"label": "Receipt", "fieldname": "receipt_file", "fieldtype": "Link", "options": "File", "width": 140},
@@ -18,13 +22,17 @@ def execute(filters=None):
 
 
 def get_data(filters):
-	conditions = {"payment_record": ["is", "not set"]}
+	conditions = {"docstatus": 0}
 	if filters.status:
 		conditions["status"] = filters.status
 	else:
 		conditions["status"] = ["!=", "Posted"]
 	if filters.vendor:
 		conditions["vendor"] = filters.vendor
+	if filters.horse_owner:
+		conditions["horse_owner"] = filters.horse_owner
+	if filters.groom_profile:
+		conditions["groom_profile"] = filters.groom_profile
 
 	rows = frappe.get_all(
 		"Transaction Input",
@@ -35,7 +43,10 @@ def get_data(filters):
 			"transaction_type",
 			"transaction_category",
 			"status",
+			"party_type",
 			"vendor",
+			"horse_owner",
+			"groom_profile",
 			"selected_quote",
 			"total_amount",
 			"receipt_file",
@@ -54,4 +65,11 @@ def get_data(filters):
 		))
 		rows = [row for row in rows if row.name in matching]
 
+	for row in rows:
+		row.party_display = get_party_display(row)
+
 	return rows
+
+
+def get_party_display(row):
+	return row.vendor or row.horse_owner or row.groom_profile or row.party_type

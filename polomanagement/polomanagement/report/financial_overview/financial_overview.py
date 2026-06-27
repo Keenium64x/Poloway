@@ -18,26 +18,32 @@ def get_columns():
 		{"label": "Money In", "fieldname": "money_in", "fieldtype": "Currency", "width": 130},
 		{"label": "Net", "fieldname": "net", "fieldtype": "Currency", "width": 130},
 		{"label": "Records", "fieldname": "records", "fieldtype": "Int", "width": 90},
-		{"label": "Last Payment", "fieldname": "last_payment", "fieldtype": "Link", "options": "Payment Record", "width": 140},
+		{"label": "Last Transaction", "fieldname": "last_transaction", "fieldtype": "Link", "options": "Transaction Input", "width": 140},
 		{"label": "Last Date", "fieldname": "last_date", "fieldtype": "Date", "width": 110},
 	]
 
 
 def get_data(filters):
-	conditions = ["payment.docstatus = 1"]
+	conditions = ["tx.docstatus = 1"]
 	values = {}
 
 	if filters.from_date:
-		conditions.append("payment.posting_date >= %(from_date)s")
+		conditions.append("tx.transaction_date >= %(from_date)s")
 		values["from_date"] = filters.from_date
 	if filters.to_date:
-		conditions.append("payment.posting_date <= %(to_date)s")
+		conditions.append("tx.transaction_date <= %(to_date)s")
 		values["to_date"] = filters.to_date
 	if filters.vendor:
-		conditions.append("payment.vendor = %(vendor)s")
+		conditions.append("tx.vendor = %(vendor)s")
 		values["vendor"] = filters.vendor
+	if filters.horse_owner:
+		conditions.append("tx.horse_owner = %(horse_owner)s")
+		values["horse_owner"] = filters.horse_owner
+	if filters.groom_profile:
+		conditions.append("(tx.groom_profile = %(groom_profile)s or line.groom_profile = %(groom_profile)s)")
+		values["groom_profile"] = filters.groom_profile
 	if filters.transaction_category:
-		conditions.append("coalesce(line.cost_category, payment.transaction_category, 'Other') = %(category)s")
+		conditions.append("coalesce(line.cost_category, tx.transaction_category, 'Other') = %(category)s")
 		values["category"] = filters.transaction_category
 	if filters.horse:
 		conditions.append("line.horse = %(horse)s")
@@ -46,15 +52,15 @@ def get_data(filters):
 	rows = frappe.db.sql(
 		f"""
 		select
-			coalesce(line.cost_category, payment.transaction_category, 'Other') as transaction_category,
-			sum(case when payment.direction = 'Money Out' then line.total else 0 end) as money_out,
-			sum(case when payment.direction = 'Money In' then line.total else 0 end) as money_in,
-			count(distinct payment.name) as records,
-			max(payment.posting_date) as last_date
-		from `tabPayment Record Line` line
-		inner join `tabPayment Record` payment on payment.name = line.parent
+			coalesce(line.cost_category, tx.transaction_category, 'Other') as transaction_category,
+			sum(case when tx.direction = 'Money Out' then line.total else 0 end) as money_out,
+			sum(case when tx.direction = 'Money In' then line.total else 0 end) as money_in,
+			count(distinct tx.name) as records,
+			max(tx.transaction_date) as last_date
+		from `tabTransaction Input Line` line
+		inner join `tabTransaction Input` tx on tx.name = line.parent
 		where {" and ".join(conditions)}
-		group by coalesce(line.cost_category, payment.transaction_category, 'Other')
+		group by coalesce(line.cost_category, tx.transaction_category, 'Other')
 		order by money_out desc, money_in desc
 		""",
 		values,
@@ -65,38 +71,44 @@ def get_data(filters):
 		row.money_out = flt(row.money_out)
 		row.money_in = flt(row.money_in)
 		row.net = row.money_in - row.money_out
-		row.last_payment = get_last_payment(row.transaction_category, filters)
+		row.last_transaction = get_last_transaction(row.transaction_category, filters)
 
 	return rows
 
 
-def get_last_payment(category, filters):
+def get_last_transaction(category, filters):
 	conditions = [
-		"payment.docstatus = 1",
-		"coalesce(line.cost_category, payment.transaction_category, 'Other') = %(category)s",
+		"tx.docstatus = 1",
+		"coalesce(line.cost_category, tx.transaction_category, 'Other') = %(category)s",
 	]
 	values = {"category": category}
 
 	if filters.from_date:
-		conditions.append("payment.posting_date >= %(from_date)s")
+		conditions.append("tx.transaction_date >= %(from_date)s")
 		values["from_date"] = filters.from_date
 	if filters.to_date:
-		conditions.append("payment.posting_date <= %(to_date)s")
+		conditions.append("tx.transaction_date <= %(to_date)s")
 		values["to_date"] = filters.to_date
 	if filters.vendor:
-		conditions.append("payment.vendor = %(vendor)s")
+		conditions.append("tx.vendor = %(vendor)s")
 		values["vendor"] = filters.vendor
+	if filters.horse_owner:
+		conditions.append("tx.horse_owner = %(horse_owner)s")
+		values["horse_owner"] = filters.horse_owner
+	if filters.groom_profile:
+		conditions.append("(tx.groom_profile = %(groom_profile)s or line.groom_profile = %(groom_profile)s)")
+		values["groom_profile"] = filters.groom_profile
 	if filters.horse:
 		conditions.append("line.horse = %(horse)s")
 		values["horse"] = filters.horse
 
 	result = frappe.db.sql(
 		f"""
-		select payment.name
-		from `tabPayment Record Line` line
-		inner join `tabPayment Record` payment on payment.name = line.parent
+		select tx.name
+		from `tabTransaction Input Line` line
+		inner join `tabTransaction Input` tx on tx.name = line.parent
 		where {" and ".join(conditions)}
-		order by payment.posting_date desc, payment.creation desc
+		order by tx.transaction_date desc, tx.creation desc
 		limit 1
 		""",
 		values,

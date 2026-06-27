@@ -1,7 +1,7 @@
 from . import __version__ as app_version
 
 app_name = "polomanagement"
-app_title = "Polomanagement"
+app_title = "Poloway"
 app_publisher = "Keenan Solomon"
 app_description = "A versatile tool used for the management of polo horses and competitions"
 app_email = "admin@keenansolomon.co.za"
@@ -17,9 +17,9 @@ frappe_version = ">=16.0.0 <17.0.0"
 # Each item in the list will be shown as an app in the apps page
 add_to_apps_screen = [
 	{
-		"name": "polomanagement",
-		"title": "Polomanagement",
-		"route": "/app/polomanagement",
+		"name": "poloway",
+		"title": "Poloway",
+		"route": "/app/poloway",
 	}
 ]
 
@@ -27,8 +27,8 @@ add_to_apps_screen = [
 # ------------------
 
 # include js, css files in header of desk.html
-app_include_css = "/assets/polomanagement/css/polomanagement.css?v=20260626-money-flow-1"
-app_include_js = "/assets/polomanagement/js/polomanagement.js?v=20260626-money-flow-1"
+app_include_css = "/assets/polomanagement/css/polomanagement.css?v=20260627-owner-dashboard-1"
+app_include_js = "/assets/polomanagement/js/polomanagement.js?v=20260627-owner-dashboard-1"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/polomanagement/css/polomanagement.css"
@@ -87,7 +87,7 @@ fixtures = [
 # website user home page (by Role)
 role_home_page = {
 	"Horse Groom": "app/task/view/kanban/Whiteboard",
-	"Horse Owner": "app/owner-dashboard",
+	"Horse Owner": "app/poloway",
 }
 
 # Generators
@@ -176,7 +176,8 @@ doc_events = {
 
 scheduler_events = {
 	"daily": [
-		"polomanagement.task_generation.generate_tomorrows_tasks"
+		"polomanagement.task_generation.generate_tomorrows_tasks",
+		"polomanagement.payroll.generate_due_groom_payments",
 	]
 }
 

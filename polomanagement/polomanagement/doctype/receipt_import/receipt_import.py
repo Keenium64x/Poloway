@@ -1,6 +1,7 @@
 import frappe
 from frappe import _
 from frappe.model.document import Document
+from frappe.utils import now
 
 
 class ReceiptImport(Document):
@@ -93,22 +94,60 @@ class ReceiptImport(Document):
 		from polomanagement.receipt_processing.actions import create_transaction_input_from_receipt
 
 		transaction = create_transaction_input_from_receipt(self)
+		self.db_set(
+			{
+				"status": "Review Required",
+				"review_status": "Pending",
+			}
+		)
 		return transaction.name
 
-	def process_receipt(self):
+	def process_receipt(self, post_payment=0):
 		self.check_permission("write")
-		if self.payment_record:
-			return {"transaction_input": self.transaction_input, "payment_record": self.payment_record}
 		if not self.ocr_text:
 			self.run_ocr()
 			self.reload()
 		if not self.lines:
 			self.parse_with_ai()
 			self.reload()
-		from polomanagement.receipt_processing.actions import create_posted_payment_from_receipt
+		if post_payment or self.post_payment_immediately:
+			return self.submit_transaction_from_receipt()
 
-		transaction, payment = create_posted_payment_from_receipt(self)
-		return {"transaction_input": transaction.name, "payment_record": payment.name}
+		transaction_name = self.create_transaction_input()
+		return {"transaction_input": transaction_name}
+
+	def submit_transaction_from_receipt(self):
+		self.check_permission("write")
+		from polomanagement.receipt_processing.actions import submit_transaction_from_receipt
+
+		transaction = submit_transaction_from_receipt(self)
+		self.mark_posted()
+		return {"transaction_input": transaction.name}
+
+	def post_payment_from_receipt(self):
+		return self.submit_transaction_from_receipt()
+
+	def mark_posted(self):
+		self.db_set(
+			{
+				"review_status": "Posted",
+				"reviewed_by": frappe.session.user,
+				"reviewed_on": now(),
+				"status": "Posted",
+			}
+		)
+
+	def mark_reviewed(self, review_notes=None):
+		self.check_permission("write")
+		self.db_set(
+			{
+				"review_status": "Reviewed",
+				"reviewed_by": frappe.session.user,
+				"reviewed_on": now(),
+				"review_notes": review_notes,
+			}
+		)
+		return self.name
 
 
 @frappe.whitelist()
@@ -131,9 +170,28 @@ def create_transaction_input(receipt_import):
 
 
 @frappe.whitelist()
-def process_receipt(receipt_import):
+def process_receipt(receipt_import, post_payment=0):
 	doc = frappe.get_doc("Receipt Import", receipt_import)
-	return doc.process_receipt()
+	return doc.process_receipt(post_payment=post_payment)
+
+
+@frappe.whitelist()
+def submit_transaction_from_receipt(receipt_import):
+	doc = frappe.get_doc("Receipt Import", receipt_import)
+	result = doc.submit_transaction_from_receipt()
+	doc.mark_posted()
+	return result
+
+
+@frappe.whitelist()
+def post_payment_from_receipt(receipt_import):
+	return submit_transaction_from_receipt(receipt_import)
+
+
+@frappe.whitelist()
+def mark_reviewed(receipt_import, review_notes=None):
+	doc = frappe.get_doc("Receipt Import", receipt_import)
+	return doc.mark_reviewed(review_notes=review_notes)
 
 
 @frappe.whitelist()
@@ -149,7 +207,7 @@ def add_receipt_files(receipt_import, receipt_file_urls):
 
 
 @frappe.whitelist()
-def create_receipt_import(receipt_file_url=None, receipt_file_urls=None, linked_horse=None, process=0):
+def create_receipt_import(receipt_file_url=None, receipt_file_urls=None, linked_horse=None, process=0, post_payment=0):
 	ensure_receipt_import_user()
 	file_urls = normalize_file_urls(receipt_file_url, receipt_file_urls)
 	doc = frappe.new_doc("Receipt Import")
@@ -161,7 +219,7 @@ def create_receipt_import(receipt_file_url=None, receipt_file_urls=None, linked_
 	doc.status = "Uploaded"
 	doc.insert(ignore_permissions=True)
 	if process:
-		result = doc.process_receipt()
+		result = doc.process_receipt(post_payment=post_payment)
 		result["receipt_import"] = doc.name
 		return result
 	return doc.name
