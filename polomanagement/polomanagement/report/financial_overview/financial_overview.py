@@ -121,12 +121,13 @@ def get_chart(data):
 		"data": {
 			"labels": [row.transaction_category for row in data],
 			"datasets": [
-				{"name": "Money Out", "values": [row.money_out for row in data]},
 				{"name": "Money In", "values": [row.money_in for row in data]},
+				{"name": "Money Out", "values": [row.money_out for row in data]},
 			],
 		},
 		"type": "bar",
 		"height": 280,
+		"colors": ["#2F9E44", "#C92A2A"],
 	}
 
 

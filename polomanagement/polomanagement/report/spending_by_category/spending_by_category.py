@@ -78,13 +78,21 @@ def get_data(filters):
 
 def get_chart(data, filters):
 	top_rows = data[:10]
+	direction = filters.direction or "Amount"
+	color = "#64748B"
+	if direction == "Money Out":
+		color = "#C92A2A"
+	elif direction == "Money In":
+		color = "#2F9E44"
+
 	return {
 		"data": {
 			"labels": [row.group_name for row in top_rows],
-			"datasets": [{"name": filters.direction or "Amount", "values": [flt(row.amount) for row in top_rows]}],
+			"datasets": [{"name": direction if direction != "Both" else "Amount", "values": [flt(row.amount) for row in top_rows]}],
 		},
-		"type": "donut",
+		"type": "bar",
 		"height": 280,
+		"colors": [color],
 	}
 
 

@@ -1,0 +1,23 @@
+{
+ "action": "Go to Page",
+ "action_label": "Open Task Board",
+ "callback_message": "This board is the groom's day view. Moving a task to completed triggers the completion flow.",
+ "callback_title": "Groom task board",
+ "creation": "2026-06-27 22:27:08.789754",
+ "description": "Open the kanban task board to see how generated tasks appear for the groom.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 19:53:54.478888",
+ "modified_by": "Administrator",
+ "name": "Open the groom task board",
+ "owner": "Administrator",
+ "path": "/app/task/view/kanban/Whiteboard",
+ "show_form_tour": 0,
+ "show_full_form": 0,
+ "title": "Open the groom task board",
+ "validate_action": 1
+}

@@ -1,0 +1,22 @@
+{
+ "action": "Create Entry",
+ "action_label": "Create Horse",
+ "creation": "2026-06-27 22:14:04.063965",
+ "description": "Create a complete horse profile. This starts the Horse Profile Basics form tour and walks through name, registration, location, handling, playing, availability, ownership, and linked records.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "form_tour": "Horse Profile Basics",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 19:53:54.428699",
+ "modified_by": "Administrator",
+ "name": "Create the first horse profile",
+ "owner": "Administrator",
+ "reference_document": "Horse",
+ "show_form_tour": 1,
+ "show_full_form": 1,
+ "title": "Create the first horse profile",
+ "validate_action": 1
+}

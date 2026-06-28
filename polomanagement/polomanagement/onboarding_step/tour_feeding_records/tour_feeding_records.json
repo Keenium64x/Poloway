@@ -1,0 +1,22 @@
+{
+ "action": "Show Form Tour",
+ "action_label": "Start Feeding Tour",
+ "creation": "2026-06-27 22:14:04.068981",
+ "description": "Learn how feeding records link one horse, one food item, quantity, timing, responsible person, and notes.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "form_tour": "Horse Feeding Record Basics",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 19:53:54.436097",
+ "modified_by": "Administrator",
+ "name": "Tour feeding records",
+ "owner": "Administrator",
+ "reference_document": "Horse Feeding Record",
+ "show_form_tour": 0,
+ "show_full_form": 0,
+ "title": "Tour feeding records",
+ "validate_action": 1
+}

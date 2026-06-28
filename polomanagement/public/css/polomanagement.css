@@ -105,6 +105,154 @@ body[data-route*="task/view/kanban"] .kanban .new-card-area {
 	display: none !important;
 }
 
+.pm-block {
+	font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+	color: var(--text-color, #1f272e) !important;
+	background: var(--card-bg, #ffffff) !important;
+	border: 1px solid var(--border-color, #d1d8dd) !important;
+	border-radius: 8px !important;
+	box-shadow: none !important;
+	padding: 16px !important;
+	min-height: 100% !important;
+}
+
+.pm-block h3 {
+	margin: 0 0 12px !important;
+	font-size: 15px !important;
+	font-weight: 750 !important;
+	letter-spacing: 0 !important;
+	color: var(--heading-color, #1f272e) !important;
+}
+
+.pm-block p {
+	margin: 0 0 12px !important;
+	color: var(--text-muted, #6b7280) !important;
+	font-size: 13px !important;
+	line-height: 1.45 !important;
+}
+
+.pm-block .pm-muted,
+.pm-block .pm-empty {
+	color: var(--text-muted, #6b7280) !important;
+	font-size: 13px !important;
+	padding: 8px 0 !important;
+}
+
+.pm-block .pm-metrics {
+	display: grid !important;
+	grid-template-columns: repeat(auto-fit, minmax(138px, 1fr)) !important;
+	gap: 8px !important;
+	margin: 0 0 14px !important;
+}
+
+.pm-block .pm-metric {
+	display: block !important;
+	border: 1px solid var(--border-color, #d1d8dd) !important;
+	border-radius: 7px !important;
+	padding: 10px 11px !important;
+	background: var(--card-bg, #ffffff) !important;
+	min-width: 0 !important;
+}
+
+.pm-block .pm-value {
+	display: block !important;
+	font-size: 18px !important;
+	line-height: 23px !important;
+	font-weight: 760 !important;
+	color: var(--text-color, #1f272e) !important;
+	white-space: nowrap !important;
+	overflow: hidden !important;
+	text-overflow: ellipsis !important;
+}
+
+.pm-block .pm-label,
+.pm-block .pm-meta {
+	display: block !important;
+	font-size: 12px !important;
+	color: var(--text-muted, #6b7280) !important;
+	line-height: 1.35 !important;
+	margin-top: 2px !important;
+}
+
+.pm-block .pm-tone-positive .pm-value {
+	color: #2f9e44 !important;
+}
+
+.pm-block .pm-tone-negative .pm-value {
+	color: #c92a2a !important;
+}
+
+.pm-block .pm-tone-warning .pm-value {
+	color: #b7791f !important;
+}
+
+.pm-block .pm-tone-accent .pm-value {
+	color: var(--text-color, #1f272e) !important;
+}
+
+.pm-block .pm-list {
+	display: grid !important;
+	gap: 6px !important;
+}
+
+.pm-block .pm-row {
+	display: block !important;
+	border: 1px solid var(--border-color, #d1d8dd) !important;
+	border-radius: 7px !important;
+	padding: 9px 10px !important;
+	color: inherit !important;
+	text-decoration: none !important;
+	background: var(--card-bg, #ffffff) !important;
+}
+
+.pm-block .pm-row:hover {
+	background: var(--control-bg, #f3f3f3) !important;
+	border-color: var(--border-color, #d1d8dd) !important;
+	text-decoration: none !important;
+}
+
+.pm-block .pm-title {
+	display: block !important;
+	font-weight: 650 !important;
+	font-size: 13px !important;
+	color: var(--text-color, #1f272e) !important;
+	white-space: nowrap !important;
+	overflow: hidden !important;
+	text-overflow: ellipsis !important;
+}
+
+.pm-block .pm-next {
+	display: block !important;
+	border: 1px solid var(--border-color, #d1d8dd) !important;
+	border-radius: 8px !important;
+	background: var(--card-bg, #ffffff) !important;
+	padding: 11px !important;
+	margin-bottom: 10px !important;
+	color: inherit !important;
+	text-decoration: none !important;
+}
+
+.pm-block .pm-next:hover {
+	background: var(--control-bg, #f3f3f3) !important;
+	text-decoration: none !important;
+}
+
+.pm-block .pm-button {
+	border: 1px solid #2e2413 !important;
+	border-radius: 7px !important;
+	background: #2e2413 !important;
+	color: #ffffff !important;
+	font-weight: 650 !important;
+	padding: 8px 12px !important;
+	cursor: pointer !important;
+	box-shadow: none !important;
+}
+
+.pm-block .pm-button:hover {
+	background: #443315 !important;
+	border-color: #443315 !important;
+}
+
 .pm-dashboard-shell {
 	color: var(--text-color);
 	padding: 6px 0 28px;
@@ -131,16 +279,12 @@ body[data-route*="task/view/kanban"] .kanban .new-card-area {
 	padding: 22px;
 	border: 1px solid var(--border-color);
 	border-radius: 8px;
-	background:
-		linear-gradient(135deg, rgba(24, 119, 242, 0.12), rgba(37, 181, 126, 0.10)),
-		var(--fg-color);
+	background: var(--fg-color);
 	margin-bottom: 16px;
 }
 
 .pm-money-hero {
-	background:
-		linear-gradient(135deg, rgba(37, 181, 126, 0.14), rgba(245, 166, 35, 0.12)),
-		var(--fg-color);
+	background: var(--fg-color);
 }
 
 .pm-dashboard-kicker {
@@ -189,7 +333,7 @@ body[data-route*="task/view/kanban"] .kanban .new-card-area {
 	padding: 14px;
 	border: 1px solid var(--border-color);
 	border-radius: 8px;
-	background: rgba(255, 255, 255, 0.04);
+	background: var(--fg-color);
 	min-height: 84px;
 }
 
@@ -209,23 +353,27 @@ body[data-route*="task/view/kanban"] .kanban .new-card-area {
 }
 
 .pm-tone-good {
-	border-color: rgba(37, 181, 126, 0.38);
-	background: rgba(37, 181, 126, 0.08);
+	border-color: var(--border-color);
+	background: var(--fg-color);
+	color: #2f9e44;
 }
 
 .pm-tone-bad {
-	border-color: rgba(231, 76, 60, 0.38);
-	background: rgba(231, 76, 60, 0.07);
+	border-color: var(--border-color);
+	background: var(--fg-color);
+	color: #c92a2a;
 }
 
 .pm-tone-warn {
-	border-color: rgba(245, 166, 35, 0.42);
-	background: rgba(245, 166, 35, 0.08);
+	border-color: var(--border-color);
+	background: var(--fg-color);
+	color: #b7791f;
 }
 
 .pm-tone-neutral {
-	border-color: rgba(78, 121, 167, 0.35);
-	background: rgba(78, 121, 167, 0.08);
+	border-color: var(--border-color);
+	background: var(--fg-color);
+	color: var(--text-color);
 }
 
 .pm-dashboard-grid {
@@ -291,15 +439,15 @@ body[data-route*="task/view/kanban"] .kanban .new-card-area {
 }
 
 .pm-bar-good {
-	background: #25b57e;
+	background: #2f9e44;
 }
 
 .pm-bar-bad {
-	background: #e74c3c;
+	background: #c92a2a;
 }
 
 .pm-bar-warn {
-	background: #f5a623;
+	background: #b7791f;
 }
 
 .pm-chart-legend {
@@ -363,16 +511,16 @@ body[data-route*="task/view/kanban"] .kanban .new-card-area {
 	gap: 13px;
 	align-items: center;
 	padding: 14px;
-	border: 1px solid rgba(78, 121, 167, 0.35);
+	border: 1px solid #e8e2d3;
 	border-radius: 8px;
-	background: rgba(78, 121, 167, 0.08);
+	background: var(--fg-color);
 	margin-bottom: 10px;
 }
 
 .pm-next-date {
 	font-size: 13px;
 	font-weight: 750;
-	color: #4e79a7;
+	color: #8a6d1d;
 }
 
 .pm-next-title {

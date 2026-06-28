@@ -35,11 +35,10 @@
 	function update_task_kanban_class() {
 		redirect_to_role_dashboard_if_needed();
 		redirect_to_whiteboard_if_needed();
-		render_poloway_dashboard_if_needed();
-		render_money_dashboard_if_needed();
 		add_owner_receipt_action_if_needed();
 		open_receipt_uploader_from_route_if_needed();
 		scope_sidebar_to_current_dashboard();
+		patch_internal_link_navigation();
 
 		const task_kanban = is_task_kanban_route();
 		document.body.classList.toggle("pm-task-kanban", task_kanban);
@@ -106,8 +105,92 @@
 		);
 	}
 
+	function is_horse_management_dashboard_route() {
+		const route_str = (frappe.get_route_str ? frappe.get_route_str() : "").toLowerCase();
+		const path = window.location.pathname.replace(/\/$/, "").toLowerCase();
+		return (
+			route_str === "horse-management-dashboard" ||
+			route_str === "workspaces/horse-management-dashboard" ||
+			path.endsWith("/app/horse-management-dashboard")
+		);
+	}
+
+	function is_match_dashboard_route() {
+		const route_str = (frappe.get_route_str ? frappe.get_route_str() : "").toLowerCase();
+		const path = window.location.pathname.replace(/\/$/, "").toLowerCase();
+		return (
+			route_str === "match-dashboard" ||
+			route_str === "workspaces/match-dashboard" ||
+			path.endsWith("/app/match-dashboard")
+		);
+	}
+
 	function is_receipt_dashboard_route() {
 		return is_owner_dashboard_route() || is_money_dashboard_route() || is_polomanagement_home_route();
+	}
+
+	function patch_internal_link_navigation() {
+		if (frappe._pm_internal_link_navigation_patched) {
+			return;
+		}
+
+		frappe._pm_internal_link_navigation_patched = true;
+		document.addEventListener(
+			"click",
+			(event) => {
+				const anchor = event.target.closest && event.target.closest("a[href]");
+				if (
+					!anchor ||
+					event.defaultPrevented ||
+					event.metaKey ||
+					event.ctrlKey ||
+					event.shiftKey ||
+					event.altKey
+				) {
+					return;
+				}
+
+				const href = anchor.getAttribute("href") || "";
+				if (!href || href === "#" || href.startsWith("javascript:") || href.startsWith("mailto:")) {
+					return;
+				}
+
+				let url;
+				try {
+					url = new URL(href, window.location.origin);
+				} catch {
+					return;
+				}
+
+				if (url.origin !== window.location.origin) {
+					return;
+				}
+
+				const match = url.pathname.match(/\/(?:app|desk)\/(.+)$/);
+				if (!match) {
+					return;
+				}
+
+				event.preventDefault();
+				event.stopPropagation();
+				anchor.removeAttribute("target");
+
+				const route = decodeURIComponent(match[1]).replace(/\/$/, "");
+				const route_parts = route.split("/").filter(Boolean);
+				if (route_parts.length) {
+					frappe.set_route(...route_parts);
+				}
+
+				if (
+					url.search.includes("upload_receipt=1") &&
+					can_upload_receipts() &&
+					window.polomanagement_upload_receipts
+				) {
+					setTimeout(() => window.polomanagement_upload_receipts({}), 500);
+				}
+			},
+			true
+		);
 	}
 
 	function can_upload_receipts() {
@@ -658,6 +741,12 @@
 		if (is_limited_groom()) {
 			return "groom";
 		}
+		if (is_horse_management_dashboard_route()) {
+			return "horse";
+		}
+		if (is_match_dashboard_route()) {
+			return "match";
+		}
 		if (is_money_dashboard_route()) {
 			return "money";
 		}
@@ -671,20 +760,40 @@
 	}
 
 	function sidebar_labels_for_scope(scope) {
-		const common = ["Poloway Home", "Owner Dashboard", "Money Dashboard"];
+		const common = [
+			"Poloway Home",
+			"Owner Dashboard",
+			"Money Dashboard",
+			"Horse Management Dashboard",
+			"Match Dashboard",
+		];
 		const labels = {
-			home: common.concat(["Owner Actions", "Owner Calendar", "Owner Issues", "Horse Operations", "Horses", "Match Day", "Match Day Board"]),
+			home: common.concat([
+				"Owner Actions", "Owner Calendar", "Owner Issues",
+				"Horse Operations", "Horses", "Horse Performance Summary",
+				"Match Operations", "Match Days", "Upcoming Polo Schedule", "Polo Performance Summary",
+			]),
 			owner: common.concat([
 				"Owner Actions", "Owner Calendar", "Owner Issues", "Schedule Settings", "Task Templates",
 				"Horse Operations", "Horses", "Match Day", "Match Day Board", "Horse Tack Configuration",
 				"Travel Manifest", "Horse Feeding Records", "Horse Training Records", "Horse Medical Records",
 				"Horse Compliance Alerts", "Groom Profile", "Horse Owner",
 			]),
+			horse: common.concat([
+				"Horse Operations", "Horses", "Horse Performance Summary", "Horse Feeding Records",
+				"Horse Training Records", "Horse Medical Records", "Horse Compliance Alerts",
+				"Horse Care Entry", "Horse Training Template", "Groom Profile", "Horse Owner",
+				"Money", "Horse Expenses", "Transaction Input",
+			]),
+			match: common.concat([
+				"Match Operations", "Match Days", "Upcoming Polo Schedule", "Polo Performance Summary",
+				"Match Day Board", "Travel Manifest", "Horse Tack Configuration",
+				"Owner Actions", "Owner Calendar", "Today Tasks", "Task List",
+			]),
 			money: common.concat([
-				"Money", "Financial Overview", "Financial Ledger", "Transaction Input", "Receipt Import",
-				"Purchase", "Quote Comparison", "Unposted Transactions", "Vendor Quote", "Vendor", "Item",
-				"Item Category", "Inventory Location", "Stock Adjustment", "Item Stock Ledger",
-				"Horse Expenses", "Item Cost History", "Autopayments", "Money Account",
+				"Money", "Transaction Input", "Receipt Import", "Purchase", "Vendor Quote",
+				"Vendor", "Item", "Item Category", "Inventory Location", "Stock Adjustment",
+				"Employees / Grooms", "Autopayments", "Money Account",
 			]),
 			groom: ["Groom Dashboard", "Groom Work", "Today Tasks", "Task List", "Horse Care Entry", "Horse Operations", "Match Day", "Match Day Board", "Travel Manifest", "Horse Feeding Records", "Horse Training Records", "Horse Medical Records", "Horses"],
 		};
@@ -699,11 +808,20 @@
 	}
 
 	function money(value) {
-		const number = Number(value || 0);
+		const number = Number(value);
+		const safe_number = Number.isFinite(number) ? number : 0;
 		if (typeof format_currency === "function") {
-			return format_currency(number);
+			const formatted = format_currency(safe_number);
+			if (formatted && !String(formatted).includes("NaN")) {
+				return formatted;
+			}
 		}
-		return number.toLocaleString(undefined, { style: "currency", currency: "USD" });
+		const currency = (frappe.boot && frappe.boot.sysdefaults && frappe.boot.sysdefaults.currency) || "ZAR";
+		return new Intl.NumberFormat(undefined, {
+			style: "currency",
+			currency,
+			maximumFractionDigits: 0,
+		}).format(safe_number);
 	}
 
 	function date_label(value) {

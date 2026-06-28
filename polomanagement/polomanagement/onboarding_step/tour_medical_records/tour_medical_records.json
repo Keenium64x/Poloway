@@ -1,0 +1,22 @@
+{
+ "action": "Show Form Tour",
+ "action_label": "Start Medical Tour",
+ "creation": "2026-06-27 22:14:04.078587",
+ "description": "Learn how medical records capture all medical events and link them to the responsible person, not only a veterinarian.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "form_tour": "Horse Medical Record Basics",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 19:53:54.446258",
+ "modified_by": "Administrator",
+ "name": "Tour medical records",
+ "owner": "Administrator",
+ "reference_document": "Horse Medical Record",
+ "show_form_tour": 0,
+ "show_full_form": 0,
+ "title": "Tour medical records",
+ "validate_action": 1
+}

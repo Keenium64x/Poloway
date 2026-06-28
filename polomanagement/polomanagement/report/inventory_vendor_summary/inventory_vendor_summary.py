@@ -76,6 +76,7 @@ def get_chart(data, filters):
 		},
 		"type": "bar",
 		"height": 280,
+		"colors": ["#2F9E44"],
 	}
 
 

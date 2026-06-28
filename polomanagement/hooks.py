@@ -8,6 +8,7 @@ app_email = "admin@keenansolomon.co.za"
 app_license = "mit"
 compatible_frappe_versions = ">=16.0.0 <17.0.0"
 frappe_version = ">=16.0.0 <17.0.0"
+app_logo_url = "/assets/polomanagement/images/Polowaylogo.jpeg"
 
 # Apps
 # ------------------
@@ -20,6 +21,7 @@ add_to_apps_screen = [
 		"name": "poloway",
 		"title": "Poloway",
 		"route": "/app/poloway",
+		"logo": app_logo_url,
 	}
 ]
 
@@ -27,8 +29,8 @@ add_to_apps_screen = [
 # ------------------
 
 # include js, css files in header of desk.html
-app_include_css = "/assets/polomanagement/css/polomanagement.css?v=20260627-owner-dashboard-1"
-app_include_js = "/assets/polomanagement/js/polomanagement.js?v=20260627-owner-dashboard-1"
+app_include_css = "/assets/polomanagement/css/polomanagement.css?v=20260628-native-onboarding-5"
+app_include_js = "/assets/polomanagement/js/polomanagement.js?v=20260628-native-onboarding-5"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/polomanagement/css/polomanagement.css"
@@ -198,6 +200,7 @@ scheduler_events = {
 # ------------------------------
 #
 override_whitelisted_methods = {
+	"frappe.desk.desktop.get_desktop_page": "polomanagement.workspace.get_desktop_page",
 	"frappe.desk.doctype.kanban_board.kanban_board.update_order_for_single_card": "polomanagement.kanban.update_order_for_single_card",
 	"frappe.desk.doctype.kanban_board.kanban_board.quick_kanban_board": "polomanagement.kanban.quick_kanban_board",
 }

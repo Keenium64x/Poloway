@@ -102,6 +102,7 @@ def get_chart(data):
 		},
 		"type": "bar",
 		"height": 260,
+		"colors": ["#B7791F"],
 	}
 
 

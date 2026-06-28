@@ -94,6 +94,87 @@ def horses_needing_attention(filters=None):
 
 
 @frappe.whitelist()
+def available_horses(filters=None):
+	return {
+		"value": frappe.db.count("Horse", {"availability_status": "Available"}),
+		"fieldtype": "Int",
+		"route": ["List", "Horse", "List"],
+		"route_options": {"availability_status": "Available"},
+	}
+
+
+@frappe.whitelist()
+def month_income(filters=None):
+	current = getdate(today())
+	total = get_financial_totals(get_first_day(current), current)
+	return money_card(total.get("income"), ["query-report", "Money Flow Summary"])
+
+
+@frappe.whitelist()
+def month_outflow(filters=None):
+	current = getdate(today())
+	total = get_financial_totals(get_first_day(current), current)
+	return money_card(total.get("outflow"), ["query-report", "Money Flow Summary"])
+
+
+@frappe.whitelist()
+def month_net_cash_flow(filters=None):
+	current = getdate(today())
+	total = get_financial_totals(get_first_day(current), current)
+	return money_card(total.get("net"), ["query-report", "Money Flow Summary"])
+
+
+@frappe.whitelist()
+def ytd_income(filters=None):
+	current = getdate(today())
+	total = get_financial_totals(f"{current.year}-01-01", current)
+	return money_card(total.get("income"), ["query-report", "Money Flow Summary"])
+
+
+@frappe.whitelist()
+def ytd_outflow(filters=None):
+	current = getdate(today())
+	total = get_financial_totals(f"{current.year}-01-01", current)
+	return money_card(total.get("outflow"), ["query-report", "Money Flow Summary"])
+
+
+@frappe.whitelist()
+def ytd_net_cash_flow(filters=None):
+	current = getdate(today())
+	total = get_financial_totals(f"{current.year}-01-01", current)
+	return money_card(total.get("net"), ["query-report", "Money Flow Summary"])
+
+
+@frappe.whitelist()
+def upcoming_matches(filters=None):
+	return {
+		"value": frappe.db.count(
+			"Match Day",
+			{"match_date": [">=", today()], "status": ["!=", "Cancelled"]},
+		),
+		"fieldtype": "Int",
+		"route": ["query-report", "Upcoming Polo Schedule"],
+	}
+
+
+@frappe.whitelist()
+def unposted_transactions(filters=None):
+	return {
+		"value": frappe.db.count("Transaction Input", {"docstatus": 0, "status": ["!=", "Reversed"]}),
+		"fieldtype": "Int",
+		"route": ["query-report", "Unposted Transactions"],
+	}
+
+
+def money_card(value, route):
+	return {
+		"value": flt(value),
+		"fieldtype": "Currency",
+		"route": route,
+	}
+
+
+@frappe.whitelist()
 def get_horse_dashboard(horse):
 	doc = frappe.get_doc("Horse", horse)
 	doc.check_permission("read")
@@ -365,6 +446,36 @@ def get_money_dashboard():
 		"inventory": get_inventory_snapshot(),
 		"vendors": get_vendor_snapshot(),
 	}
+
+
+@frappe.whitelist()
+def get_financial_dashboard_component():
+	ensure_owner_dashboard_access()
+	return get_financial_snapshot()
+
+
+@frappe.whitelist()
+def get_polo_dashboard_component():
+	ensure_owner_dashboard_access()
+	return get_polo_snapshot()
+
+
+@frappe.whitelist()
+def get_horse_dashboard_component():
+	ensure_owner_dashboard_access()
+	return get_horse_performance_snapshot()
+
+
+@frappe.whitelist()
+def get_owner_actions_dashboard_component():
+	ensure_owner_dashboard_access()
+	return get_owner_action_snapshot()
+
+
+@frappe.whitelist()
+def get_money_operations_dashboard_component():
+	ensure_owner_dashboard_access()
+	return get_money_dashboard()
 
 
 def ensure_owner_dashboard_access():

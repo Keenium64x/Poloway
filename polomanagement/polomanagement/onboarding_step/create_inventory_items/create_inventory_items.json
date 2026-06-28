@@ -1,0 +1,22 @@
+{
+ "action": "Create Entry",
+ "action_label": "Create Item",
+ "creation": "2026-06-27 22:27:08.765175",
+ "description": "Create feed, tack, medicine, supplies, services, and other items before using them in feeding, receipts, and financial entries.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "form_tour": "Item Basics",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 19:53:54.459852",
+ "modified_by": "Administrator",
+ "name": "Create inventory items",
+ "owner": "Administrator",
+ "reference_document": "Item",
+ "show_form_tour": 1,
+ "show_full_form": 1,
+ "title": "Create inventory items",
+ "validate_action": 1
+}
