@@ -1,0 +1,56 @@
+{
+ "allow_roles": [
+  {
+   "role": "Horse Groom"
+  },
+  {
+   "role": "Horse Owner"
+  },
+  {
+   "role": "Stable Manager"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "creation": "2026-06-28 22:01:50.655131",
+ "docstatus": 0,
+ "doctype": "Module Onboarding",
+ "idx": 0,
+ "is_complete": 0,
+ "modified": "2026-06-28 22:13:53.063647",
+ "modified_by": "Administrator",
+ "module": "Polomanagement",
+ "name": "Match Dashboard Onboarding",
+ "owner": "Administrator",
+ "steps": [
+  {
+   "step": "Open the match dashboard"
+  },
+  {
+   "step": "Create a match day"
+  },
+  {
+   "step": "Create a travel manifest"
+  },
+  {
+   "step": "Create a tack configuration"
+  },
+  {
+   "step": "Review the match day board"
+  },
+  {
+   "step": "Review upcoming polo"
+  },
+  {
+   "step": "Review polo performance"
+  },
+  {
+   "step": "Review horse performance"
+  },
+  {
+   "step": "Open the groom task board"
+  }
+ ],
+ "title": "Match Dashboard: Polo Games, Travel, Tack, and Results"
+}

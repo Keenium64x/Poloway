@@ -2,6 +2,14 @@
 	const KANBAN_UPDATE_METHOD =
 		"frappe.desk.doctype.kanban_board.kanban_board.update_order_for_single_card";
 	const REPORTVIEW_GET_METHOD = "frappe.desk.reportview.get";
+	const WORKSPACE_ONBOARDINGS = {
+		Poloway: "Poloway System Onboarding",
+		"Owner Dashboard": "Owner Dashboard Onboarding",
+		"Horse Management Dashboard": "Horse Management Onboarding",
+		"Groom Dashboard": "Groom Dashboard Onboarding",
+		"Money Dashboard": "Money Dashboard Onboarding",
+		"Match Dashboard": "Match Dashboard Onboarding",
+	};
 
 	function is_task_kanban_route() {
 		const route = frappe.get_route();
@@ -33,7 +41,9 @@
 	}
 
 	function update_task_kanban_class() {
+		patch_workspace_onboarding_blocks();
 		redirect_to_role_dashboard_if_needed();
+		ensure_poloway_sidebar_if_needed();
 		redirect_to_whiteboard_if_needed();
 		add_owner_receipt_action_if_needed();
 		open_receipt_uploader_from_route_if_needed();
@@ -46,6 +56,66 @@
 
 		if (task_kanban) {
 			compact_task_kanban();
+		}
+	}
+
+	function patch_workspace_onboarding_blocks() {
+		const Workspace = frappe.views && frappe.views.Workspace;
+		if (!Workspace || Workspace.prototype._pm_onboarding_block_patch) {
+			return;
+		}
+
+		Workspace.prototype._pm_onboarding_block_patch = true;
+		const original_prepare_editorjs = Workspace.prototype.prepare_editorjs;
+		Workspace.prototype.prepare_editorjs = function () {
+			ensure_workspace_onboarding_content(this);
+			sync_onboarding_page_data(this);
+			return original_prepare_editorjs.call(this);
+		};
+	}
+
+	function ensure_workspace_onboarding_content(workspace) {
+		const page_name = workspace && workspace._page && workspace._page.name;
+		const onboarding_name = WORKSPACE_ONBOARDINGS[page_name];
+		if (!onboarding_name) {
+			return;
+		}
+
+		if (typeof workspace.content === "string") {
+			try {
+				workspace.content = JSON.parse(workspace.content);
+			} catch {
+				workspace.content = [];
+			}
+		}
+		if (!Array.isArray(workspace.content)) {
+			workspace.content = [];
+		}
+
+		const has_block = workspace.content.some((row) => {
+			return row && row.type === "onboarding" && row.data && row.data.onboarding_name === onboarding_name;
+		});
+		if (!has_block) {
+			workspace.content.unshift({
+				type: "onboarding",
+				data: {
+					onboarding_name,
+					col: 12,
+				},
+			});
+		}
+	}
+
+	function sync_onboarding_page_data(workspace) {
+		const config = workspace && workspace.editor && workspace.editor.configuration;
+		if (
+			config &&
+			config.tools &&
+			config.tools.onboarding &&
+			config.tools.onboarding.config &&
+			workspace.page_data
+		) {
+			config.tools.onboarding.config.page_data = workspace.page_data;
 		}
 	}
 
@@ -125,8 +195,97 @@
 		);
 	}
 
+	function is_groom_dashboard_route() {
+		const route_str = (frappe.get_route_str ? frappe.get_route_str() : "").toLowerCase();
+		const path = window.location.pathname.replace(/\/$/, "").toLowerCase();
+		return (
+			route_str === "groom-dashboard" ||
+			route_str === "workspaces/groom-dashboard" ||
+			path.endsWith("/app/groom-dashboard")
+		);
+	}
+
 	function is_receipt_dashboard_route() {
 		return is_owner_dashboard_route() || is_money_dashboard_route() || is_polomanagement_home_route();
+	}
+
+	function ensure_poloway_sidebar_if_needed() {
+		if (!should_use_poloway_sidebar()) {
+			return;
+		}
+
+		setTimeout(() => {
+			const sidebar = frappe.app && frappe.app.sidebar;
+			const boot_sidebar = frappe.boot && frappe.boot.workspace_sidebar_item;
+			if (!sidebar || !boot_sidebar || !boot_sidebar.poloway) {
+				return;
+			}
+
+			remember_poloway_sidebar_for_route();
+			if (sidebar.sidebar_title !== "Poloway" && typeof sidebar.setup === "function") {
+				sidebar.setup("Poloway");
+			}
+		}, 100);
+	}
+
+	function should_use_poloway_sidebar() {
+		if (
+			is_polomanagement_home_route() ||
+			is_owner_dashboard_route() ||
+			is_money_dashboard_route() ||
+			is_horse_management_dashboard_route() ||
+			is_match_dashboard_route() ||
+			is_groom_dashboard_route()
+		) {
+			return true;
+		}
+
+		const entity = current_route_entity();
+		if (!entity) {
+			return false;
+		}
+
+		const sidebar = frappe.boot && frappe.boot.workspace_sidebar_item && frappe.boot.workspace_sidebar_item.poloway;
+		return Boolean(
+			sidebar &&
+				Array.isArray(sidebar.items) &&
+				sidebar.items.some((item) => item && item.type === "Link" && item.link_to === entity)
+		);
+	}
+
+	function current_route_entity() {
+		const route = frappe.get_route ? frappe.get_route() : [];
+		if (!route || !route.length) {
+			return null;
+		}
+
+		if (route.length === 1) {
+			return route[0];
+		}
+		if (route.length === 2) {
+			return route[1];
+		}
+		if (route.length === 3 && route[0] === "Workspaces" && route[1] === "private") {
+			return route[2];
+		}
+		return route[1] || route[0];
+	}
+
+	function remember_poloway_sidebar_for_route() {
+		const entity = current_route_entity();
+		if (!entity) {
+			return;
+		}
+
+		let remembered = {};
+		try {
+			remembered = JSON.parse(localStorage.getItem("sidebar_item_map") || "{}") || {};
+		} catch {
+			remembered = {};
+		}
+
+		remembered[entity] = ["Poloway"];
+		localStorage.setItem("sidebar_item_map", JSON.stringify(remembered));
 	}
 
 	function patch_internal_link_navigation() {
@@ -720,20 +879,7 @@
 
 	function scope_sidebar_to_current_dashboard() {
 		setTimeout(() => {
-			const scope = get_sidebar_scope();
-			if (!scope) {
-				$(".standard-sidebar-item, .desk-sidebar-item, .sidebar-item").show();
-				return;
-			}
-			const allowed = sidebar_labels_for_scope(scope);
-			$(".standard-sidebar-item, .desk-sidebar-item, .sidebar-item").each(function () {
-				const $item = $(this);
-				const label = sidebar_label($item);
-				if (!label) {
-					return;
-				}
-				$item.toggle(allowed.has(label));
-			});
+			$(".standard-sidebar-item, .desk-sidebar-item, .sidebar-item").show();
 		}, 350);
 	}
 

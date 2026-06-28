@@ -1,0 +1,22 @@
+{
+ "action": "Create Entry",
+ "action_label": "Create Tack Configuration",
+ "creation": "2026-06-28 22:01:50.632902",
+ "description": "Create tack configurations so match-day prep is repeatable for each horse.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "form_tour": "Horse Tack Configuration Basics",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 22:13:53.035176",
+ "modified_by": "Administrator",
+ "name": "Create a tack configuration",
+ "owner": "Administrator",
+ "reference_document": "Horse Tack Configuration",
+ "show_form_tour": 1,
+ "show_full_form": 1,
+ "title": "Create a tack configuration",
+ "validate_action": 1
+}

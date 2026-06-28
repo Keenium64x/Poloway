@@ -1,0 +1,22 @@
+{
+ "action": "Create Entry",
+ "action_label": "Create Money Account",
+ "creation": "2026-06-28 22:01:50.540844",
+ "description": "Create or review the chart-style accounts that classify cash, income, expenses, assets, and liabilities.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "form_tour": "Money Account Basics",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 22:13:52.937080",
+ "modified_by": "Administrator",
+ "name": "Create a money account",
+ "owner": "Administrator",
+ "reference_document": "Money Account",
+ "show_form_tour": 1,
+ "show_full_form": 1,
+ "title": "Create a money account",
+ "validate_action": 1
+}

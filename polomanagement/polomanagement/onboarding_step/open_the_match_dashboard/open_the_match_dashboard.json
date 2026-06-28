@@ -1,0 +1,23 @@
+{
+ "action": "Go to Page",
+ "action_label": "Open Match Dashboard",
+ "callback_message": "Use this area when the question is about an upcoming game or tournament day.",
+ "callback_title": "Match Dashboard",
+ "creation": "2026-06-28 21:47:16.188742",
+ "description": "The match dashboard is for polo applications, match days, horse readiness, tack, travel, chukkers, and post-game performance.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 22:13:53.015941",
+ "modified_by": "Administrator",
+ "name": "Open the match dashboard",
+ "owner": "Administrator",
+ "path": "/app/match-dashboard",
+ "show_form_tour": 0,
+ "show_full_form": 0,
+ "title": "Open the match dashboard",
+ "validate_action": 1
+}

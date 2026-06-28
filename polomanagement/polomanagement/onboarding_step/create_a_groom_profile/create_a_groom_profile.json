@@ -1,0 +1,22 @@
+{
+ "action": "Create Entry",
+ "action_label": "Create Groom Profile",
+ "creation": "2026-06-28 21:47:16.112560",
+ "description": "Create the groom profile so tasks, payroll, and owner reporting can link work to the right person.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "form_tour": "Groom Profile Basics",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 22:13:52.706633",
+ "modified_by": "Administrator",
+ "name": "Create a groom profile",
+ "owner": "Administrator",
+ "reference_document": "Groom Profile",
+ "show_form_tour": 1,
+ "show_full_form": 1,
+ "title": "Create a groom profile",
+ "validate_action": 1
+}

@@ -1,0 +1,23 @@
+{
+ "action": "Go to Page",
+ "action_label": "Review Home",
+ "callback_message": "Start at Home for the picture, use a specialist dashboard for action, and use reports when you need proof or history.",
+ "callback_title": "How to think about Poloway",
+ "creation": "2026-06-28 22:01:50.306852",
+ "description": "Poloway is split into four operating areas: Owner and Scheduling, Horse Management, Money and Inventory, and Match Operations. The home dashboard shows the health of all four, then sends you into the right area for real work.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 22:13:52.692088",
+ "modified_by": "Administrator",
+ "name": "Understand the Poloway operating map",
+ "owner": "Administrator",
+ "path": "/app/poloway",
+ "show_form_tour": 0,
+ "show_full_form": 0,
+ "title": "Understand the Poloway operating map",
+ "validate_action": 1
+}

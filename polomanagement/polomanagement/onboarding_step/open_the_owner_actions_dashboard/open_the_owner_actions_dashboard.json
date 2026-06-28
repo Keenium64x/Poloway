@@ -1,0 +1,23 @@
+{
+ "action": "Go to Page",
+ "action_label": "Open Owner Dashboard",
+ "callback_message": "Use this area when the owner needs to create an action, schedule something, or review what needs attention.",
+ "callback_title": "Owner Dashboard",
+ "creation": "2026-06-28 21:47:16.057718",
+ "description": "The owner dashboard is for decisions and instructions: owner tasks, calendar planning, groom schedules, follow-ups, and issue review.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 22:13:52.765380",
+ "modified_by": "Administrator",
+ "name": "Open the owner actions dashboard",
+ "owner": "Administrator",
+ "path": "/app/owner-dashboard",
+ "show_form_tour": 0,
+ "show_full_form": 0,
+ "title": "Open the owner actions dashboard",
+ "validate_action": 1
+}

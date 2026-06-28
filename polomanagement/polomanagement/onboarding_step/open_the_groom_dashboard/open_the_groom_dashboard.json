@@ -1,0 +1,23 @@
+{
+ "action": "Go to Page",
+ "action_label": "Open Groom Dashboard",
+ "callback_message": "This is the groom-facing operating surface: today, open work, completion notes, and issues.",
+ "callback_title": "Groom Dashboard",
+ "creation": "2026-06-28 21:47:16.108991",
+ "description": "The groom dashboard and task board show the daily work list. Owners use the setup steps to decide what appears for the groom.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 22:13:52.893535",
+ "modified_by": "Administrator",
+ "name": "Open the groom dashboard",
+ "owner": "Administrator",
+ "path": "/app/groom-dashboard",
+ "show_form_tour": 0,
+ "show_full_form": 0,
+ "title": "Open the groom dashboard",
+ "validate_action": 1
+}

@@ -1,0 +1,23 @@
+{
+ "action": "Go to Page",
+ "action_label": "Open Horse Management",
+ "callback_message": "Use this dashboard when the question is about a horse, its care, its condition, or its performance.",
+ "callback_title": "Horse Management Dashboard",
+ "creation": "2026-06-28 21:47:16.067393",
+ "description": "The horse management dashboard is for profiles, care history, feeding, training, medical records, compliance, and horse-level costs.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 22:13:52.830185",
+ "modified_by": "Administrator",
+ "name": "Open the horse management dashboard",
+ "owner": "Administrator",
+ "path": "/app/horse-management-dashboard",
+ "show_form_tour": 0,
+ "show_full_form": 0,
+ "title": "Open the horse management dashboard",
+ "validate_action": 1
+}

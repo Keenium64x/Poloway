@@ -1,0 +1,22 @@
+{
+ "action": "Create Entry",
+ "action_label": "Create Travel Manifest",
+ "creation": "2026-06-28 22:01:50.621507",
+ "description": "Create a travel manifest for away games so horses, kit, driver, vehicle, and destination are managed together.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "form_tour": "Travel Manifest Basics",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 22:13:53.029725",
+ "modified_by": "Administrator",
+ "name": "Create a travel manifest",
+ "owner": "Administrator",
+ "reference_document": "Travel Manifest",
+ "show_form_tour": 1,
+ "show_full_form": 1,
+ "title": "Create a travel manifest",
+ "validate_action": 1
+}

@@ -1,0 +1,71 @@
+{
+ "allow_roles": [
+  {
+   "role": "Horse Owner"
+  },
+  {
+   "role": "Stable Manager"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "creation": "2026-06-28 22:01:50.584894",
+ "docstatus": 0,
+ "doctype": "Module Onboarding",
+ "idx": 0,
+ "is_complete": 0,
+ "modified": "2026-06-28 22:13:52.976097",
+ "modified_by": "Administrator",
+ "module": "Polomanagement",
+ "name": "Money Dashboard Onboarding",
+ "owner": "Administrator",
+ "steps": [
+  {
+   "step": "Open the money dashboard"
+  },
+  {
+   "step": "Create a money account"
+  },
+  {
+   "step": "Create an item category"
+  },
+  {
+   "step": "Create an inventory location"
+  },
+  {
+   "step": "Create inventory items"
+  },
+  {
+   "step": "Create vendors"
+  },
+  {
+   "step": "Create a purchase"
+  },
+  {
+   "step": "Capture a vendor quote"
+  },
+  {
+   "step": "Compare vendor quotes"
+  },
+  {
+   "step": "Create a manual transaction"
+  },
+  {
+   "step": "Upload receipts"
+  },
+  {
+   "step": "Review unposted transactions"
+  },
+  {
+   "step": "Review money flow"
+  },
+  {
+   "step": "Review the ledger"
+  },
+  {
+   "step": "Configure autopayments"
+  }
+ ],
+ "title": "Money Dashboard: Inventory, Purchases, Receipts, and Ledger"
+}

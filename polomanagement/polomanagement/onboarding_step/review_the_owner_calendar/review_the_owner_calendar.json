@@ -1,0 +1,23 @@
+{
+ "action": "Go to Page",
+ "action_label": "Open Owner Calendar",
+ "callback_message": "Calendar and Gantt are the best owner-facing views for time-based responsibilities.",
+ "callback_title": "Owner Calendar",
+ "creation": "2026-06-28 21:47:16.064300",
+ "description": "Open the owner calendar to see upcoming applications, purchases, tournaments, calls, and owner follow-ups in date order.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 22:13:52.769397",
+ "modified_by": "Administrator",
+ "name": "Review the owner calendar",
+ "owner": "Administrator",
+ "path": "/app/owner-task/view/calendar",
+ "show_form_tour": 0,
+ "show_full_form": 0,
+ "title": "Review the owner calendar",
+ "validate_action": 1
+}

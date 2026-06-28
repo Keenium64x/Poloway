@@ -1,0 +1,22 @@
+{
+ "action": "Create Entry",
+ "action_label": "Create Vendor Quote",
+ "creation": "2026-06-28 21:47:16.162309",
+ "description": "Capture one supplier quote for a purchase. Add as many quotes as needed, compare them, then select one before payment.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "form_tour": "Vendor Quote Basics",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 22:13:52.952907",
+ "modified_by": "Administrator",
+ "name": "Capture a vendor quote",
+ "owner": "Administrator",
+ "reference_document": "Vendor Quote",
+ "show_form_tour": 1,
+ "show_full_form": 1,
+ "title": "Capture a vendor quote",
+ "validate_action": 1
+}

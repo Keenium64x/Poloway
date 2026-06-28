@@ -1,0 +1,23 @@
+{
+ "action": "Go to Page",
+ "action_label": "Open Home Dashboard",
+ "callback_message": "Use this as the first screen after login. It is for quick direction, not detailed entry.",
+ "callback_title": "Poloway Home",
+ "creation": "2026-06-28 21:47:16.052343",
+ "description": "Start with the main owner view. This dashboard is the big-picture cockpit: financial snapshot, upcoming polo, horse performance, owner actions, receipt upload, and links into each operating area.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 22:13:52.687888",
+ "modified_by": "Administrator",
+ "name": "Open the Poloway home dashboard",
+ "owner": "Administrator",
+ "path": "/app/poloway",
+ "show_form_tour": 0,
+ "show_full_form": 0,
+ "title": "Open the Poloway home dashboard",
+ "validate_action": 1
+}

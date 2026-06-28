@@ -3,6 +3,16 @@ from frappe.desk.desktop import get_desktop_page as get_frappe_desktop_page
 from frappe.desk.desktop import get_onboarding_data
 
 
+WORKSPACE_ONBOARDINGS = {
+	"Poloway": ["Poloway System Onboarding"],
+	"Owner Dashboard": ["Owner Dashboard Onboarding"],
+	"Horse Management Dashboard": ["Horse Management Onboarding"],
+	"Groom Dashboard": ["Groom Dashboard Onboarding"],
+	"Money Dashboard": ["Money Dashboard Onboarding"],
+	"Match Dashboard": ["Match Dashboard Onboarding"],
+}
+
+
 @frappe.whitelist(methods=["GET"])
 def get_desktop_page(page):
 	workspace_data = get_frappe_desktop_page(page if isinstance(page, str) else frappe.as_json(page))
@@ -33,14 +43,16 @@ def get_onboarding_names(page):
 	if not workspace_name or not frappe.db.exists("Workspace", workspace_name):
 		return []
 
+	onboarding_names = list(WORKSPACE_ONBOARDINGS.get(workspace_name, []))
 	content = frappe.db.get_value("Workspace", workspace_name, "content")
 	try:
 		rows = frappe.parse_json(content) or []
 	except Exception:
 		rows = []
 
-	return [
-		row.get("data", {}).get("onboarding_name")
-		for row in rows
-		if row.get("type") == "onboarding" and row.get("data", {}).get("onboarding_name")
-	]
+	for row in rows:
+		onboarding_name = row.get("data", {}).get("onboarding_name")
+		if row.get("type") == "onboarding" and onboarding_name and onboarding_name not in onboarding_names:
+			onboarding_names.append(onboarding_name)
+
+	return onboarding_names

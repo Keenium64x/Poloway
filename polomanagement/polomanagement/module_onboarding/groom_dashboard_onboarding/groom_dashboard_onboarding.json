@@ -1,0 +1,50 @@
+{
+ "allow_roles": [
+  {
+   "role": "Horse Groom"
+  },
+  {
+   "role": "Stable Manager"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "creation": "2026-06-28 22:01:50.521097",
+ "docstatus": 0,
+ "doctype": "Module Onboarding",
+ "idx": 0,
+ "is_complete": 0,
+ "modified": "2026-06-28 22:13:52.912278",
+ "modified_by": "Administrator",
+ "module": "Polomanagement",
+ "name": "Groom Dashboard Onboarding",
+ "owner": "Administrator",
+ "steps": [
+  {
+   "step": "Open the groom dashboard"
+  },
+  {
+   "step": "Open the groom task board"
+  },
+  {
+   "step": "Tour a groom task"
+  },
+  {
+   "step": "Create a horse care entry"
+  },
+  {
+   "step": "Tour feeding records"
+  },
+  {
+   "step": "Tour training records"
+  },
+  {
+   "step": "Tour medical records"
+  },
+  {
+   "step": "Open the match day board"
+  }
+ ],
+ "title": "Groom Dashboard: Daily Work and Feedback"
+}

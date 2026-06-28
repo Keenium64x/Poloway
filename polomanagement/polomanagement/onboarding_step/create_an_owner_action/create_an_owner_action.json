@@ -1,0 +1,22 @@
+{
+ "action": "Create Entry",
+ "action_label": "Create Owner Action",
+ "creation": "2026-06-28 21:47:16.061816",
+ "description": "Create an owner task for something the owner must do or decide: apply for a polo game, buy something, schedule training, call a supplier, or follow up on a groom issue.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "form_tour": "Owner Action Basics",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 22:13:52.767471",
+ "modified_by": "Administrator",
+ "name": "Create an owner action",
+ "owner": "Administrator",
+ "reference_document": "Owner Task",
+ "show_form_tour": 1,
+ "show_full_form": 1,
+ "title": "Create an owner action",
+ "validate_action": 1
+}

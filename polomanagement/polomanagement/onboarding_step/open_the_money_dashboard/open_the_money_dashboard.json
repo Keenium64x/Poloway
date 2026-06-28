@@ -1,0 +1,23 @@
+{
+ "action": "Go to Page",
+ "action_label": "Open Money Dashboard",
+ "callback_message": "Use this area when money, stock, vendors, purchases, receipts, or payroll are involved.",
+ "callback_title": "Money Dashboard",
+ "creation": "2026-06-28 21:47:16.134780",
+ "description": "The money dashboard is for purchases, quotes, vendors, items, receipts, unposted transactions, and the immutable ledger.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 22:13:52.933839",
+ "modified_by": "Administrator",
+ "name": "Open the money dashboard",
+ "owner": "Administrator",
+ "path": "/app/money-dashboard",
+ "show_form_tour": 0,
+ "show_full_form": 0,
+ "title": "Open the money dashboard",
+ "validate_action": 1
+}

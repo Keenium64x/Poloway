@@ -1,0 +1,56 @@
+{
+ "allow_roles": [
+  {
+   "role": "Horse Owner"
+  },
+  {
+   "role": "Stable Manager"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "creation": "2026-06-28 22:01:50.479226",
+ "docstatus": 0,
+ "doctype": "Module Onboarding",
+ "idx": 0,
+ "is_complete": 0,
+ "modified": "2026-06-28 22:13:52.866365",
+ "modified_by": "Administrator",
+ "module": "Polomanagement",
+ "name": "Horse Management Onboarding",
+ "owner": "Administrator",
+ "steps": [
+  {
+   "step": "Open the horse management dashboard"
+  },
+  {
+   "step": "Create the first horse profile"
+  },
+  {
+   "step": "Create a horse training template"
+  },
+  {
+   "step": "Create a horse care entry"
+  },
+  {
+   "step": "Tour feeding records"
+  },
+  {
+   "step": "Tour training records"
+  },
+  {
+   "step": "Tour medical records"
+  },
+  {
+   "step": "Review horse performance"
+  },
+  {
+   "step": "Review medical follow-ups"
+  },
+  {
+   "step": "Review horse expenses"
+  }
+ ],
+ "title": "Horse Management: Profiles, Care, and Performance"
+}

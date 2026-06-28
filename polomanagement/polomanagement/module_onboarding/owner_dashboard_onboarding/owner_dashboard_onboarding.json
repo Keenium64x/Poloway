@@ -1,0 +1,59 @@
+{
+ "allow_roles": [
+  {
+   "role": "Horse Owner"
+  },
+  {
+   "role": "Stable Manager"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "creation": "2026-06-28 22:01:50.425119",
+ "docstatus": 0,
+ "doctype": "Module Onboarding",
+ "idx": 0,
+ "is_complete": 0,
+ "modified": "2026-06-28 22:13:52.794906",
+ "modified_by": "Administrator",
+ "module": "Polomanagement",
+ "name": "Owner Dashboard Onboarding",
+ "owner": "Administrator",
+ "steps": [
+  {
+   "step": "Open the owner actions dashboard"
+  },
+  {
+   "step": "Create an owner action"
+  },
+  {
+   "step": "Review the owner calendar"
+  },
+  {
+   "step": "Review the owner gantt"
+  },
+  {
+   "step": "Create the groom task template"
+  },
+  {
+   "step": "Configure task generation"
+  },
+  {
+   "step": "Open the groom task board"
+  },
+  {
+   "step": "Review owner issues"
+  },
+  {
+   "step": "Review owner action summary"
+  },
+  {
+   "step": "Open the money dashboard"
+  },
+  {
+   "step": "Open the match dashboard"
+  }
+ ],
+ "title": "Owner Dashboard: Decisions, Scheduling, and Follow-Up"
+}

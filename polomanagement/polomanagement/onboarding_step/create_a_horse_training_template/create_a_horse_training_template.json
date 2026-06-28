@@ -1,0 +1,22 @@
+{
+ "action": "Create Entry",
+ "action_label": "Create Training Template",
+ "creation": "2026-06-28 22:01:50.455251",
+ "description": "Create repeatable training templates so daily work can be planned consistently and training records stay comparable.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "form_tour": "Horse Training Template Basics",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 22:13:52.834958",
+ "modified_by": "Administrator",
+ "name": "Create a horse training template",
+ "owner": "Administrator",
+ "reference_document": "Horse Training Template",
+ "show_form_tour": 1,
+ "show_full_form": 1,
+ "title": "Create a horse training template",
+ "validate_action": 1
+}

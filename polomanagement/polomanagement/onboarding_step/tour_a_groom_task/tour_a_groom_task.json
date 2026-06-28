@@ -1,0 +1,22 @@
+{
+ "action": "Show Form Tour",
+ "action_label": "Start Task Tour",
+ "creation": "2026-06-28 21:47:16.132028",
+ "description": "Learn what the groom sees on a task: instructions, horse, due time, auto-created care records, completion notes, and issue fields.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "form_tour": "Groom Task Basics",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 22:13:52.897606",
+ "modified_by": "Administrator",
+ "name": "Tour a groom task",
+ "owner": "Administrator",
+ "reference_document": "Task",
+ "show_form_tour": 1,
+ "show_full_form": 0,
+ "title": "Tour a groom task",
+ "validate_action": 1
+}

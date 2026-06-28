@@ -1,0 +1,22 @@
+{
+ "action": "Create Entry",
+ "action_label": "Create Care Entry",
+ "creation": "2026-06-28 21:47:16.078285",
+ "description": "Use Horse Care Entry when one real-world action should create feeding, training, or medical records from a single place.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "form_tour": "Horse Care Entry Basics",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 22:13:52.900083",
+ "modified_by": "Administrator",
+ "name": "Create a horse care entry",
+ "owner": "Administrator",
+ "reference_document": "Horse Care Entry",
+ "show_form_tour": 1,
+ "show_full_form": 1,
+ "title": "Create a horse care entry",
+ "validate_action": 1
+}

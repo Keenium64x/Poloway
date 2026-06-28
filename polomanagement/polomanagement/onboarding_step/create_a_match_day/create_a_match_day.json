@@ -1,0 +1,22 @@
+{
+ "action": "Create Entry",
+ "action_label": "Create Match Day",
+ "creation": "2026-06-28 21:47:16.192382",
+ "description": "Create a match day once an event is being applied for, scheduled, or confirmed. This becomes the hub for teams, chukkers, horses, groom work, and result tracking.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "form_tour": "Match Day Basics",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-06-28 22:13:53.023526",
+ "modified_by": "Administrator",
+ "name": "Create a match day",
+ "owner": "Administrator",
+ "reference_document": "Match Day",
+ "show_form_tour": 1,
+ "show_full_form": 1,
+ "title": "Create a match day",
+ "validate_action": 1
+}

@@ -15,57 +15,54 @@
  "doctype": "Module Onboarding",
  "idx": 0,
  "is_complete": 0,
- "modified": "2026-06-28 19:53:54.502486",
+ "modified": "2026-06-28 22:13:52.724412",
  "modified_by": "Administrator",
  "module": "Polomanagement",
  "name": "Poloway System Onboarding",
  "owner": "Administrator",
  "steps": [
   {
+   "step": "Open the Poloway home dashboard"
+  },
+  {
+   "step": "Understand the Poloway operating map"
+  },
+  {
+   "step": "Open the owner actions dashboard"
+  },
+  {
+   "step": "Open the horse management dashboard"
+  },
+  {
+   "step": "Open the groom dashboard"
+  },
+  {
+   "step": "Open the money dashboard"
+  },
+  {
+   "step": "Open the match dashboard"
+  },
+  {
    "step": "Create the first horse profile"
   },
   {
-   "step": "Tour feeding records"
+   "step": "Create a groom profile"
   },
   {
-   "step": "Tour training records"
-  },
-  {
-   "step": "Tour medical records"
-  },
-  {
-   "step": "Review horse performance"
-  },
-  {
-   "step": "Review medical follow-ups"
+   "step": "Create an owner action"
   },
   {
    "step": "Create inventory items"
   },
   {
-   "step": "Create vendors"
-  },
-  {
-   "step": "Create the groom task template"
-  },
-  {
-   "step": "Configure task generation"
-  },
-  {
-   "step": "Open the groom task board"
-  },
-  {
-   "step": "Create a manual transaction"
+   "step": "Upload receipts"
   },
   {
    "step": "Review money flow"
   },
   {
-   "step": "Upload receipts"
-  },
-  {
-   "step": "Review the ledger"
+   "step": "Review upcoming polo"
   }
  ],
- "title": "Poloway Setup"
+ "title": "Poloway Home: System Overview"
 }

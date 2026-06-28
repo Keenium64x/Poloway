@@ -29,8 +29,8 @@ add_to_apps_screen = [
 # ------------------
 
 # include js, css files in header of desk.html
-app_include_css = "/assets/polomanagement/css/polomanagement.css?v=20260628-native-onboarding-5"
-app_include_js = "/assets/polomanagement/js/polomanagement.js?v=20260628-native-onboarding-5"
+app_include_css = "/assets/polomanagement/css/polomanagement.css?v=20260628-onboarding-save-1"
+app_include_js = "/assets/polomanagement/js/polomanagement.js?v=20260628-onboarding-save-1"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/polomanagement/css/polomanagement.css"
