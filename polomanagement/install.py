@@ -1,3 +1,5 @@
+import json
+
 import frappe
 
 
@@ -690,6 +692,9 @@ def create_workspace_shell_if_missing(name, title, icon, indicator_color, parent
 	if frappe.db.exists("Workspace", name):
 		return
 
+	if insert_fixture_doc_if_available("Workspace", name, "workspace.json"):
+		return
+
 	workspace = frappe.new_doc("Workspace")
 	workspace.name = name
 	workspace.label = name
@@ -796,7 +801,28 @@ def setup_workspace_sidebar():
 def setup_missing_workspace_sidebar():
 	if frappe.db.exists("Workspace Sidebar", "Poloway"):
 		return
+	if insert_fixture_doc_if_available("Workspace Sidebar", "Poloway", "workspace_sidebar.json"):
+		return
 	setup_workspace_sidebar()
+
+
+def insert_fixture_doc_if_available(doctype, name, fixture_filename):
+	fixture_path = frappe.get_app_path("polomanagement", "fixtures", fixture_filename)
+	try:
+		with open(fixture_path) as fixture_file:
+			rows = json.load(fixture_file)
+	except Exception:
+		return False
+
+	for row in rows:
+		if row.get("doctype") != doctype or row.get("name") != name:
+			continue
+
+		doc = frappe.get_doc(row)
+		doc.insert(ignore_permissions=True)
+		return True
+
+	return False
 
 
 def setup_desktop_icon():

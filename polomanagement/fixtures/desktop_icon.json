@@ -1,0 +1,37 @@
+[
+ {
+  "app": "polomanagement",
+  "bg_color": "gray",
+  "docstatus": 0,
+  "doctype": "Desktop Icon",
+  "hidden": 0,
+  "icon": "",
+  "icon_image": "/assets/polomanagement/images/Polowaylogo.jpeg",
+  "icon_type": "Link",
+  "label": "Poloway",
+  "link": null,
+  "link_to": "Poloway",
+  "link_type": "Workspace Sidebar",
+  "logo_url": "/assets/polomanagement/images/Polowaylogo.jpeg",
+  "modified": "2026-06-29 09:04:15.846090",
+  "name": "Poloway",
+  "parent_icon": "",
+  "restrict_removal": 0,
+  "roles": [
+   {
+    "role": "Horse Groom"
+   },
+   {
+    "role": "Horse Owner"
+   },
+   {
+    "role": "Stable Manager"
+   },
+   {
+    "role": "System Manager"
+   }
+  ],
+  "sidebar": "Poloway",
+  "standard": 1
+ }
+]

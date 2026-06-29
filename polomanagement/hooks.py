@@ -20,7 +20,7 @@ add_to_apps_screen = [
 	{
 		"name": "poloway",
 		"title": "Poloway",
-		"route": "/app/poloway",
+		"route": "/desk/poloway",
 		"logo": app_logo_url,
 	}
 ]
@@ -78,6 +78,31 @@ fixtures = [
 			]
 		],
 	},
+	{
+		"dt": "Workspace",
+		"filters": [
+			[
+				"name",
+				"in",
+				[
+					"Poloway",
+					"Owner Dashboard",
+					"Money Dashboard",
+					"Horse Management Dashboard",
+					"Match Dashboard",
+					"Groom Dashboard",
+				],
+			]
+		],
+	},
+	{
+		"dt": "Workspace Sidebar",
+		"filters": [["name", "=", "Poloway"]],
+	},
+	{
+		"dt": "Desktop Icon",
+		"filters": [["name", "=", "Poloway"]],
+	},
 ]
 
 # Home Pages
@@ -89,7 +114,7 @@ fixtures = [
 # website user home page (by Role)
 role_home_page = {
 	"Horse Groom": "app/task/view/kanban/Whiteboard",
-	"Horse Owner": "app/poloway",
+	"Horse Owner": "desk/poloway",
 }
 
 # Generators
