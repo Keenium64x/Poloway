@@ -1,0 +1,515 @@
+{
+ "charts": [
+  {
+   "chart_name": "Spending Breakdown",
+   "label": "Spending Breakdown"
+  },
+  {
+   "chart_name": "Inventory Value",
+   "label": "Inventory Value"
+  }
+ ],
+ "content": "[\n {\n  \"data\": {\n   \"col\": 12,\n   \"onboarding_name\": \"Money Dashboard Onboarding\"\n  },\n  \"id\": \"f4e1405ca5\",\n  \"type\": \"onboarding\"\n },\n {\n  \"data\": {\n   \"chart_name\": \"Spending Breakdown\",\n   \"col\": 12\n  },\n  \"id\": \"af4a7e6ff5\",\n  \"type\": \"chart\"\n },\n {\n  \"data\": {\n   \"col\": 12,\n   \"custom_block_name\": \"Poloway Financial Snapshot\"\n  },\n  \"id\": \"seJ3nycH9F\",\n  \"type\": \"custom_block\"\n },\n {\n  \"data\": {\n   \"chart_name\": \"Inventory Value\",\n   \"col\": 12\n  },\n  \"id\": \"032e5ab0ea\",\n  \"type\": \"chart\"\n },\n {\n  \"data\": {\n   \"col\": 12\n  },\n  \"id\": \"075e877857\",\n  \"type\": \"spacer\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"New Transaction\"\n  },\n  \"id\": \"29384f9104\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"New Purchase\"\n  },\n  \"id\": \"ab7b8d5c9b\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"New Item\"\n  },\n  \"id\": \"ad4a9395a5\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"New Quote\"\n  },\n  \"id\": \"7a6196d716\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Ledger\"\n  },\n  \"id\": \"b50dc8c56a\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Autopayments\"\n  },\n  \"id\": \"ff5edf1e88\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 12\n  },\n  \"id\": \"4a248b3861\",\n  \"type\": \"spacer\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Buy Something\",\n   \"col\": 4\n  },\n  \"id\": \"3adbee4bc8\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"New Item With Quotes\",\n   \"col\": 4\n  },\n  \"id\": \"f183ef6d1f\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Horse Feed Purchase\",\n   \"col\": 4\n  },\n  \"id\": \"96df5aa475\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Employee Pay\",\n   \"col\": 4\n  },\n  \"id\": \"edaacce2dc\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Receipts and Review\",\n   \"col\": 4\n  },\n  \"id\": \"939dd05d7f\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Setup\",\n   \"col\": 4\n  },\n  \"id\": \"d294c6d9f9\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"col\": 12,\n   \"custom_block_name\": \"Poloway Receipt Upload\"\n  },\n  \"id\": \"3gPup-gd-o\",\n  \"type\": \"custom_block\"\n }\n]",
+ "creation": "2026-06-27 22:49:32.314525",
+ "custom_blocks": [
+  {
+   "custom_block_name": "Poloway Financial Snapshot",
+   "label": "Poloway Financial Snapshot"
+  },
+  {
+   "custom_block_name": "Poloway Receipt Upload",
+   "label": "Poloway Receipt Upload"
+  }
+ ],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "hide_custom": 0,
+ "icon": "circle-dollar-sign",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Money Dashboard",
+ "link_type": "DocType",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Buy Something",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "1. Open Purchase",
+   "link_count": 0,
+   "link_to": "Purchase",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "2. Record Payment",
+   "link_count": 0,
+   "link_to": "Transaction Input",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "3. Check Ledger",
+   "link_count": 0,
+   "link_to": "Financial Ledger",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Payment Ledger Entry",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "4. Review Money Flow",
+   "link_count": 0,
+   "link_to": "Money Flow Summary",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Transaction Input",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "New Item With Quotes",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "1. Create Item",
+   "link_count": 0,
+   "link_to": "Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "2. Add Vendor",
+   "link_count": 0,
+   "link_to": "Vendor",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "3. Capture Vendor Quote",
+   "link_count": 0,
+   "link_to": "Vendor Quote",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "4. Compare Quotes",
+   "link_count": 0,
+   "link_to": "Quote Comparison",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Vendor Quote",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "5. Create Purchase",
+   "link_count": 0,
+   "link_to": "Purchase",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "6. Pay From Transaction Input",
+   "link_count": 0,
+   "link_to": "Transaction Input",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "7. Review Item Cost",
+   "link_count": 0,
+   "link_to": "Item Cost History",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Transaction Input",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Horse Feed Purchase",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "1. Open Food Items",
+   "link_count": 0,
+   "link_to": "Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "2. Check Feed Stock",
+   "link_count": 0,
+   "link_to": "Item Stock Ledger",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Item Stock Ledger",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "3. Create Feed Purchase",
+   "link_count": 0,
+   "link_to": "Purchase",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "4. Record Supplier Payment",
+   "link_count": 0,
+   "link_to": "Transaction Input",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "5. Review Horse Expenses",
+   "link_count": 0,
+   "link_to": "Horse Expenses",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Transaction Input",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Employee Pay",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "1. Open Groom Profile",
+   "link_count": 0,
+   "link_to": "Groom Profile",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "2. Manage Autopayments",
+   "link_count": 0,
+   "link_to": "Autopayments",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "3. Record Manual Salary",
+   "link_count": 0,
+   "link_to": "Transaction Input",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "4. Review Payroll Ledger",
+   "link_count": 0,
+   "link_to": "Financial Ledger",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Payment Ledger Entry",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Receipts and Review",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "1. Upload or Review Receipt",
+   "link_count": 0,
+   "link_to": "Receipt Import",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "2. Review Extracted Transaction",
+   "link_count": 0,
+   "link_to": "Transaction Input",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "3. Review Unposted Transactions",
+   "link_count": 0,
+   "link_to": "Unposted Transactions",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Transaction Input",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "4. Review Spending",
+   "link_count": 0,
+   "link_to": "Spending By Category",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Transaction Input",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "5. Review Financial Overview",
+   "link_count": 0,
+   "link_to": "Financial Overview",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Transaction Input",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Setup",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Money Accounts",
+   "link_count": 0,
+   "link_to": "Money Account",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vendors",
+   "link_count": 0,
+   "link_to": "Vendor",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Item Categories",
+   "link_count": 0,
+   "link_to": "Item Category",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Inventory Locations",
+   "link_count": 0,
+   "link_to": "Inventory Location",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Autopayment Rules",
+   "link_count": 0,
+   "link_to": "Autopayments",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-06-28 22:13:53.460000",
+ "modified_by": "Administrator",
+ "name": "Money Dashboard",
+ "number_cards": [
+  {
+   "label": "Income",
+   "number_card_name": "Income"
+  },
+  {
+   "label": "Outflow",
+   "number_card_name": "Outflow"
+  },
+  {
+   "label": "Net Cash Flow",
+   "number_card_name": "Net Cash Flow"
+  },
+  {
+   "label": "Month Income",
+   "number_card_name": "Month Income"
+  },
+  {
+   "label": "Month Outflow",
+   "number_card_name": "Month Outflow"
+  },
+  {
+   "label": "Month Net Cash Flow",
+   "number_card_name": "Month Net Cash Flow"
+  },
+  {
+   "label": "YTD Income",
+   "number_card_name": "YTD Income"
+  },
+  {
+   "label": "YTD Outflow",
+   "number_card_name": "YTD Outflow"
+  },
+  {
+   "label": "YTD Net Cash Flow",
+   "number_card_name": "YTD Net Cash Flow"
+  },
+  {
+   "label": "Unposted Transactions",
+   "number_card_name": "Unposted Transactions"
+  },
+  {
+   "label": "Stock Value",
+   "number_card_name": "Stock Value"
+  },
+  {
+   "label": "Open Quotes",
+   "number_card_name": "Open Quotes"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "Poloway",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Horse Owner"
+  },
+  {
+   "role": "Stable Manager"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "sequence_id": 0.0,
+ "shortcuts": [
+  {
+   "doc_view": "New",
+   "icon": "circle-dollar-sign",
+   "label": "New Transaction",
+   "link_to": "Transaction Input",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "New",
+   "icon": "shopping-cart",
+   "label": "New Purchase",
+   "link_to": "Purchase",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "New",
+   "icon": "package-plus",
+   "label": "New Item",
+   "link_to": "Item",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "New",
+   "icon": "scale",
+   "label": "New Quote",
+   "link_to": "Vendor Quote",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "icon": "book-open",
+   "label": "Ledger",
+   "link_to": "Financial Ledger",
+   "report_ref_doctype": "Payment Ledger Entry",
+   "type": "Report"
+  },
+  {
+   "doc_view": "List",
+   "icon": "calendar-clock",
+   "label": "Autopayments",
+   "link_to": "Autopayments",
+   "type": "DocType"
+  }
+ ],
+ "title": "Money Dashboard",
+ "type": "Workspace"
+}

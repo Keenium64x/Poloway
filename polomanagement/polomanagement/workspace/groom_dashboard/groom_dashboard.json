@@ -1,0 +1,220 @@
+{
+ "charts": [],
+ "content": "[\n {\n  \"data\": {\n   \"col\": 12,\n   \"onboarding_name\": \"Groom Dashboard Onboarding\"\n  },\n  \"id\": \"46a2efe64d\",\n  \"type\": \"onboarding\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Today Tasks\"\n  },\n  \"id\": \"fecbcfce87\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Task List\"\n  },\n  \"id\": \"52d752adc5\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Task Calendar\"\n  },\n  \"id\": \"2893cd3038\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Horse Care Entry\"\n  },\n  \"id\": \"78b72afeba\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Match Days\"\n  },\n  \"id\": \"4162206516\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Match Board\"\n  },\n  \"id\": \"6450a1bad6\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Travel\"\n  },\n  \"id\": \"51f952193d\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 12\n  },\n  \"id\": \"1f8bd240ec\",\n  \"type\": \"spacer\"\n },\n {\n  \"data\": {\n   \"card_name\": \"My Work\",\n   \"col\": 6\n  },\n  \"id\": \"1fc9371908\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Polo Operations\",\n   \"col\": 6\n  },\n  \"id\": \"a0dd2d6eb2\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Records\",\n   \"col\": 6\n  },\n  \"id\": \"bb973d3e1c\",\n  \"type\": \"card\"\n }\n]",
+ "creation": "2026-06-27 22:49:32.153800",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "hide_custom": 0,
+ "icon": "list-todo",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Groom Dashboard",
+ "link_type": "DocType",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "My Work",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Task",
+   "link_count": 0,
+   "link_to": "Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Horse Care Entry",
+   "link_count": 0,
+   "link_to": "Horse Care Entry",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Polo Operations",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Match Day",
+   "link_count": 0,
+   "link_to": "Match Day",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Match Day Board",
+   "link_count": 0,
+   "link_to": "Match Day Board",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Match Day",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Horse Tack Configuration",
+   "link_count": 0,
+   "link_to": "Horse Tack Configuration",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Travel Manifest",
+   "link_count": 0,
+   "link_to": "Travel Manifest",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Records",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Horse Feeding Record",
+   "link_count": 0,
+   "link_to": "Horse Feeding Record",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Horse Training Record",
+   "link_count": 0,
+   "link_to": "Horse Training Record",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Horse Medical Record",
+   "link_count": 0,
+   "link_to": "Horse Medical Record",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Horse",
+   "link_count": 0,
+   "link_to": "Horse",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-06-28 22:13:53.344588",
+ "modified_by": "Administrator",
+ "name": "Groom Dashboard",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "Poloway",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Horse Groom"
+  },
+  {
+   "role": "Stable Manager"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "sequence_id": 0.0,
+ "shortcuts": [
+  {
+   "doc_view": "Kanban",
+   "icon": "kanban",
+   "kanban_board": "Whiteboard",
+   "label": "Today Tasks",
+   "link_to": "Task",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "icon": "list",
+   "label": "Task List",
+   "link_to": "Task",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "Calendar",
+   "icon": "calendar-days",
+   "label": "Task Calendar",
+   "link_to": "Task",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "New",
+   "icon": "clipboard-plus",
+   "label": "Horse Care Entry",
+   "link_to": "Horse Care Entry",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "icon": "flag",
+   "label": "Match Days",
+   "link_to": "Match Day",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "icon": "columns-3",
+   "label": "Match Board",
+   "link_to": "Match Day Board",
+   "report_ref_doctype": "Match Day",
+   "type": "Report"
+  },
+  {
+   "doc_view": "List",
+   "icon": "truck",
+   "label": "Travel",
+   "link_to": "Travel Manifest",
+   "type": "DocType"
+  }
+ ],
+ "title": "Groom Dashboard",
+ "type": "Workspace"
+}

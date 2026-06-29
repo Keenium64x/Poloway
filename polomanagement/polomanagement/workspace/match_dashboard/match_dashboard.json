@@ -1,0 +1,424 @@
+{
+ "charts": [
+  {
+   "chart_name": "Upcoming Polo",
+   "label": "Upcoming Polo"
+  },
+  {
+   "chart_name": "Polo Performance",
+   "label": "Polo Performance"
+  }
+ ],
+ "content": "[\n {\n  \"data\": {\n   \"col\": 12,\n   \"onboarding_name\": \"Match Dashboard Onboarding\"\n  },\n  \"id\": \"819ad92a5e\",\n  \"type\": \"onboarding\"\n },\n {\n  \"data\": {\n   \"chart_name\": \"Upcoming Polo\",\n   \"col\": 12\n  },\n  \"id\": \"b80c848dc7\",\n  \"type\": \"chart\"\n },\n {\n  \"data\": {\n   \"chart_name\": \"Polo Performance\",\n   \"col\": 12\n  },\n  \"id\": \"a7a2fc3200\",\n  \"type\": \"chart\"\n },\n {\n  \"data\": {\n   \"col\": 12,\n   \"custom_block_name\": \"Poloway Upcoming Polo\"\n  },\n  \"id\": \"2534cd996d\",\n  \"type\": \"custom_block\"\n },\n {\n  \"data\": {\n   \"col\": 12\n  },\n  \"id\": \"f02dbf0eac\",\n  \"type\": \"spacer\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Match Days\"\n  },\n  \"id\": \"0d9514cc44\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"New Match Day\"\n  },\n  \"id\": \"fbebafee7a\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Upcoming Polo\"\n  },\n  \"id\": \"27401f071b\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Polo Performance\"\n  },\n  \"id\": \"15da26ca14\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Match Board\"\n  },\n  \"id\": \"570e36f0af\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Travel\"\n  },\n  \"id\": \"6509284bed\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Owner Calendar\"\n  },\n  \"id\": \"7b81923897\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Today Tasks\"\n  },\n  \"id\": \"0d2536deb0\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 12\n  },\n  \"id\": \"373e9ad21a\",\n  \"type\": \"spacer\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Apply And Schedule A Match\",\n   \"col\": 4\n  },\n  \"id\": \"e7bc437c18\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Prepare Horses And Tack\",\n   \"col\": 4\n  },\n  \"id\": \"a2336ab614\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Plan Travel And Logistics\",\n   \"col\": 4\n  },\n  \"id\": \"8206542452\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Run Match Day Work\",\n   \"col\": 4\n  },\n  \"id\": \"a074d1b5e6\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Review Result And Performance\",\n   \"col\": 4\n  },\n  \"id\": \"1d40c9b87e\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Setup\",\n   \"col\": 4\n  },\n  \"id\": \"34cfc997ea\",\n  \"type\": \"card\"\n }\n]",
+ "creation": "2026-06-28 16:42:27.753581",
+ "custom_blocks": [
+  {
+   "custom_block_name": "Poloway Upcoming Polo",
+   "label": "Poloway Upcoming Polo"
+  }
+ ],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "hide_custom": 0,
+ "icon": "trophy",
+ "idx": 0,
+ "indicator_color": "orange",
+ "is_hidden": 0,
+ "label": "Match Dashboard",
+ "link_type": "DocType",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Apply And Schedule A Match",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "1. Create Application Action",
+   "link_count": 0,
+   "link_to": "Owner Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "2. Create Match Day",
+   "link_count": 0,
+   "link_to": "Match Day",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "3. Confirm Date On Calendar",
+   "link_count": 0,
+   "link_to": "Owner Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "4. Review Upcoming Polo",
+   "link_count": 0,
+   "link_to": "Upcoming Polo Schedule",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Match Day",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Prepare Horses And Tack",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "1. Review Horse Readiness",
+   "link_count": 0,
+   "link_to": "Horse Performance Summary",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Horse",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "2. Choose Match Horses",
+   "link_count": 0,
+   "link_to": "Match Day",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "3. Configure Tack",
+   "link_count": 0,
+   "link_to": "Horse Tack Configuration",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "4. Review Match Board",
+   "link_count": 0,
+   "link_to": "Match Day Board",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Match Day",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Plan Travel And Logistics",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "1. Create Travel Manifest",
+   "link_count": 0,
+   "link_to": "Travel Manifest",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "2. Add Horses To Travel",
+   "link_count": 0,
+   "link_to": "Travel Manifest",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "3. Create Owner Follow Ups",
+   "link_count": 0,
+   "link_to": "Owner Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Run Match Day Work",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "1. Open Match Board",
+   "link_count": 0,
+   "link_to": "Match Day Board",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Match Day",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "2. Open Groom Task Board",
+   "link_count": 0,
+   "link_to": "Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "3. Record Horse Care",
+   "link_count": 0,
+   "link_to": "Horse Care Entry",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "4. Review Issues",
+   "link_count": 0,
+   "link_to": "Owner Task Issues",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Task",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Review Result And Performance",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "1. Update Match Day",
+   "link_count": 0,
+   "link_to": "Match Day",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "2. Review Polo Performance",
+   "link_count": 0,
+   "link_to": "Polo Performance Summary",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Match Day",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "3. Review Horse Performance",
+   "link_count": 0,
+   "link_to": "Horse Performance Summary",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Horse",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "4. Create Follow Up Action",
+   "link_count": 0,
+   "link_to": "Owner Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Setup",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Match Days",
+   "link_count": 0,
+   "link_to": "Match Day",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Travel Manifests",
+   "link_count": 0,
+   "link_to": "Travel Manifest",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Tack Configurations",
+   "link_count": 0,
+   "link_to": "Horse Tack Configuration",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Task Templates",
+   "link_count": 0,
+   "link_to": "Task Template",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Owner Calendar",
+   "link_count": 0,
+   "link_to": "Owner Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-06-28 22:13:53.432282",
+ "modified_by": "Administrator",
+ "name": "Match Dashboard",
+ "number_cards": [
+  {
+   "label": "Upcoming Matches",
+   "number_card_name": "Upcoming Matches"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "Poloway",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Horse Groom"
+  },
+  {
+   "role": "Horse Owner"
+  },
+  {
+   "role": "Stable Manager"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "sequence_id": 0.0,
+ "shortcuts": [
+  {
+   "doc_view": "List",
+   "icon": "flag",
+   "label": "Match Days",
+   "link_to": "Match Day",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "New",
+   "icon": "plus",
+   "label": "New Match Day",
+   "link_to": "Match Day",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "icon": "calendar-days",
+   "label": "Upcoming Polo",
+   "link_to": "Upcoming Polo Schedule",
+   "report_ref_doctype": "Match Day",
+   "type": "Report"
+  },
+  {
+   "doc_view": "",
+   "icon": "trophy",
+   "label": "Polo Performance",
+   "link_to": "Polo Performance Summary",
+   "report_ref_doctype": "Match Day",
+   "type": "Report"
+  },
+  {
+   "doc_view": "",
+   "icon": "columns-3",
+   "label": "Match Board",
+   "link_to": "Match Day Board",
+   "report_ref_doctype": "Match Day",
+   "type": "Report"
+  },
+  {
+   "doc_view": "List",
+   "icon": "truck",
+   "label": "Travel",
+   "link_to": "Travel Manifest",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "Calendar",
+   "icon": "calendar-days",
+   "label": "Owner Calendar",
+   "link_to": "Owner Task",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "Kanban",
+   "icon": "kanban",
+   "kanban_board": "Whiteboard",
+   "label": "Today Tasks",
+   "link_to": "Task",
+   "type": "DocType"
+  }
+ ],
+ "title": "Match Dashboard",
+ "type": "Workspace"
+}

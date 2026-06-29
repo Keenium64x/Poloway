@@ -1,0 +1,484 @@
+{
+ "charts": [
+  {
+   "chart_name": "Owner Actions",
+   "label": "Owner Actions"
+  },
+  {
+   "chart_name": "Upcoming Polo",
+   "label": "Upcoming Polo"
+  },
+  {
+   "chart_name": "Horse Readiness",
+   "label": "Horse Readiness"
+  },
+  {
+   "chart_name": "Polo Performance",
+   "label": "Polo Performance"
+  }
+ ],
+ "content": "[\n {\n  \"data\": {\n   \"col\": 12,\n   \"onboarding_name\": \"Owner Dashboard Onboarding\"\n  },\n  \"id\": \"ed0596c3e6\",\n  \"type\": \"onboarding\"\n },\n {\n  \"data\": {\n   \"chart_name\": \"Owner Actions\",\n   \"col\": 12\n  },\n  \"id\": \"c7b1001807\",\n  \"type\": \"chart\"\n },\n {\n  \"data\": {\n   \"col\": 12,\n   \"custom_block_name\": \"Poloway Owner Actions\"\n  },\n  \"id\": \"M--iieo7g4\",\n  \"type\": \"custom_block\"\n },\n {\n  \"data\": {\n   \"chart_name\": \"Horse Readiness\",\n   \"col\": 6\n  },\n  \"id\": \"b4c5ef03eb\",\n  \"type\": \"chart\"\n },\n {\n  \"data\": {\n   \"chart_name\": \"Upcoming Polo\",\n   \"col\": 6\n  },\n  \"id\": \"765f0b8e76\",\n  \"type\": \"chart\"\n },\n {\n  \"data\": {\n   \"col\": 12\n  },\n  \"id\": \"bd2cf88e82\",\n  \"type\": \"spacer\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Owner Actions\"\n  },\n  \"id\": \"6912e438c3\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"New Owner Action\"\n  },\n  \"id\": \"ea57eb4d74\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Today Tasks\"\n  },\n  \"id\": \"4fe013f991\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Owner Calendar\"\n  },\n  \"id\": \"9daa86e94a\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Owner Gantt\"\n  },\n  \"id\": \"3640fc85ca\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Issues\"\n  },\n  \"id\": \"2fc30df4fc\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Schedule Settings\"\n  },\n  \"id\": \"1931b83528\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Task Templates\"\n  },\n  \"id\": \"eafcba4dda\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Money Dashboard\"\n  },\n  \"id\": \"2d2ef7ee75\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Horse Management\"\n  },\n  \"id\": \"ffe7eb59ba\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 3,\n   \"shortcut_name\": \"Match Dashboard\"\n  },\n  \"id\": \"7e06fc58b7\",\n  \"type\": \"shortcut\"\n },\n {\n  \"data\": {\n   \"col\": 12\n  },\n  \"id\": \"21232a2258\",\n  \"type\": \"spacer\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Owner Actions and Follow Ups\",\n   \"col\": 4\n  },\n  \"id\": \"852e3760c5\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Groom Daily Schedule\",\n   \"col\": 4\n  },\n  \"id\": \"98ee8c16e5\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Horse Training Plan\",\n   \"col\": 4\n  },\n  \"id\": \"6e9584e430\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Purchase Request To Payment\",\n   \"col\": 4\n  },\n  \"id\": \"a8ab922a49\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Polo Applications and Matches\",\n   \"col\": 4\n  },\n  \"id\": \"4c5653550f\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Setup\",\n   \"col\": 4\n  },\n  \"id\": \"05fd3a9214\",\n  \"type\": \"card\"\n }\n]",
+ "creation": "2026-06-27 22:49:32.214581",
+ "custom_blocks": [
+  {
+   "custom_block_name": "Poloway Owner Actions",
+   "label": "Poloway Owner Actions"
+  },
+  {
+   "custom_block_name": "Poloway Upcoming Polo",
+   "label": "Poloway Upcoming Polo"
+  },
+  {
+   "custom_block_name": "Poloway Horse Performance",
+   "label": "Poloway Horse Performance"
+  },
+  {
+   "custom_block_name": "Poloway Receipt Upload",
+   "label": "Poloway Receipt Upload"
+  }
+ ],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "hide_custom": 0,
+ "icon": "layout-dashboard",
+ "idx": 0,
+ "indicator_color": "orange",
+ "is_hidden": 0,
+ "label": "Owner Dashboard",
+ "link_type": "DocType",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Owner Actions and Follow Ups",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "1. Create Owner Action",
+   "link_count": 0,
+   "link_to": "Owner Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "2. Schedule On Calendar",
+   "link_count": 0,
+   "link_to": "Owner Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "3. Review Action Summary",
+   "link_count": 0,
+   "link_to": "Owner Action Summary",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Owner Task",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "4. Review Open Issues",
+   "link_count": 0,
+   "link_to": "Owner Task Issues",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Task",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Groom Daily Schedule",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "1. Describe Daily Tasks",
+   "link_count": 0,
+   "link_to": "Task Template",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "2. Configure Generation",
+   "link_count": 0,
+   "link_to": "Task Schedule Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "3. Open Groom Board",
+   "link_count": 0,
+   "link_to": "Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "4. Review Groom Feedback",
+   "link_count": 0,
+   "link_to": "Owner Task Issues",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Task",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Horse Training Plan",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "1. Review Horses",
+   "link_count": 0,
+   "link_to": "Horse",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "2. Create Training Template",
+   "link_count": 0,
+   "link_to": "Horse Training Template",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "3. Schedule Training Action",
+   "link_count": 0,
+   "link_to": "Owner Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "4. Review Training Records",
+   "link_count": 0,
+   "link_to": "Horse Training Records",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Horse Training Record",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "5. Review Care Attention",
+   "link_count": 0,
+   "link_to": "Horse Compliance Alerts",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Horse Medical Record",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Purchase Request To Payment",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "1. Review Groom Request",
+   "link_count": 0,
+   "link_to": "Owner Task Issues",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Task",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "2. Schedule Buying Action",
+   "link_count": 0,
+   "link_to": "Owner Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "3. Create Or Review Payment",
+   "link_count": 0,
+   "link_to": "Transaction Input",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Polo Applications and Matches",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "1. Add Application Action",
+   "link_count": 0,
+   "link_to": "Owner Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "2. Schedule Important Date",
+   "link_count": 0,
+   "link_to": "Owner Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "3. Review Owner Calendar",
+   "link_count": 0,
+   "link_to": "Owner Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Setup",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Task Schedule Settings",
+   "link_count": 0,
+   "link_to": "Task Schedule Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Task Templates",
+   "link_count": 0,
+   "link_to": "Task Template",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Horse Training Template",
+   "link_count": 0,
+   "link_to": "Horse Training Template",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Groom Profiles",
+   "link_count": 0,
+   "link_to": "Groom Profile",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Owner Calendar",
+   "link_count": 0,
+   "link_to": "Owner Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-06-28 22:13:53.362655",
+ "modified_by": "Administrator",
+ "name": "Owner Dashboard",
+ "number_cards": [
+  {
+   "label": "Open Actions",
+   "number_card_name": "Open Actions"
+  },
+  {
+   "label": "Open Issues",
+   "number_card_name": "Open Issues"
+  },
+  {
+   "label": "Medical Due",
+   "number_card_name": "Medical Due"
+  },
+  {
+   "label": "Training Sessions",
+   "number_card_name": "Training Sessions"
+  },
+  {
+   "label": "Upcoming Matches",
+   "number_card_name": "Upcoming Matches"
+  },
+  {
+   "label": "Available Horses",
+   "number_card_name": "Available Horses"
+  },
+  {
+   "label": "Horses Needing Attention",
+   "number_card_name": "Horses Needing Attention"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "Poloway",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Horse Owner"
+  },
+  {
+   "role": "Stable Manager"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "sequence_id": 0.0,
+ "shortcuts": [
+  {
+   "doc_view": "",
+   "icon": "list-checks",
+   "label": "Owner Actions",
+   "link_to": "Owner Action Summary",
+   "report_ref_doctype": "Owner Task",
+   "type": "Report"
+  },
+  {
+   "doc_view": "New",
+   "icon": "plus",
+   "label": "New Owner Action",
+   "link_to": "Owner Task",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "Kanban",
+   "icon": "kanban",
+   "kanban_board": "Whiteboard",
+   "label": "Today Tasks",
+   "link_to": "Task",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "Calendar",
+   "icon": "calendar-days",
+   "label": "Owner Calendar",
+   "link_to": "Owner Task",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "icon": "gantt-chart",
+   "label": "Owner Gantt",
+   "type": "URL",
+   "url": "/app/owner-task/view/gantt"
+  },
+  {
+   "doc_view": "",
+   "icon": "circle-alert",
+   "label": "Issues",
+   "link_to": "Owner Task Issues",
+   "report_ref_doctype": "Task",
+   "type": "Report"
+  },
+  {
+   "doc_view": "",
+   "icon": "settings",
+   "label": "Schedule Settings",
+   "link_to": "Task Schedule Settings",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "icon": "copy-check",
+   "label": "Task Templates",
+   "link_to": "Task Template",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "icon": "circle-dollar-sign",
+   "label": "Money Dashboard",
+   "type": "URL",
+   "url": "/app/money-dashboard"
+  },
+  {
+   "doc_view": "",
+   "icon": "heart-handshake",
+   "label": "Horse Management",
+   "type": "URL",
+   "url": "/app/horse-management-dashboard"
+  },
+  {
+   "doc_view": "",
+   "icon": "trophy",
+   "label": "Match Dashboard",
+   "type": "URL",
+   "url": "/app/match-dashboard"
+  }
+ ],
+ "title": "Owner Dashboard",
+ "type": "Workspace"
+}

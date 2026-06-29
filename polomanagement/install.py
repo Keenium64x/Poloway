@@ -77,8 +77,8 @@ def setup_desktop():
 	remove_owner_number_cards()
 	setup_dashboard_widgets()
 	setup_custom_dashboard_blocks()
-	setup_workspaces()
-	setup_workspace_sidebar()
+	setup_missing_workspaces()
+	setup_missing_workspace_sidebar()
 	setup_desktop_icon()
 
 
@@ -674,6 +674,40 @@ def setup_workspaces():
 	)
 
 
+def setup_missing_workspaces():
+	for name, title, icon, indicator_color, parent_page, roles in [
+		("Poloway", "Poloway", "flag", "blue", None, ["Horse Owner", "Stable Manager", "System Manager"]),
+		("Groom Dashboard", "Groom Dashboard", "list-todo", "green", "Poloway", ["Horse Groom", "Stable Manager", "System Manager"]),
+		("Owner Dashboard", "Owner Dashboard", "layout-dashboard", "orange", "Poloway", ["Horse Owner", "Stable Manager", "System Manager"]),
+		("Horse Management Dashboard", "Horse Management Dashboard", "heart-handshake", "blue", "Poloway", ["Horse Owner", "Stable Manager", "System Manager"]),
+		("Match Dashboard", "Match Dashboard", "trophy", "orange", "Poloway", ["Horse Groom", "Horse Owner", "Stable Manager", "System Manager"]),
+		("Money Dashboard", "Money Dashboard", "circle-dollar-sign", "green", "Poloway", ["Horse Owner", "Stable Manager", "System Manager"]),
+	]:
+		create_workspace_shell_if_missing(name, title, icon, indicator_color, parent_page, roles)
+
+
+def create_workspace_shell_if_missing(name, title, icon, indicator_color, parent_page, roles):
+	if frappe.db.exists("Workspace", name):
+		return
+
+	workspace = frappe.new_doc("Workspace")
+	workspace.name = name
+	workspace.label = name
+	workspace.title = title
+	workspace.module = None
+	workspace.app = None
+	workspace.type = "Workspace"
+	workspace.public = 1
+	workspace.is_hidden = 0
+	workspace.icon = icon
+	workspace.indicator_color = indicator_color
+	workspace.parent_page = parent_page
+	workspace.content = frappe.as_json([])
+	for role in roles:
+		workspace.append("roles", {"role": role})
+	workspace.insert(ignore_permissions=True)
+
+
 def setup_workspace_sidebar():
 	sidebar = get_or_new("Workspace Sidebar", "Poloway")
 	sidebar.title = "Poloway"
@@ -757,6 +791,12 @@ def setup_workspace_sidebar():
 		sidebar.append("items", item)
 
 	sidebar.save(ignore_permissions=True)
+
+
+def setup_missing_workspace_sidebar():
+	if frappe.db.exists("Workspace Sidebar", "Poloway"):
+		return
+	setup_workspace_sidebar()
 
 
 def setup_desktop_icon():
