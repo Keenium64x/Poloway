@@ -1,7 +1,7 @@
 {
  "app": "polomanagement",
  "bg_color": "gray",
- "creation": "2026-06-29 09:29:15.700127",
+ "creation": "2026-06-30 15:14:21.445944",
  "docstatus": 0,
  "doctype": "Desktop Icon",
  "hidden": 0,
@@ -13,7 +13,7 @@
  "link_to": "Poloway",
  "link_type": "Workspace Sidebar",
  "logo_url": "/assets/polomanagement/images/Polowaylogo.jpeg",
- "modified": "2026-06-29 09:29:22.260386",
+ "modified": "2026-06-30 15:14:37.512172",
  "modified_by": "Administrator",
  "name": "Poloway",
  "owner": "Administrator",

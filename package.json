@@ -1,0 +1,27 @@
+{
+  "name": "polomanagement",
+  "version": "1.0.0",
+  "description": "A versatile tool used for the management of polo horses and competitions",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd frontend && yarn install",
+    "dev": "cd frontend && yarn dev",
+    "build": "cd frontend && yarn build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Keenium64x/Poloway.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Keenium64x/Poloway/issues"
+  },
+  "homepage": "https://github.com/Keenium64x/Poloway#readme"
+}
